@@ -1,0 +1,70 @@
+digraph {
+  pad=0.1
+  ranksep=0.3
+  nodesep=0.3
+  bgcolor="#ffffff00"
+  fontname=sans
+  fontsize=12
+  style=rounded
+  node [fontname=sans, fontsize=12, shape=record, style=rounded]
+
+  subgraph cluster {
+    style=invis
+
+    subgraph cluster_inter {
+        label="Inter-frame base\nDepthwise"
+        style=rounded
+
+        sweep_mean -> {fast_lpf, slow_lpf} -> fast_slow_dev -> inter_lpf
+    }
+
+    subgraph cluster_intra {
+        label="Intra-frame base\nDepthwise"
+        style=rounded
+
+        sweep_dev -> intra_lpf
+    }
+
+    subgraph cluster_noise {
+        label="Noise estimation\nDepthwise"
+        style=rounded
+
+        noise_diff -> noise_dev -> noise_comp -> noise_lpf
+    }
+  }
+
+  in -> {sweep_mean, sweep_dev, noise_diff}
+
+  {intra_lpf, inter_lpf} -> weighted_sum
+  {weighted_sum, noise_lpf} -> norm -> depth_filter
+  depth_filter -> out_max -> lp_out -> threshold -> out
+  depth_filter -> out_argmax -> out
+
+  in [shape=Mdiamond, label="Input frame"]
+
+  sweep_mean [label="Mean over\nsweeps"]
+  fast_lpf [label="Fast LPF"]
+  slow_lpf [label="Slow LPF"]
+  fast_slow_dev [label="Absolute\ndifference"]
+  inter_lpf [label="LPF"]
+
+  sweep_dev [label="Deviation\nover sweeps"]
+  intra_lpf [label="LPF"]
+
+  noise_diff [label="Differentiate\nover sweeps\n3 times"]
+  noise_dev [label="Absolute\ndeviation"]
+  noise_comp [label="Compensate for\ndifferentiation"]
+  noise_lpf [label="LPF"]
+
+  weighted_sum [label="Weighted sum"]
+  norm [label="Normalize with noise"]
+
+  depth_filter [label="Depth filter"]
+  out_max [label="max\nover depths"]
+  lp_out [label="LPF"]
+  threshold [label="Compare against threshold"]
+
+  out_argmax [label="argmax\nover depths"]
+
+  out [shape=Msquare, label="Output"]
+}
