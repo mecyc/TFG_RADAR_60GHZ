@@ -611,7 +611,7 @@ MODE_TO_CONFIG_CLASS_MAP = {
 }
 
 
-def loads(dump: str, mode=None) -> cb.SensorConfig:
+def load(dump, mode=None):
     if mode is None:
         mode = json.loads(dump)["mode"]
 
@@ -619,10 +619,3 @@ def loads(dump: str, mode=None) -> cb.SensorConfig:
     config = MODE_TO_CONFIG_CLASS_MAP[mode]()
     config._loads(dump)
     return config
-
-
-load = loads  # for backwards compatibility
-
-
-def dumps(config: cb.SensorConfig) -> str:
-    return config._dumps()

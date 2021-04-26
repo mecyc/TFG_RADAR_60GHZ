@@ -1,0 +1,50 @@
+- class: Conv2D
+  is_active: true
+  name: conv2d
+  params:
+    activation: relu
+    filters: 32
+    kernel_size:
+    - 2
+    - 2
+    padding: same
+    strides:
+    - 1
+    - 1
+- class: Dropout
+  is_active: true
+  name: dropout
+  params:
+    rate: 0.1
+- class: Conv2D
+  is_active: true
+  name: conv2d
+  params:
+    activation: relu
+    filters: 64
+    kernel_size:
+    - 2
+    - 2
+    padding: same
+    strides:
+    - 1
+    - 1
+- class: Conv2D
+  is_active: true
+  name: conv2d
+  params:
+    activation: relu
+    filters: 128
+    kernel_size:
+    - 2
+    - 2
+    padding: same
+    strides:
+    - 1
+    - 1
+- class: Dense
+  is_active: true
+  name: dense
+  params:
+    activation: softmax
+    units: 2
