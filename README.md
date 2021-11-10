@@ -6,6 +6,11 @@
 <p>Se ha desarrollado un modelo clasificardor a partir de una serie de lecturas obtenidas de un total de 30 objetos mediante la aplicación facilitada por Acconeer.</p>
 <p>La aplicación desarrollada permite al docente visualizar gráficos a partir de las notas de sus alumnos según su criterio, seleccionando a los alumnos que quiera visualizar y en las tareas que escoja.</p>
 
+<h2>Material clasificado</h2>
+<p>- Cartón</p>
+<p>- Plástico</p>
+<p>- Cristal</p>
+
 <h2>Autor</h2>
 <ul>
 <li>Martín Encabo Contreras</li>
