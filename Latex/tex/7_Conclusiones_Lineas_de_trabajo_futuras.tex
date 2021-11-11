@@ -1,4 +1,22 @@
 \capitulo{7}{Conclusiones y Líneas de trabajo futuras}
 
-Todo proyecto debe incluir las conclusiones que se derivan de su desarrollo. Éstas pueden ser de diferente índole, dependiendo de la tipología del proyecto, pero normalmente van a estar presentes un conjunto de conclusiones relacionadas con los resultados del proyecto y un conjunto de conclusiones técnicas. 
-Además, resulta muy útil realizar un informe crítico indicando cómo se puede mejorar el proyecto, o cómo se puede continuar trabajando en la línea del proyecto realizado. 
+\section{Conclusiones}
+
+En este trabajo se exploraron las posibilidades de utilizar un radar de ondas de 60GHz para la clasificación de diferentes tipos de materiales. Se descubrió que extrayendo características mediante el radar y combinando esto con un clasificador Random Forest es posible realizar una clasificación  para distinguir tres tipos de materiales comunes en la vida diaria como son PLÁSTICO, CRISTAL y CARTÓN con una precisión del 99,89\% usando validación cruzada. 
+
+Mediante una aplicación en fase Beta se ha conseguido realizar la lectura de las características de varios materiales y su correcta identificación.
+
+Una posible aplicación sería automatizar la diferenciación de los tipos de embalajes en una empresa de envíos para su correcto reparto evitando los golpes.
+
+\section{Líneas de trabajo futuras}
+
+Posibles líneas de trabajo futuras relativas al uso del radar:
+
+\begin{itemize}
+\item[•] Combinar el radar utilizado de Acconeer con un sensor radar del fabricante Infineon Technologies, posiblemente colocados en dos posiciones del habitáculo de lectura (un radar superior y otro lateral).
+\item[•] Refactorización del código actual para su uso en otros sensores.
+\item[•] Aplicar otros clasificadores.
+\item[•]Añadir otros estadísticos.
+\item[•] Automatizar el proceso de creación y entrenamiento del clasificador mediante una base de datos, así como la ampliación de la capacidad de reconocer materiales nuevos.
+\end{itemize}
+
