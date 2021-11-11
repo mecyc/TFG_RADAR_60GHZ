@@ -25,7 +25,8 @@ Aplicaciones:
 
 La figura 3.2 muestra un diagrama de bloques del sensor A111. La señal se transmite desde la antena Tx y es recibida por la antena Rx, ambas integradas en la capa superior del sustrato del paquete A111. Además de la radio mmWave, el sensor consta de administración de energía y control digital, cuantificación de señales, memoria y un circuito de temporización.
 
-El sensor se puede ejecutar en uno de estos servicios básicos:
+El sensor se puede ejecutar en uno de los siguientes servicios básicos de la tabla 3.1.
+
 \tablaSmall{Servicios del radar A111}{l c c}{serviciosa111}
 {\multicolumn{1}{l}{Servicio} & Tipo de dato & Ejemplo de uso \\}{ 
 Envelope & Amplitud & Distancia absoluta y
@@ -33,3 +34,12 @@ presencia estática \\
 IQ & Amplitud y fase & Detección de obstáculos, respiración y distancia relativa \\
 Sparse & Amplitud instantánea & Velocidad, detección de presencia y detección de gestos \\
 } 
+
+
+\section{Servicio IQ}
+
+El servicio IQ utiliza la coherencia de fase del radar pulsado Acconeer para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y , en nuestro caso, para diferenciar materiales.
+
+Los componentes en fase y en cuadratura se representan como valores complejos, lo que genera un conjunto complejo de N\textsubscript{D} muestras representadas como x[d], dónde d es el índice de demora de la muestra.
+
+Los datos obtenidos a través del servicio IQ proporcionan un método para examinar la reflectividad a diferentes distancias del sensor de radar.
