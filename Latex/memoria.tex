@@ -304,7 +304,8 @@
 % Formato de portada
 \makeatletter
 \usepackage{xcolor}
-\newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutor1}[1]{\def\@tutor1{#1}}
+\newcommand{\tutor2}[1]{\def\@tutor2{#1}}
 \newcommand{\course}[1]{\def\@course{#1}}
 \definecolor{cpardoBox}{HTML}{E6E6FF}
 \def\maketitle{
@@ -335,7 +336,7 @@
     \noindent\LARGE
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
-    Tutor: \@tutor{}\\
+    Tutores: \@tutor1{} y \@tutor2{} \\
   }%
   \end{center}%
   \null
@@ -348,7 +349,8 @@
 % Datos de portada
 \title{Creación de demos técnica y documentación asociada, para la detección/clasificación de materiales, utilizando un sensor radar a 60GHz}
 \author{\nombre}
-\tutor{nombre tutor}
+\tutor1{Pedro Latorre Carmona}
+\tutor2{Jose Francisco Diez Pastor}
 \date{\today}
 
 \begin{document}
@@ -383,14 +385,14 @@ En Burgos, {\large \today}
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
 Vº. Bº. del Tutor:\\[2cm]
-D. nombre tutor
+D. Pedro Latorre Carmona
 \end{flushleft}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
 Vº. Bº. del co-tutor:\\[2cm]
-D. nombre co-tutor
+D. Jose Francisco Diez Pastor
 \end{flushleft}
 \end{minipage}
 \hfill
