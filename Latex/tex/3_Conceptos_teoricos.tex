@@ -70,8 +70,139 @@ Los componentes en fase y en cuadratura se representan como valores complejos, l
 
 Los datos obtenidos a través del servicio IQ proporcionan un método para examinar la reflectividad a diferentes distancias del sensor de radar.
 
-
 \section{Aprendizaje automático}
 
 El aprendizaje automático o machine learning es un tipo de inteligencia artificial (AI),
 consiste en programar una computadora para que mejore en la realización de una tarea a partir de datos de ejemplo o de la experiencia.
+
+La inteligencia artificial es un concepto de creación de máquinas inteligentes que estimula el comportamiento humano, mientras que el aprendizaje automático es un subconjunto de la inteligencia artificial que permite que la máquina aprenda de los datos sin ser programada.
+
+La diferencia entre el software informático normal y el aprendizaje automático es que un desarrollador humano no ha dado códigos que le indiquen al sistema cómo reaccionar ante la situación, sino que está siendo entrenado por una gran cantidad de datos.
+
+\subsection{Tipos de aprendizaje automático}
+
+\subsubsection{Aprendizaje supervisado}
+
+El aprendizaje supervisado es una técnica en la que el programa recibe datos de entrada etiquetados y los datos de salida esperados. Obtiene los datos de los datos de entrenamiento que contienen conjuntos de ejemplos. 
+
+Generan dos tipos de resultados:
+\begin{itemize}
+\item Clasificación: Notifican la clase de los datos que se presentan.
+\item Regresión: esperan que el producto produzca un valor numérico.
+\end{itemize}
+ 
+\subsubsection{Aprendizaje sin supervisión}
+
+Este tipo de algoritmo consta de datos de entrada sin etiquetar. Con una intervención humana menor. Se utiliza principalmente en análisis exploratorios, ya que puede identificar automáticamente la estructura en los datos.
+
+\subsubsection{Aprendizaje reforzado}
+
+Este modelo interactua con el entorno y se utiliza para tomar una secuencia de decisiones. Se puede decir que es un método de seguimiento y error para encontrar el mejor resultado basado en la experiencia.
+
+\section{Algoritmos machine learning}
+
+Algoritmos que se han utilizado y planteado para el desarrollo del proyecto:
+
+\begin{itemize}
+\item Random Forest
+\item Regresión Logistica
+\item KNN
+\end{itemize}
+
+El algoritmo RandomForest ha sido el seleccionado para realizar el proyecto.
+
+\subsection{Random Forest}
+
+Ramdom Forest conocido en castellano como "Bosques Aleatorios" es una combinación de árboles predictores, de modo que cada árbol depende de los valores de un vector aleatorio muestreado de forma independiente y con la misma distribución para todos los árboles del bosque.
+
+Los árboles se crean siguiendo el algoritmo:
+
+\imagen{randomforest}{K-nearest neighbors}
+
+\begin{itemize}
+\item Sea N el número de casos de prueba, M es el número de variables en el clasificador.
+\item Sea m el número de variables de entrada, m menor que M
+\item Se elige un conjunto de datos para el entrenamiento del árbol y el resto de los casos se utilizará para estimar el error.
+\item Para cada nodo del árbol, elegir aleatoriamente m variables en las cuales basar la decisión. Calcular la mejor partición del conjunto de entrenamiento a partir de las m variables.
+\end{itemize}
+
+\subsection{Regresión Logistica}
+
+El método de regresión logística es uno de los métodos estadísticos más utilizados para para resolver problemas de clasificación binaria (clasificación de dos clases), donde el resultado solo puede ser de naturaleza dicotómica, o sea, solo puede tomar dos valores posibles.
+
+Este algoritmo se puede utilizar para varios problemas de clasificación, detección de spam, predicción de la diabetes, si un cliente determinado comprará o no un producto en particular.
+
+\subsection{KNN}
+
+K-nearest neighbors traducido en castellano como "k vecinos más próximos" su funcionalidad es encontrar un número predefinido de muestras de entrenamiento más cercanas en distancia al nuevo punto y predecir la etiqueta a partir de ellas. 
+
+\imagen{knn}{K-nearest neighbors}
+
+El número de muestras puede ser una constante definida por el usuario (aprendizaje del vecino más cercano k) o variar según la densidad local de puntos (aprendizaje del vecino basado en el radio). La distancia puede ser cualquier medida, la distancia euclidiana estándar es la opción más común.
+
+\section{Características de los materiales}
+
+Se ha realizado una extracción de características de los materiales utilizados para el entrenamiento del modelo de clasificación. Las características o atributos obtenidos son una serie de datos que identifican el material, estos datos están representados por números complejos. Estos números serán extraídos de las lecturas y separados en módulo y fase para poder realizar cálculos correctos.
+
+Cada extracción se ha realizado mediante la herramienta facilitada por Acconeer.
+
+\imagen{herramienta_acconeer}{Herramienta Acconeer}
+
+Para la creación del modelo se han seleccionado 30 materiales divididos en, 10 de plástico, 10 de cristal y 10 de cartón. De cada material se han realizado 10 lecturas, de varias caras, girando el objeto.
+
+Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato numpy (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformaran la red de entrenamiento y otro porcentaje servirán para testear la red.
+
+Cada instante de tiempo de la lectura comprende 291 atributos, de cada fichero obtenemos del orden de 300 instancias.
+Una instancia son estadísticas (medias, stds, etc) de los 291 atributos calculadas a partir de los aproximadamente 300 instantes de tiempo.
+
+Tenemos los siguientes datos:
+\begin{itemize}
+\item Nº Experimentos: Material - vista
+\item M instantes de tiempo
+\item Atributos
+\end{itemize}
+
+Se creará la siguiente matriz:
+\begin{verbatim}
+	Matriz1 = (N x M) x A. Es una matriz 2D (NxM,A)
+\end{verbatim}
+
+La extracción y creación de la matriz con los datos necesarios se realizará mediante Python:
+
+\begin{verbatim}
+diccionario = np.load('C01_V01.npy',allow_pickle=True).item()
+data = diccionario.get('sweep_data').get('data')
+data = data.reshape(data.shape[0],data.shape[2])
+\end{verbatim}
+
+Los datos de la lectura tienen una parte real y otra imaginaria, a partir del array 2D anterior, se obtiene un array 2D, con el doble de anchura.
+Por ejemplo, si Matriz1 es de 300x291, se obtendra otra matriz que comprende el modulo y la fase de 600x291. Así se obtiene el módulo del número complejo y la fase del número complejo.
+El módulo será una matriz de 300x291 y la fase también.
+
+\begin{verbatim}
+	modulo = abs(data)
+	fase = []
+		for i in data:
+			fila = []
+			for j in i:
+				fila.append(phase(j)) #Fase
+			fase.append(fila)
+   	 	fase = np.asarray(fase)
+   	 	modulo_fase = np.concatenate((modulo, fase), axis=0)
+\end{verbatim}
+
+A partir de los datos del modulo y la fase se obtiene la media.
+\begin{verbatim}
+	traspuesta = np.transpose(modulo_fase)
+	#Obtenemos la matriz traspuesta(291x600) de modulo_fase(600x291)
+
+	#Separamos la traspuesta en modulo y fase
+	t_modulo = traspuesta[:,:int(traspuesta.shape[1]/2)]
+	t_fase = traspuesta[:,int(traspuesta.shape[1]/2):]
+	media = []
+	for i in t_modulo:
+    	media.append(i.mean())
+	for j in t_fase:
+    	media.append(j.mean())
+	#media -> medias modulo y fase
+\end{verbatim}
