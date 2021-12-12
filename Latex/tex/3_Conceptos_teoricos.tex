@@ -53,7 +53,7 @@ La figura 3.2 muestra un diagrama de bloques del sensor A111. La señal se trans
 
 El sensor se puede ejecutar en uno de los siguientes servicios básicos de la tabla 3.1.
 
-\tablaSmall{Servicios del radar A111}{l c c}{serviciosa111}
+\tablaSmall{Servicios del radar A111}{l c p{5cm}}{serviciosa111}
 {\multicolumn{1}{l}{Servicio} & Tipo de dato & Ejemplo de uso \\}{ 
 Envelope & Amplitud & Distancia absoluta y
 presencia estática \\
@@ -62,9 +62,9 @@ Sparse & Amplitud instantánea & Velocidad, detección de presencia y detección
 } 
 
 
-\section{Servicio IQ}
+\section{Servicio In-phase and Quadrature}
 
-El servicio IQ utiliza la coherencia de fase del radar pulsado Acconeer para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y , en nuestro caso, para diferenciar materiales.
+El servicio In-phase and Quadrature (IQ) utiliza la coherencia de fase del radar pulsado Acconeer para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y , en nuestro caso, para diferenciar materiales.
 
 Los componentes en fase y en cuadratura se representan como valores complejos, lo que genera un conjunto complejo de N\textsubscript{D} muestras representadas como x[d], dónde d es el índice de demora de la muestra.
 
@@ -117,7 +117,7 @@ Ramdom Forest conocido en castellano como "Bosques Aleatorios" es una combinaci�
 
 Los árboles se crean siguiendo el algoritmo:
 
-\imagen{randomforest}{K-nearest neighbors}
+\imagen{randomforest}{Random Forest}
 
 \begin{itemize}
 \item Sea N el número de casos de prueba, M es el número de variables en el clasificador.
@@ -148,6 +148,18 @@ Cada extracción se ha realizado mediante la herramienta facilitada por Acconeer
 
 \imagen{herramienta_acconeer}{Herramienta Acconeer}
 
+
+Se necesita la aplicación Acconeer Exploration Tool que se pueder descargar desde el repositorio de este TFG \url{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}. En esta interfaz se conecta utilizando el modo socket a la IP de la Raspberry Pi 4.
+ 
+Una vez dentro hay cuatro servicios y varias funcionalidades. Los servicios son:
+\begin{itemize}
+\item Power Bins: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/pb.html}, calcula la energía de diferentes distancias, su objetivo es la medición de gobjetos grandes a distancias cortas como un sensor de parking. Al ser un método muy sencillo con poca cantidad de datos y enfocado a grandes objetos como una pared no se ha contemplado para el estudio
+\item Envelope: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/envelope.html}, es igual que Power Bins pero utilizando un espectro continuo de los datos. Su caso de uso típico es la detección estática, por esto se ha contemplado para el estudio ya que la basura estará quieta.
+\item IQ: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/iq.html}, utiliza la coherencia de fase del radar que detecta movimiento a nivel fino. Tiene cinco modos, el primero es el que ha sido relevante al detectar mejores reflejos de los datos y estar optimizado para distancias muy cortas.
+\item Sparce: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/sparse.html}, se base en la señal está más cuantizada y su uso principal es el análisis del movimiento y no de situaciones estáticas, por ello no se ha contemplado su uso para el estudio.
+\end{itemize}
+
+
 Para la creación del modelo se han seleccionado 30 materiales divididos en, 10 de plástico, 10 de cristal y 10 de cartón. De cada material se han realizado 10 lecturas, de varias caras, girando el objeto.
 
 Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato numpy (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformaran la red de entrenamiento y otro porcentaje servirán para testear la red.
@@ -161,48 +173,3 @@ Tenemos los siguientes datos:
 \item M instantes de tiempo
 \item Atributos
 \end{itemize}
-
-Se creará la siguiente matriz:
-\begin{verbatim}
-	Matriz1 = (N x M) x A. Es una matriz 2D (NxM,A)
-\end{verbatim}
-
-La extracción y creación de la matriz con los datos necesarios se realizará mediante Python:
-
-\begin{verbatim}
-diccionario = np.load('C01_V01.npy',allow_pickle=True).item()
-data = diccionario.get('sweep_data').get('data')
-data = data.reshape(data.shape[0],data.shape[2])
-\end{verbatim}
-
-Los datos de la lectura tienen una parte real y otra imaginaria, a partir del array 2D anterior, se obtiene un array 2D, con el doble de anchura.
-Por ejemplo, si Matriz1 es de 300x291, se obtendra otra matriz que comprende el modulo y la fase de 600x291. Así se obtiene el módulo del número complejo y la fase del número complejo.
-El módulo será una matriz de 300x291 y la fase también.
-
-\begin{verbatim}
-	modulo = abs(data)
-	fase = []
-		for i in data:
-			fila = []
-			for j in i:
-				fila.append(phase(j)) #Fase
-			fase.append(fila)
-   	 	fase = np.asarray(fase)
-   	 	modulo_fase = np.concatenate((modulo, fase), axis=0)
-\end{verbatim}
-
-A partir de los datos del modulo y la fase se obtiene la media.
-\begin{verbatim}
-	traspuesta = np.transpose(modulo_fase)
-	#Obtenemos la matriz traspuesta(291x600) de modulo_fase(600x291)
-
-	#Separamos la traspuesta en modulo y fase
-	t_modulo = traspuesta[:,:int(traspuesta.shape[1]/2)]
-	t_fase = traspuesta[:,int(traspuesta.shape[1]/2):]
-	media = []
-	for i in t_modulo:
-    	media.append(i.mean())
-	for j in t_fase:
-    	media.append(j.mean())
-	#media -> medias modulo y fase
-\end{verbatim}

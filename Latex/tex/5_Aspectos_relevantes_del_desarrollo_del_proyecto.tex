@@ -1,7 +1,157 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
-Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
-Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
-Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
-Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
-Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
+En este apartado se va a recoger el ciclo de vida del proyecto, detallando los aspectos más relevantes que se han tratado y como se han resuelto las diferentes dificultades encontradas a lo largo de su desarrollo.
+Se irán presentando diferentes secciones que concuerdan con el orden cronológico seguido en el proyecto y muestran la justificación de las decisiones tomadas.
+
+\section{Propuesta del Proyecto}
+
+La propuesta de este proyecto consistía en crear un modelo clasificador integrado en una iterfaz para el reconocimiento de materiales que se dividía en las siguientes 3 tareas principales:
+
+\begin{itemize}
+\item Montaje del sensor: Puesta en funcionamiento del radar junto con sus componentes. Siendo capaces de extraer las características del las lecturas realizadas.
+
+\item Lecturas de los materiales: Conseguir información a través de las características de los materiales para crear un modelo capaz de diferenciar materiales como son el cartón, el plástico y el cristal.
+
+\item Clasificador de materiales: La tarea principal pedida para realizar este proyecto era la de construir un clasificador de materiales a través de un radar de 60GHz devolviendo la identificación correcta del material.
+\end{itemize}
+
+\section{Metodologias aplicadas}
+
+En el desarrollo de este proyecto se ha intentado emplear en la medida de los posible la metodología ágil de Scrum.
+
+Debido a que el proyecto se comenzó en abril de 2021 en la modalidad presencial, no se ha podido seguir de forma estricta todas las pautas de la metodología, como las reuniones diarias con todo el equipo. 
+
+Las pautas que se han seguido durante el proyecto han sido:
+
+\begin{itemize}
+\item Desarrollo incremental del proyecto mediante sprints. \item Spints de 1 a 2 semanas. 
+\item Al finalizar el sprint, reuniones para evaluar el proyecto y plantear los pasos a seguir en el siguiente sprint.
+\end{itemize}
+
+\section{Formación}
+Durante las primeras fases del proyecto, fue necesario aprender el funcionamiento del Radar Sensor. Para esto, se consultó la documentación facilitada por Acconeer.
+
+A parte de esto se investigó información adicional sobre el uso de estos radares así como ejemplos de su uso, la información extraída de la red fue escasa o casi nula. únicamente fue valida la documentación facilitada por Acconeer\footnote{https://acconeer-python-exploration.readthedocs.io/} en el repositorio de GitHub.
+
+\section{Montaje del radar}
+
+En esta sección se indican tanto las necesidades hardware como software para el montaje y puesta en funcionamiento del radar.
+
+\subsection{Necesidades hardware}
+Los creadores de Acconner crearon un video (\href{https://www.youtube.com/watch?v=0uKrm_RAV_c}{EVK 2}) con las instrucciones del montaje del sensor. En el se explica el montaje de los diferentes componentes a la Raspberry Pi 4 (a partir de ahora "Raspberry"). 
+
+En un comienzo será necesario disponer de: 
+\begin{itemize}
+\item Raspberry Pi 4
+\item Radar A111
+\item Placa XR112
+\item Cable flexible para XR112
+\item Tarjeta SD
+\item Teclado USB
+\item Ratón USB
+\item Monitor con HDMI
+\item Cable HDMI
+\end{itemize}
+
+$$FOTO$$
+
+La placa se conecta a la raspi por el puerto GPIO quedando por encima del resto.
+
+$$FOTO$$
+
+
+Se ha realizado un espacio o cubículo de lectura de objetos de $30x22x25 cm$ (ancho, largo y alto) con una incisión en la parte inferior en el medio del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándolo en la posición de la incisión. Esta caja de madera se utiliza poniendo la abertura en la parte inferior, mirando al suelo.
+ 
+El sensor tiene sensibilidad a partir de los 10 cms. La sensibilidad del sensor se limitó al rango de 10 a 24 cm, el mínimo de sensibilidad hasta el suelo.
+
+$$FOTO PROTOTIPO$$
+
+\subsection{Necesidades software}
+
+Una vez se había procedido con el montaje del dispositivo se pasó a la instalación y configuración del sistema operativo. Además, se instalaron los diversos programas necesarios tanto para recoger los datos como para poder interpretarlos.
+
+Se necesitarán las siguientes aplicaciones para completar la instalación. Además, serán muy útiles a la hora de trabajar con el Radar. 
+Hay que descargar e instalar: 
+\begin{itemize}
+\item \href{http://developer.acconeer.com}{Acconeer SW}: disponible para todos los usuarios (Windows, Linux, IOS) 
+\item \href{www.raspberrypi.org}{Raspbian OS} 
+\item \href{http://www.etcher.io}{Etcher}: se usará para instalar el sistema operativo Raspbian en la SD
+\item 
+\href{http://www.putty.org}{PuTTY}: se utiliza para conectarse a Raspberry Pi
+\item \href{http://www.winscp.net}{WinSCP}: utilizado para transferir archivos a Raspberry Pi
+\end{itemize}
+ 
+\section{Lectura de los objetos}
+
+Para la creación del modelo se han seleccionado 30 materiales divididos en, 10 de plástico, 10 de cristal y 10 de cartón. De cada material se han realizado 10 lecturas, de varias caras, girando el objeto.
+
+Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato numpy (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformaran la red de entrenamiento y otro porcentaje servirán para testear la red.
+
+Cada instante de tiempo de la lectura comprende 291 atributos, de cada fichero obtenemos del orden de 300 instancias.
+Una instancia son estadísticas (medias, stds, etc) de los 291 atributos calculadas a partir de los aproximadamente 300 instantes de tiempo.
+
+Tenemos los siguientes datos:
+\begin{itemize}
+\item Nº Experimentos: Material - vista
+\item M instantes de tiempo
+\item Atributos
+\end{itemize}
+
+Se creará la siguiente matriz:
+\begin{equation}
+	Matriz1 = (N \cdot M) \cdot A
+\end{equation}
+Es una matriz 2D $(N \cdot M,A)$
+
+La extracción y creación de la matriz con los datos necesarios se realizará mediante Python:
+
+\begin{verbatim}
+diccionario = np.load('C01_V01.npy',allow_pickle=True).item()
+data = diccionario.get('sweep_data').get('data')
+data = data.reshape(data.shape[0],data.shape[2])
+\end{verbatim}
+
+Los datos de la lectura tienen una parte real y otra imaginaria, a partir del array 2D anterior, se obtiene un array 2D, con el doble de anchura.
+Por ejemplo, si Matriz1 es de $ 300 x 291 $, se obtendra otra matriz que comprende el modulo y la fase de $ 600 x 291 $. Así se obtiene el módulo del número complejo y la fase del número complejo.
+El módulo será una matriz de $ 300 x 291 $ y la fase también.
+
+\begin{verbatim}
+	modulo = abs(data)
+	fase = []
+		for i in data:
+			fila = []
+			for j in i:
+				fila.append(phase(j)) #Fase
+			fase.append(fila)
+   	 	fase = np.asarray(fase)
+   	 	modulo_fase = np.concatenate((modulo, fase), axis=0)
+\end{verbatim}
+
+A partir de los datos del modulo y la fase se obtiene la media.
+\begin{verbatim}
+	traspuesta = np.transpose(modulo_fase)
+	#Obtenemos la matriz traspuesta(291x600) de modulo_fase(600x291)
+
+	#Separamos la traspuesta en modulo y fase
+	t_modulo = traspuesta[:,:int(traspuesta.shape[1]/2)]
+	t_fase = traspuesta[:,int(traspuesta.shape[1]/2):]
+	media = []
+	for i in t_modulo:
+    	media.append(i.mean())
+	for j in t_fase:
+    	media.append(j.mean())
+	#media -> medias modulo y fase
+\end{verbatim}
+
+
+
+\section{Modelo clasificador}
+Para elegir el modelo a usar se tuvieron que tener en cuenta diferentes factores como el peso del modelo, su carga de computo y su precisión.
+
+Se realizaron pruebas con los diferentes modelos (KNN, RamdonFores y Logistic Regression) y al final opté por usar el modelo RandomFores debido a que el promedio hace que este modelo sea mejor que un solo árbol de decisión, por lo que mejora su precisión y reduce el sobreajuste.
+
+La Regresiñon Logistica obtuvo un bajo porcentaje de coincidencia un 59,33\%
+
+\imagen{logisticregresion}{Regresión Logistica}
+
+
