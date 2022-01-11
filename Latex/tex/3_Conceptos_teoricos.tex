@@ -1,11 +1,54 @@
 \capitulo{3}{Conceptos teóricos}
 
-Para construir un modelo capaz de capturar con precisión las características distintivas de las superficies objetivo, primero se debe comprender el origen y la estructura de la señal recibida. En este apartado se introducen algunos conceptos fundamentales del sistema de radar.
+Para construir un modelo capaz de capturar con precisión las características distintivas de las superficies objetivo, primero se debe comprender el origen y la estructura de la señal recibida. En este apartado se introducen algunos conceptos fundamentales del sistema de radar. 
+
+\section{Radar}
+
+El radar o mejor conocido por su acrónimo del inglés, radio detecting and ranging, se describe como la detección y localización por radio, el cual es un sistema electrónico el cual emplea radiaciones electromagnéticas, las cuales son reflejadas por un objeto para así poder determinar características del objeto como son su localización, la distancia a la que se encuentra y su velocidad, en dado caso que se encuentre en desplazamiento. \cite{AlonsoCerpa}
+
+Durante el desarrollo tecnológico basado en la postulación de las teorías generadas sobre las ondas electromagnéticas se han desarrollado múltiples avances tecnológicos los cuales han hecho posible que en la actualidad se puedan emplear los radares en diferentes y diversas áreas con seguridad y eficiencia. 
+
+Los constantes avances tecnológicos en el desarrollo de materiales y su implementación en los circuitos integrados, junto con el desarrollo de la informática, son factores importantes los cuales han convertido a los sistemas de radares en instrumentos de bajo tamaño con una precisión y calidad. 
+
+\subsection{Principio de funcionamiento del Radar}
+
+El radar es un sistema de teledetección activa la cual emite ondas de microondas, donde el valor de las frecuencias en donde están comprendidos los cuales tienen diferentes valores los cuales van entre 1 GHz y 100 GHz, estos valores también se pueden considerar como longitudes de onda, las cuales tienen valores de entre 3 mm y 30 cm (Herrera et al., 2009). 
+
+Las ondas de microondas tienen diferentes ventajas, entre las cuales se puede considerar que son capaces de atravesar los cúmulos de nubes, además de poder atravesar también la lluvia, otra ventaja es que permiten trabajar en condiciones de oscuridad debido a que no dependen de la iluminación solar o artificial, otra ventaja es que pueden penetrar con ciertas limitaciones las estructuras vegetales, la nieve y el suelo, además de poder tener la ventaja de proporcionar una alta sensibilidad para poder medir características como la distancia, la rugosidad, la humedad, entre otras características de los materiales. 
+
+Los sistemas radar de apertura sintética, también conocidos como SAR, cuentan con un sensor radar el cual es capaz de emitir un pulso de ondas de microondas dirigida hacia la superficie del terreno u objeto, el cual en cierto momento retorna en dirección al sistema radar de apertura sintética que se encuentra ubicado en un satélite, donde la información conseguida es medida por el sensor radar. 
+
+Los pulsos empleados por el sistema radar de apertura sintética los cuales típicamente poseen longitudes de onda las cuales pueden variar desde los 3 cm de la banda X, hasta los 24 cm de la banda L, por lo que cuanto mayor sea la longitud de onda, mayor será su capacidad de penetración en zonas vegetadas, más sin embargo habría que considerar que será peor su resolución espacial.
+
+Los sistemas radar de apertura sintética pueden ser transportados mediante un satélite, un avión o permanecer en una plataforma terrestre, en donde se emiten y reciben la señal del pulso de microondas emitido por el sensor radar, el cual está generando imágenes complejas de alta resolución espacial de la superficie del terreno a las cuales se les conoce como imágenes SAR. 
+Podrían mencionarse diferentes casos en los cuales se generan imágenes complejas de alta resolución espacial como por ejemplo el satélite ERS-1/2, junto con él satélite ENVISAT, los cuales pertenecen a la Agencia Espacial Europea en estos satélites existe un sensor el cual emite ondas en la banda C, esta onda tiene una longitud de onda de 6 cm, con la cual es posible generar imágenes SAR, las cuales pueden llegar a tener una resolución espacial de 4 m x 20 m. 
+
+Otro caso es el que encontramos en el satélite TERRASAR-X donde las ondas de microondas generadas pertenecen a la banda X, pudiendo generar imágenes SAR de 1 m x 3 m de resolución, además de que las imágenes tipo SAR, adquiridas por diferentes satélites los cuales trabajan en la banda C, las imágenes pueden llegar a tener un tamaño de 100 km x 100 km con una excelente resolución espacial, a cuál pude ser de de 4 m x 20 m para cada píxel. 
+
+En las imágenes tipo SAR se puede considerar que cada píxel es representado con un formato de número complejo el cual contiene un valor de amplitud, junto con otro valor de fase, donde el valor de la amplitud está directamente relacionado con el coeficiente de respuesta el cual se generó con la información de la superficie del terreno dirigido a la señal de respuesta, esta señal también es ubicada como dispersión, además de que fase también conocida como $$/varphi$$, puede contener información sobre la distancia, la cual es recorrida por la señal, que inicia desde el sensor hasta la superficie del terreno, donde son imprescindibles la longitud de onda electromagnética $$/lambda$$ y la distancia desde el satélite a la superficie del terreno R.
+
+En la obtención de imágenes SAR una de las partes más importantes del radar es el emisor, el cual es un instrumento que produce la radiación electromagnética, donde la toda la energía emitida debe concentrarse en otra parte del radar la esta está conformada por un único lóbulo también conocido como principal, aunque en realidad existen pequeños lóbulos secundarios a su alrededor \cite{RigoRibas2004}.
+
+\subsection{Tipos de radar}	
+
+En el mercado y de acuerdo a su forma de operar existen diferentes tipos de radares los cuales pueden operar de modo primario o de modo secundario, considerando que todos los radares tienen la misma base de operabilidad ya que todos los radares tienen en común la capacidad de poder transmitir una señal, pudiendo generar la evaluación mediante diferentes técnicas de procesamiento de las señales recibidas para así poder obtener el parámetro buscado. \cite{AcostaOsorio2014Mar}
+
+Los sistemas de radar por lo general se encuentran seccionados en diferentes categorías de operación las cuales están basada en los diferentes métodos de transmisión de la señal, por lo general estos métodos corresponden a la transmisión de pulsos, la onda continua y la frecuencia modulada, en donde el método de transmisión de pulsos es el método más común para implementarse en la transmisión de la energía del radar. 
+
+El método de onda continua se basa en el principio del El Efecto Doppler, para poder generar la detección de la presencia y velocidad de un objeto en movimiento en dirección al radar o en dirección opuesta al radar, debido a que el sistema no puede determinar el rango, tampoco logra diferencia entre objetos y obstáculos que se encuentran en la misma dirección, los cuales están viajando a la misma velocidad, este método en los radares por lo general es empleado en los sistemas de control de fuego o disparo en el campo militar, para poder rastrear objetos los cuales presentan movimientos rápidos en un rango cercano.
+
 \section{Teledetección}
 
-Teledetección o detección a distancia (detección remota) es la técnica que permite recopilar información a distancia de objetos sin que exista un contacto material. Para que esto sea posible tendremos una interacción entre los objetos y un sensor situado en una plataforma.
+La teledetección, también conocida como detección a distancia o detección remota, es la técnica que permite recopilar información a distancia de los objetos sin que exista un contacto físico, para lo cual es necesario tener una interacción entre los objetos a estudiar y un sensor situado en una plataforma.
 
-La distancia a que debe estar situado un sensor para ser remoto puede variar desde pocos decímetros hasta miles de kilómetros.
+El radar es un sensor activo de microondas el cual se desplaza a bordo de una plataforma explorando la tierra, por lo general se encuentra emitiendo pulsos de energía con dirección a la superficie terrestre, pudiendo almacenar las señales obtenidas de retorno. \cite{Marchionni2014}
+
+Debido a que tienen que trabajar con haces de energía emitidos artificialmente, los sistemas de radar permiten controlar las condiciones de la adquisición, basadas en la frecuencia, la polarización y la geometría de la observación, ya pueden recolectar datos en cualquier condición ya sea de día o de noche, el realizar este tipo de trabajo resulta muy ventajoso en las regiones polares, lugares donde los prolongados períodos de oscuridad dificultan la adquisición de imágenes convencionales. 
+
+Por lo general un sistema de teledetección por RADAR (Radio Detection And Ranging) transmite diferentes pulsos de microondas los cuales van barriendo la superficie terrestre, las cuales reciben la porción de energía que es reflejada o retrodispersada, retornando de vuelta hacia el sensor del radar.
+
+Al momento de que el radar recibe la señal el sistema registra la intensidad de la señal de retorno conocida como radiación retrodispersada, donde el retardo en tiempo entre la transmisión y recepción de cada pulso de energía es el tiempo que se relaciona con la distancia de los objetos observados.
+La distancia a la cual debe estar situado un sensor para poder ser considerado remoto puede variar ya sea desde pocos decímetros hasta miles de kilómetros, ya que la teledetección es un flujo de radiación emitido por los objetos o materiales hacia un radar o sensor. 
 
 La teledetección es un flujo de radiación emitido por los objetos o materiales hacia un radar o sensor. El origen del flujo puede venir de:
 
@@ -15,18 +58,72 @@ La teledetección es un flujo de radiación emitido por los objetos o materiales
 \item Radiación emitida por el sensor y reflejada por los objetos (radar) - Teledetección activa
 \end{itemize}
 
-Se llama teledetección pasiva a la técnica aplicada por los sensores que miden las variaciones de la energía procedente de los objetos sin intervenir en el campo natural y se denomina teledetección activa a aquellos que generan un campo de energía artificial, utilizado para registrar y medir el efecto que en él producen los objetos.
- 
-Las características técnicas del sensor influye en la calidad de los datos y en la posibilidad de recibir información en distintas longitudes de onda. 
+El grupo de datos adquiridos por medio de los diferentes procedimientos empleados en la Teledetección son generados desde plataformas como aviones o transbordadores espaciales, los cuales contienen por lo general tres tipos de información, la primera es la información espacial la cual es capaz de representar la organización de los elementos que constituyen la imagen en el espacio físico, el segundo tipo de información está caracterizada por contener información espectral la cual es posible caracteriza, de tal forma que se puede conducir a la obtención del conocimiento de la naturaleza en la superficie terrestre y el tercer tipo de información es una información de tipo temporal la cual permite generar la detección de los cambios producidos en la superficie del planeta Tierra, después del transcurso de determinado tiempo. \cite{SacristanRomero}
 
-\imagen{sitemas_globales}{Sistemas de observación global.}
+Por lo general los datos que son adquiridos a través de la Teledetección son caracterizados por algunas de las siguientes propiedades de los materiales los cuales requieren de la capacidad para obtener la información en base a los aspectos del medio natural los cuales pasan desapercibidos a nuestros sentidos, como son las ondas de radar, el infrarrojo de los satélites LANDSAT, entre otros.
 
-En la figura 3.1 vemos la globalización actual de la teledetección utilizada para obtener información precisa, actualizada y de fácil acceso empleada para diversas utilidades y finalidades como pueden ser:
-\begin{itemize}
-\item Imágenes territoriales
-\item Motorización de las mareas
-\item Análisis de materiales terrestres
-\end{itemize}
+
+Por lo que se puede observar la experiencia natural que tiene el hombre la cual por lo general nula si se consideran los dominios espectrales, debido a que es imperceptible es por lo que se desarrollan visualizaciones las cuales tienen una determinada función y utilidad, las cuales están en conjunto con las fotografías aéreas, las cuales reciben el nombre de imágenes para así evitar generar confusión.
+
+Otra propiedad de los datos adquiridos es la generación de este tipo de informaciones las cuales son registradas por los sensores, las cuales son capaces de medir la cantidad de energía la cual es reflejada o emitida por medio de los objetos que se presentan en la naturaleza los cuales componen el paisaje, debido a que esta información es representada de forma numérica es como se da la capacidad de ser tratados en elementos matemáticos. 
+
+Pero al ser su existencia de extrema abundancia se ha optado por aplicar el uso de enormes ordenadores los cuales son capaces de aplicar métodos matemáticos que tienen la capacidad de tratar los datos, los cuales son demasiados actuales con una potencia superior para determinar una solución valida a la cantidad de datos registrados.
+
+Otra propiedad de los datos adquiridos es que la Teledetección es el poder permitir dar seguimiento al desarrollo de las enromes extensiones forestales las cuales existen en la superficie de la tierra, al poder tener una perspectiva en conjunto general de las causas de los efectos que se producen debido a las grandes catástrofes como pueden ser las eternas sequías en las regiones desérticas del Sahara de África, para en dado caso poder ubicar determinados fenómenos generados por la contaminación a gran escala afectando al cielo y el ambiente en el mar.
+
+Como el sol es una fuente de luz la cual emite radiación electromagnética en longitudes de onda los cuales van desde los 10-13 metros de los rayos gamma hasta los 105 metros de las ondas de radio largas, debido a que la radiación electromagnética solar, después de ser filtrada por la atmósfera, interacciona con la superficie terrestre por lo que es parcialmente reflejada en todas direcciones. \cite{MartiCardona2011}
+
+Además, se conoce que todo cuerpo el cual está a una temperatura superior a 0º Kelvin emite radiación electromagnética dentro de las frecuencias dependientes de su temperatura superficial, en el caso de la Tierra la cual es una superficie con esas características, estas frecuencias se sitúan en la banda de infrarrojo térmico, que es entre 7 y 14 micrómetros de longitud de onda aproximadamente.
+
+Los sensores pasivos o también conocidos como ópticos miden en unidades de radiancia (W/m2/sterad) la energía electromagnética solar reflejada por la Tierra, además de medir la radiación térmica emitida por la Tierra en distintas bandas espectrales o en diferentes intervalos del espectro electromagnético.
+
+Donde la cantidad de radiación reflejada va a depender de las condiciones de iluminación presentes, más sin embrago la proporción entre la radiación incidente y reflejada, tienen una magnitud denominada reflectancia, la cual es una propiedad específica de la superficie reflectante.
+
+Es decir que la curva que representa la reflectancia de un material en función de la longitud de onda la cual recibe el nombre de espectro o también conocida como firma espectral del material, el cual constituye una característica identificativa del mismo material.
+
+Por otra parte, la teledetección activa dispone de su propia fuente de radiación de microondas para poder iluminar un objetivo, en donde lo que se mide es el reflejo de esa radiación sobre tal objetivo. \cite{AcevoHerrera2011Apr}
+
+Los sensores en la teledetección activa se pueden dividir principalmente en dos categorías las cuales se pueden separar en "con imagen" y en "sin imagen". Debido a que los sensores activos con imagen son basados en técnicas de radar también conocidas como Radio Detection And Ranging o de radar de apertura sintética (SAR) para poder generar imágenes en dos dimensiones. 
+
+Por otro lado los sensores activos sin imagen son los que incluyen los altímetros y escatómetros, por los cuales en la mayoría de los casos son dispositivos de perfil, los cuales toman medidas en una dimensión, lo cual es lo opuesto a la representación bidimensional de los sensores de imagen.
+
+Se llama teledetección pasiva a la técnica aplicada por los sensores que miden las variaciones de la energía procedente de los objetos sin intervenir en el campo natural, la cual se denomina teledetección activa a aquellos que generan un campo de energía artificial, utilizado para registrar y medir el efecto que en él producen los objetos, donde las características técnicas del sensor influyen en la calidad de los datos y  en la posibilidad de recibir información en distintas longitudes de onda.
+
+La preocupación generalizada de los habitantes del planeta debido a la falta de recursos naturales y falta de fuentes de energías, así como la generación de degradaciones las cuales han causado el ser humano en el medio ambiente a consecuencia de sus actividades, las cuales son en gran medida de carácter irracionales en contra de la naturaleza, lo cual ha generado en el mundo entero la necesidad de poder generar un mayor conocimiento de los espacios naturales dentro de los cuales se desarrolla la vida. 
+
+Ya que la adecuada programación de ciertas actividades las cuales se presentan en las circunstancias actuales son las que exigen que han de descansar en el poder generar una realización de un inventario más completo, en el cual se pretende actualizar el conocimiento de las riquezas naturales nacionales e internacionales, ubicadas en los rubros de las áreas agrícolas, áreas forestales, áreas hidrológicas, áreas mineras o cualquier áreas que represente una fuente de recursos para la humanidad. \cite{Romero2007}
+
+De tal manera que la vigilancia debe ser constante para el medio ambiente, debido a que esta actividad podrá generar una importante reducción en el impacto generado por los humanos en el medio ambiente hasta este momento, es por eso que los datos obtenidos del análisis de Teledetección se convierten en una importante fuente que genera información por lo que tiene un importante papel en el cumplimiento de los objetivos del cuidado del medio ambiente.
+
+Es posible centrar los análisis en el caso español, considerando que las acciones más imprescindibles deben ser enfocadas en la calidad del agua, otra acción seria la detección de incendios, debido a que el agua es una gran riqueza para la Península Ibérica, básicamente es necesaria para mantener la vida y el desarrollo del ser humano, por lo que, debido a que si su calidad de la vida se deteriora, afecta a todos de tal manera que sufriríamos las consecuencias, tanto los hombres, como los animales y también las plantas. 
+
+La Teledetección aplicada en los recursos naturales está basada en un sistema el cual es capaz de adquirir datos a distancia, la cual por lo general esta ubicada sobre la biósfera, la cual está basado en las propiedades de la radiación electromagnética, junto con su interacción con los materiales que se encuentran en la superficie terrestre, ya que todos los elementos que conforman la Naturaleza son capaces de generar una respuesta espectral propia, la cual se denomina “signatura espectral”.
+
+Por lo general la Teledetección es capaz de estudiar las variaciones espectrales, las variaciones espaciales, como las variaciones temporales de las ondas electromagnéticas, en donde se puede apreciar que las correlaciones existentes entre las diferentes variaciones, junto con las características de los variados materiales terrestres, donde su objetivo básico es el de generar la identificación de los materiales que existen en la superficie terrestre además de poder identificar ciertos fenómenos que en la naturaleza se generan por medio de su característica de espectra.
+
+La implementación de la teledetección impacta de forma positiva en la preservación y el mejoramiento de la calidad del agua de los ríos y embalses, debido a que el uso de estas técnicas permite vigilar su situación para poder actuar y manejar cualquier vertido contaminante que se llegara a producir. \cite{Rosello2009}
+
+Además, estas técnicas de teledetección sirven de apoyo en las diversas actividades de saneamiento, ya que además con los terremotos y la actividad volcánica se genera un gran potencial destructivo para el medio ambiente, ya que la actividad volcánica, al igual que la sísmica, son la manifestación de la liberación de energía acumulada en el interior del planeta tierra.
+
+Por lo que los desprendimientos generados de flujos de lava, además de los fragmentos de roca incandescente, así como la presencia de gases tóxicos traen consecuencias como la destrucción de las infraestructuras existentes en los ecosistemas, generándose incendios, muerte de las plantas, asfixia de personas y animales, pudiendo ocasionar la interrupción del transporte, así como de la comunicación, sin olvidar la contaminación de las aguas.
+
+De acuerdo con estudios existe la posibilidad de que al observarse un incremento en la comprensión de las condiciones de la corteza de la terrestre o en su interior se pueda permitir el generar un sistema de alerta temprano el cual se anticipe a tales potenciales cataclismos.
+
+Es por ello por lo que las técnicas de teledetección impactan positivamente en la generación de un pronóstico, obteniendo la detección, el generando un monitoreo constante de semejantes desastres naturales en las diferentes áreas del planeta. 
+
+Las técnicas de teledetección impacta positivamente en la generación de alerta y monitoreos de diferentes fenómenos naturales, como la instalación de una estación de monitoreo de mareas por el Centro para Alarmas por Tsunamis en el Pacífico conocido como PTWC por sus siglas en inglés, además del Servicio Nacional de Estudios Territoriales (SNET), la cual permite obtener información sobre el nivel del mar y los cambios que se originen en las costas del Pacífico, es así como la obtención de información podría evitar daños por la generación de un Tsunami en la región de este océano la cual podría afectar a Centroamérica.
+
+La estación de monitores está conformada por diferentes instrumentos especiales los cuales censan y recopilan la información cada dos minutos para después transmitirla cada hora vía satélite a las oficinas del PTWC, ubicadas en Hawai, en donde se recolecta y evalúan los datos proporcionados por los 28 países que realizan monitoreo de mareas, para poder diseminar boletines de alarma informativos de la ocurrencia de un sismo importante o la generación de un posible o confirmada de un tsunami.
+
+Como ya se expresó con anterioridad, la teledetección constituye en un sistema el cual fue desarrollado para la adquisición de datos, que se encuentra a cierta distancia, ubicados sobre la biósfera, en el cual está basado en las características de la radiación electromagnética junto con su interacción con los diferentes materiales de la superficie terrestre. 
+
+Ya que todos los elementos existentes en la naturaleza cuentan con una respuesta espectral la cual es característica a la cual se la denomina "signatura espectral" la cual es capaz de estudiar las variaciones espectrales, las variaciones espaciales y las variaciones temporales de las ondas electromagnéticas, poniendo de manifiesto las relaciones existentes entre las variaciones junto con las características que tienen los diferentes materiales terrestres. 
+
+Es por ello que su objetivo básico se centra en la identificación de los diferentes materiales de la tierra y los diferentes fenómenos que en ella se generan a través de su característica espectral, desde este punto de vista, la teledetección como herramienta ofrece enormes posibilidades para la generación de avances en el conocimiento e interpretaciones de condiciones físicoambientales constituyendo una fuente de información y desempeñando un papel significativo en el campo del conocimiento geográfico. \cite{Botana2019} 
+
+Se comparte lo expresado por Goillot (1976) en cuanto a que el conjunto de datos adquiridos mediante los procedimientos de teledetección instalados en plataformas como aviones o transbordadores espaciales constituyen siempre tres tipos de información, la primera de ellas es una serie de información espacial con la cual es posible representar la organización dentro del espacio físico de los diferentes elementos que componen la imagen, la segunda es una información espectral la cual se caracteriza, pudiendo encontrar un conocimiento sobre la naturaleza de la superficie terrestre, y por último es una información temporal la cual permite la detección de los diferentes cambios operados dentro de la superficie terrestre en el transcurso del tiempo. 
+
+En este sentido la teledetección se define como el proceso de análisis de la energía reflejada por los objetos, es decir es una técnica que puede aportar una información muy valiosa para distintos campos de intervención de la Geografía, lo cual permite visualizar, entre otras aplicaciones, los distintos usos y ocupaciones del suelo, a nivel espacial y temporal, observando las transformaciones territoriales, posibles de ser plasmadas posteriormente en una carta temática elaborada en un entorno SIG. 
 
 \section{Radar Acconeer}
 
