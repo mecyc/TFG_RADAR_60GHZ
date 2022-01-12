@@ -232,11 +232,56 @@ Sparse & Amplitud instantánea & Velocidad, detección de presencia y detección
 
 \section{Servicio In-phase and Quadrature}
 
-El servicio In-phase and Quadrature (IQ) utiliza la coherencia de fase del radar pulsado Acconeer para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y , en nuestro caso, para diferenciar materiales.
+El servicio In-phase and Quadrature (IQ) utiliza la coherencia de fase del radar pulsado Acconeer para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y, en nuestro caso, para diferenciar materiales.
 
 Los componentes en fase y en cuadratura se representan como valores complejos, lo que genera un conjunto complejo de N\textsubscript{D} muestras representadas como x[d], dónde d es el índice de demora de la muestra.
 
 Los datos obtenidos a través del servicio IQ proporcionan un método para examinar la reflectividad a diferentes distancias del sensor de radar.
+
+Las técnicas de análisis de imágenes que permiten diferenciar partes de las misma se han venido desarrollando debido al gran número aplicaciones en donde se emplean, donde la detección y el análisis temporal de cambios sobre la superficie terrestre donde también es posible el mapeado de inundaciones, mediciones de campos, determinación de extensión de hielos continentales y antárticos, flujos de hielo de glaciares, etc., debido a que es un área de gran interés.
+
+En este sentido, se ha venido trabajando en el análisis de las imágenes satelitales obtenidas por Radares de Apertura Sintética conocidas como SAR, para poder generar el análisis de las imágenes se usan técnicas de contraste de características estadísticas mediante las cuales se producen mapas diferenciales que permiten identificar las regiones en las que se produjeron variaciones \cite{Varela2019}.
+
+Es posible el aplicar algoritmos en los que mediante la definición de umbrales adecuados se diferencian las regiones, estableciéndose la presencia de bordes, por ejemplo, usando la diferencia entre los valores entre pixeles, o en el cociente entre los valores de los pixeles.
+
+Y que dado los sistemas de adquisición de SAR basan su capacidad de formar imágenes en que se mantiene la coherencia entre las señales emitida y recibida a lo largo de toda una adquisición, la coherencia de estas señales permite, mediante el proceso de enfocado, obtener imágenes con una resolución mucho mejor que la esperada por el IFOV (Instantaneus Field of View) de la antena. 
+
+El problema que se presenta en este método es la aparición de un ruido multiplicativo conocido como speckle, en donde este ruido se debe a la interferencia que se produce al sumar las señales coherentes provenientes de los elementos dispersores presentes en la región asociada al pixel considerado.
+
+Por lo que se hace necesario el uso de herramientas matemáticas más sofisticadas para la detección de bordes, donde las imágenes SAR son ofrecidas en distintos formatos y niveles de procesamiento, siendo la más básica de las imágenes enfocadas la denominada SLC (Single Look Complex). 
+
+Una adquisición SAR en polarización simple, vertical u horizontal, tiene dos bandas de datos que corresponden a los canales de adquisición I (in phase) y Q (in quadrature), los cuales pueden ser interpretados como la parte real e imaginaria, respectivamente, de una señal compleja.
+
+Donde el speckle ha sido descripto teóricamente mediante modelos de distribución en regiones homogéneas, donde en estos modelos establecen que para imágenes SLC de polarización simple correspondientes a zonas homogéneas (por ejemplo áreas rurales), los datos de ambos canales, l y Q, tienen una distribución Gaussiana para las amplitudes. 
+
+Mientras que la fase tiene una distribución prácticamente Uniforme y la intensidad de una distribución exponencial (o equivalentemente Gamma de orden 1), mientras que el módulo de la amplitud (que es proporcional a la raíz cuadrada de la intensidad) responde a una distribución de Rayleigh . 
+
+Considerando esto, se han usado diferentes técnicas que tienen en cuenta la correspondiente distribución de la potencia que se recibe de cada pixel y se han calculado las distribuciones para los gradientes de intensidad asociados a los pixeles, con esto se ha conseguido una mejor identificación de los bordes
+
+Para dar servicio a las diferentes misiones interplanetarias de la agencia espacial europea, conocida como ESA, las estaciones disponen de un receptor de frecuencia intermedia (IFMS por sus siglas en inglés), que es utilizado para múltiples propósitos como ser la transmisión de telecomandos, la recepción de telemetría, la decodificación de datos y las mediciones Doppler de las señales \cite{Cancio2017}.
+
+La estación permite la recepción de datos en un modo denominado de bucle abierto mejorado (EOLP), por lo que en este modo, el IFMS puede procesar 2 bloques de banda ancha del espectro de frecuencia intermedia (70 MHz), en estos bloques pueden corresponder a diferentes polarizaciones centradas en una misma frecuencia o la misma polarización centrados en diferentes frecuencias. 
+
+Ya que pueden capturarse hasta 8 subcanales centrados a diferentes frecuencias, dependiendo de la configuración de la estación, en el ancho de banda de los canales puede configurarse en un rango de 1 kHz a 2 MHz, ya que también puede configurarse la cantidad de bits de cada muestra lo que se conoce como cuantización de 1 a 16 bits. 
+
+Para las observaciones astronómicas se utilizaron los tres IFMS disponibles que se utilizaron de manera tal de abarcar el mayor ancho de banda de frecuencia posible, como la mayoría de los equipos de telecomunicaciones, la antena divide el ancho de banda espectral total en canales de frecuencias (12 subbandas en total, en este caso) y realiza una conversión de la frecuencia de banda X (8 GHz) o Ka (32 GHz) a frecuencia intermedias.
+
+La información de la señal adquirida en la observación se almacena en las unidades de almacenamiento externo (ESU) en archivos que contienen paquetes UDP/IP, cada uno con una cabecera y un bloque de datos crudos compuestos por muestras de valores complejos conocidos como (In-phase and Quadrature, IQ). 
+
+Un radar Doppler tiene etapas de detección síncrona, es decir, que están en sincronía con el oscilador de transmisión, lo que define un receptor coherente, debido a que las señales Doppler contienen no sólo información de amplitud sino también de fase, es crucial conocer estas componentes para una correcta demodulación. 
+
+Una forma de obtenerlas es indirectamente, conociendo la amplitud de la señal en fase (I) y la amplitud de la señal en cuadratura (Q), donde estas señales se obtienen al mezclar la señal recibida con las señales obtenidas de un oscilador sincronizado que genere una en fase y la otra desfasada 90º \cite{CastilloPlasencia2016Oct}.
+
+Una forma de obtener estas componentes es utilizando receptores enteramente digitales, aunque el receptor analógico tuvo muchos años de vigencia, las técnicas actuales permiten realizar receptores enteramente digitales en un sólo chip.
+
+Es importante notar que la detección de la información se puede realizar en banda base o en una frecuencia intermedia, debido a que la señal de la antena y la señal del oscilador local tendrían la misma frecuencia en el caso del receptor homodino. 
+
+Un receptor digital consiste en una fuente analógica, en este caso la señal recibida por la antena, la cual es previamente es filtrada y amplificada por un amplificador de bajo ruido (LNA), para a continuación la señal es digitalizada por un conversor análogo-digital (ADC) y luego es multiplicada digitalmente por una señal de referencia para obtener la frecuencia intermedia o la señal en banda base. 
+
+Además de la señal de entrada RF se obtienen dos señales, la primera es producto de la multiplicación por la referencia, y la otra es producto de la multiplicación por la referencia desfasada 90º, donde el objetivo es obtener información no sólo de magnitud sino también de fase respecto a la referencia.
+
+Cabe señalar que el receptor digital concentra su selectividad en el filtro digital, donde este filtro, para el caso del radar Doppler, suele ser un filtro adaptado (matched filter) con el fin de obtener la mejor relación de señal a ruido.
+
 
 \section{Aprendizaje automático}
 
