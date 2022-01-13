@@ -1,18 +1,17 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
-En este apartado se va a recoger el ciclo de vida del proyecto, detallando los aspectos más relevantes que se han tratado y como se han resuelto las diferentes dificultades encontradas a lo largo de su desarrollo.
-Se irán presentando diferentes secciones que concuerdan con el orden cronológico seguido en el proyecto y muestran la justificación de las decisiones tomadas.
+En este apartado se va a recoger el ciclo de vida del proyecto, detallando los aspectos más relevantes que se han tratado y como se han resuelto las diferentes dificultades encontradas a lo largo de su desarrollo. Se irán presentando diferentes secciones que concuerdan con el orden cronológico seguido en el proyecto y muestran la justificación de las decisiones tomadas.
 
 \section{Propuesta del Proyecto}
 
 La propuesta de este proyecto consistía en crear un modelo clasificador integrado en una iterfaz para el reconocimiento de materiales que se dividía en las siguientes 3 tareas principales:
 
 \begin{itemize}
-\item Montaje del sensor: Puesta en funcionamiento del radar junto con sus componentes. Siendo capaces de extraer las características del las lecturas realizadas.
+\item[•] Montaje del sensor: Puesta en funcionamiento del radar junto con sus componentes. Siendo capaces de extraer las características del las lecturas realizadas.
 
-\item Lecturas de los materiales: Conseguir información a través de las características de los materiales para crear un modelo capaz de diferenciar materiales como son el cartón, el plástico y el cristal.
+\item[•] Lecturas de los materiales: Conseguir información a través de las características de los materiales para crear un modelo capaz de diferenciar materiales como son el cartón, el plástico y el cristal.
 
-\item Clasificador de materiales: La tarea principal pedida para realizar este proyecto era la de construir un clasificador de materiales a través de un radar de 60GHz devolviendo la identificación correcta del material.
+\item[•] Clasificador de materiales: La tarea principal pedida para realizar este proyecto era la de construir un clasificador de materiales a través de un radar de 60GHz devolviendo la identificación correcta del material.
 \end{itemize}
 
 \section{Metodologias aplicadas}
@@ -24,21 +23,22 @@ Debido a que el proyecto se comenzó en abril de 2021 en la modalidad presencial
 Las pautas que se han seguido durante el proyecto han sido:
 
 \begin{itemize}
-\item Desarrollo incremental del proyecto mediante sprints. \item Spints de 1 a 2 semanas. 
+\item Desarrollo incremental del proyecto mediante sprints. 
+\item Spints de 1 a 2 semanas. 
 \item Al finalizar el sprint, reuniones para evaluar el proyecto y plantear los pasos a seguir en el siguiente sprint.
 \end{itemize}
 
 \section{Formación}
 Durante las primeras fases del proyecto, fue necesario aprender el funcionamiento del Radar Sensor. Para esto, se consultó la documentación facilitada por Acconeer.
 
-A parte de esto se investigó información adicional sobre el uso de estos radares así como ejemplos de su uso, la información extraída de la red fue escasa o casi nula. únicamente fue valida la documentación facilitada por Acconeer\footnote{https://acconeer-python-exploration.readthedocs.io/} en el repositorio de GitHub.
+A parte de esto se investigó información adicional sobre el uso de estos radares, así como ejemplos de su uso, la información extraída de la red fue escasa o casi nula. únicamente fue valida la documentación facilitada por Acconeer\footnote{https://acconeer-python-exploration.readthedocs.io/} en el repositorio de GitHub.
 
 \section{Montaje del radar}
 
 En esta sección se indican tanto las necesidades hardware como software para el montaje y puesta en funcionamiento del radar.
 
 \subsection{Necesidades hardware}
-Los creadores de Acconner crearon un video (\href{https://www.youtube.com/watch?v=0uKrm_RAV_c}{EVK 2}) con las instrucciones del montaje del sensor. En el se explica el montaje de los diferentes componentes a la Raspberry Pi 4 (a partir de ahora "Raspberry"). 
+Los creadores de Acconner crearon un video (\href{https://www.youtube.com/watch?v=0uKrm_RAV_c}{EVK 2}) con las instrucciones del montaje del sensor. En él se explica el montaje de los diferentes componentes a la Raspberry Pi 4.
 
 En un comienzo será necesario disponer de: 
 \begin{itemize}
@@ -55,7 +55,7 @@ En un comienzo será necesario disponer de:
 
 $$FOTO$$
 
-La placa se conecta a la raspi por el puerto GPIO quedando por encima del resto.
+La placa se conecta a la Raspberry por el puerto GPIO quedando por encima del resto.
 
 $$FOTO$$
 
@@ -150,8 +150,8 @@ Para elegir el modelo a usar se tuvieron que tener en cuenta diferentes factores
 
 Se realizaron pruebas con los diferentes modelos (KNN, RamdonFores y Logistic Regression) y al final opté por usar el modelo RandomFores debido a que el promedio hace que este modelo sea mejor que un solo árbol de decisión, por lo que mejora su precisión y reduce el sobreajuste.
 
-La Regresiñon Logistica obtuvo un bajo porcentaje de coincidencia un 59,33\%
+La Regresión Logística obtuvo un bajo porcentaje de coincidencia un 59,33\%
 
-\imagen{logisticregresion}{Regresión Logistica}
+\imagen{logisticregresion}{Regresión Logística}
 
 
