@@ -1,27 +1,275 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
+En este anexo se detalla la estructura de directorios del proyecto y los conceptos necesarios para la programación del sistema así como para su instalación y ejecución. 
 
 \section{Estructura de directorios}
+\begin{itemize}
+	\tightlist
+	\item[•] \textbf{/}: raíz el proyecto, fichero de licencia, modelo clasificador \textit{k-NN}, \textit{interfaz RadarWave.py}, las librerias necesarias \textit{requeriments.txt} y archivo comprimido \textit{$RadarWave\_v1.0.zip$} con la primera versión de la aplicación.
+	\item[•] \textbf{/acconeer-python-exploration/}: esta carpeta incluye la librería e interfaz de \textit{Acconeer}.
+	\item[•] \textbf{/iconos/}: contiene los iconos de la interfaz.
+	\item[•] \textbf{/Latex/}: documentación del proyecto memoria y anexos.
+	\item[•] \textbf{/Latex/img/}: imágenes utilizadas en la documentación.
+	\item[•] \textbf{/Latex/ltx/}: documentación en formato \LaTeX.
+	\item[•] \textbf{/scripts/}: contiene los ficheros que se han utilizado para leer los materiales, crear las particiones de datos, los conjuntos de entrenamiento y test, todos los modelos clasificadores utilizados en el proyecto.
+	\item[•] \textbf{/scripts/iconos/}: contiene los iconos de la interfaz.
+	\item[•] \textbf{/scripts/Materiales/}: contiene todas las lecturas de los materiales.
+	\item[•] \textbf{/scripts/Materiales/Fotos/}: fotos que identifican los objetos leídos.
+\end{itemize}
 
 \section{Manual del programador}
 
-\subsection{Instalación Rasbian OS}
-Hay que seguir los siguientes pasos para la instalación del sistema operativo:
-\begin{enumerate}
-\item Insertar la tarjeta SD en la PC. Cuando se le solicite formatear la tarjeta, ignoramos o cancelamos.
-\item Abrir Etcher.
-\item Arrastrar la imagen flash de Raspbian, comprimida, a Etcher.
-\item Nos aseguramos de que la tarjeta SD sea el destino seleccionado.
-\item Hacemos clic en flash. Comenzará a parpadear y tardará unos minutos. Cuando termine de parpadear, Etcher se puede cerrar.
-\item Sacar la tarjeta SD de la PC e insertar en la Raspberry Pi.
+Los entornos para el desarrollo del código durante la realización de proyecto han sido las siguientes:
+\begin{itemize}
+\item \textit{Jupyter}
+\item \textit{Colab}
+\end{itemize}
 
-\item Conectamos el monitor con el cable HDMI.
-\item Conectamos la fuente de alimentación a la Raspberry Pi.
-\item El arranque de la Raspberry Pi se iniciará automáticamente.
-    
-\end{enumerate}
+\subsection{Entorno de programación}
+El proyecto se ha desarrollado en los cuadernos de \textit{Jupyter Notebook} y \textit{Colab} mediante código y librerías \textit{Python}.
+\imagen{jupyter}{Entorno Jupyter.}
+
+Se ha decidido utilizar este entorno debido a que \textit{Jupyter} o \textit{Colab} siempre será 100\% de código abierto, de uso gratuito para todos. Es un entorno informático interactivo basado en la web para crear documentos de \textit{Jupyter Notebook}.
+
+Además este entorno ya resultaba familiar debido a su uso en la Universidad de Burgos.
+
+\section{Desarrollo del código}
+
+En este apartado se muestra el desarrollo creado para la aplicación.
+
+\subsection{Transformación de las características}
+
+Una vez extraídas las características de los materiales se han realizado una serie de transformaciones en las lecturas, estas devuelven datos mostrados como números reales.
+
+Se ha creado una función que a partir del nombre del fichero \textit{npy} cargue los datos, los redimensione y los devuelva.
+
+Función $get\_data$ devuelve un array de 2 dimensiones (2D) al que llamaremos $datos\_bruto$.  
+
+Los test de esta función son: 
+\begin{itemize}
+\item Comprobar que devuelve un array 2D
+\item Comprobar que la segunda dimensión tiene tamaño 291
+\item Comprobar que la matriz tiene una parte real y que tiene una parte imaginaria
+\end{itemize}
+
+\imagen{get_data}{Función $get\_data$}
+
+Una función \textit{$get\_modulo\_fase$} que a partir del array 2D anterior, obtenga un array 2D, con el doble de anchura. Por ejemplo, si \textit{$datos\_bruto$} es de $300 x 291$, $modulo\_fase$ será de $600 x 291$. 
+
+Esa función obtendrá el módulo del número complejo y la fase del número complejo. El módulo será una matriz de $300 x 291$ y la fase también.  Será necesario concatenarlas "horizontalmente". 
+
+\imagen{get_modulofase}{Función $get\_modulo\_fase$}
+
+
+A partir de los datos del modulo y la fase se obtiene la media. La comprobación sería que devuelva un array de 1 dimensión de tamaño $582 (291 x 2)$.
+
+\imagen{get_media}{Función $get\_media$}
+
+Finalmente se debían crear las particiones para el entrenamiento del modelo. Para ello se crea una función encargada de obtener las siguientes particiones separadas en entrenamiento ($part\_train$) y test ($part\_test$).
+
+\begin{verbatim}
+Partición 1
+Entrenamiento: Carton Vista2-Vista10 + Plastico Vista2-Vista10 
+				+ Cristal Vista2-Vista10
+Test: Carton Vista1 + Plastico Vista1 + Cristal Vista1
+
+Partición 2
+Entrenamiento: Carton Vista1,Vista3-Vista10 + Plastico Vista1,Vista3-Vista10 
+				+ Cristal Vista1,Vista3-Vista10
+Test: Carton Vista2 + Plastico Vista2 + Cristal Vista2
+
+...
+
+Partición 10
+Entrenamiento: Carton Vista1-Vista9 + Plastico Vista1-Vista9 
+				+ Cristal Vista1-Vista9
+Test: Carton Vista10 + Plastico Vista10 + Cristal Vista10
+
+\end{verbatim}
+
+Testamos esta función:
+\begin{itemize}
+\item Sumando el número de filas de test1 y train1 sea igual que sumando el número de filas de test2 y train2.
+\item Se comprueba el tamaño de varias vistas igual a 582.
+\end{itemize}
+  
+
+Dentro del repositorio de GitHub del proyecto hay un fichero llamado \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/GenerarParticiones.ipynb}{\textit{GenerarParticiones.ipynb}} que incluye el desarrollo de todas estas funciones así como comentarios interesantes.
+
+Una vez obtenidos los datos de las lecturas se comienza con la creación de varios modelos clasificadores, estos son:
+\begin{itemize}
+\item \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/RandomForest.ipynb}{\textit{Random Forest}}
+\item \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/KNN.ipynb}{\textit{KNN}}
+\item \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/GridSearchCV\%20(SVM).ipynb}{\textit{SVM}}
+\item \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/Auto-Sklearn.ipynb}{\textit{auto-sklearn}}
+\item \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/TabPFN.ipynb}{\textit{TabPFN}}
+\end{itemize}
+
+Se ha decidido optar por \textit{KNN} para generar el modelo que utilizará la interfaz desarrollada. Esta decisión se debe a la falta de compatibilidad de \textit{auto-sklearn} y \textit{TabPFN} (basado en \textit{auto-sklearn}) con el sistema operativo \textit{Windows}. Actualmente \textit{auto-sklearn} es compatible con sistemas como \textit{Linux} y el desarrollo creado se quiere utilizar tanto en \textit{Windows} como en \textit{Linux}.
+
+Finalmente, con el clasificador escogido creamos el modelo que emplea la aplicación a la hora de clasificar nuevos objetos leídos por el radar.
+
+\subsection{Interfaz}
+
+El desarrollo del código de la interfaz lo podemos encontrar en el cuaderno \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/RadarWave.ipynb}{\textit{RadarWave.ipynb}}.
+
+Para la generación de la interfaz se ha utilizado la librería \textit{Tkinter}, es una librería dedicada generalmente para el desarrollo de interfaces.
+
+La aplicación generada para el proyecto ha sido llamada \textit{\textbf{RadarWave}}, debe su nombre a las ondas\footnote{Onda en inglés es wave.} generadas por los radares.
+
+Para el desarrollo del código se ha decidido utilizar el patrón de diseño \textit{Facade}\cite{Facade} o \textit{Fachada}, utilizado habitualmente en aplicaciones escritas en \textit{Python}. Es de especial utilidad al trabajar con bibliotecas y \textit{API}\footnote{Interfaz de programación de aplicaciones.} complejas.
+
+
+En la aplicación desarrollada se ha decidido crear una clase fachada y dos clases subsistemas.
+Las clases son:
+\begin{itemize}
+\item[•] \textbf{FacadeRadarWave}: Clase \textit{Fachada} que implementa la interfaz de la aplicación.
+\item[•] \textbf{TratamientoDatos}: Clase que comprende las funciones para el tratamiento de datos escogidos para su clasificación.
+\item[•] \textbf{Verificacion}: Clase empleada para realizar verificaciones básicas en el inicio de la aplicación.
+\end{itemize}
+
+\textbf{Se ha decidido no incorporar el desarrollo del código de la interfaz en los anexos, se cree que es más comprensible su lectura y razonamiento dentro del cuaderno de \textit{Jupyter} \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/RadarWave.ipynb}{\textit{RadarWave.ipynb}}.}
 
 \section{Compilación, instalación y ejecución del proyecto}
+\subsection{Compilación}
+Al ser una aplicación \textit{beta} el archivo donde se encuentra desarrollada la interfaz \textit{RadarWave.ipynb} se ha exportado en formato \textit{.py} de \textit{Python}. Además se ha creado un archivo llamado \textit{requirements.txt} que será utilizado para instalar las librerías necesarias en nuestro equipo.
+
+Todos los archivos necesarios se han comprimido para su exportación en el fichero \textit{$RadarWave\_1.0.zip$}
+
+\subsection{Instalación en \textit{Windows}}
+
+La siguiente instalación se ha realizado en un equipo con las siguientes características:
+\begin{itemize}
+\item[•] \textbf{SISTEMA OPERATIVO:} \textit{Microsoft Windows 10 Pro}
+\item[•] \textbf{PROCESADOR:} \textit{Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz}
+\item[•] \textbf{MEMORIA RAM:} 12 GB
+\item[•] \textbf{TARJETA GRÁFICA:} \textit{NVIDIA GeForce 930M}
+\end{itemize}
+
+En realidad la aplicación \textit{RadarWave} no hace falta que se instale, pero si necesitamos instalar las librerías utilizadas por el programa.
+
+Antes de proceder con la instalación de las librerías vamos a verificar si tenemos instalado \textit{Python}, de no ser así procedemos a su instalación.
+\begin{itemize}
+\item Descargamos el instalador desde la web de \href{https://www.python.org/downloads/}{\textit{Python}}.
+\item Ejecutamos el archivo descargado.
+\item En la pantalla de de inicio de la instalación marcamos la opción de añadir \textit{Python} al \textit{PATH}, si no luego se tendrá que hacer manualmente.
+\item Pulsamos en instalar ahora (\textit{install now})
+
+\imagen{path}{Instalación de \textit{Python}.}
+
+\end{itemize}
+
+
+Una vez instalado \textit{Python} lo primero que haremos será descargar y descomprimir el fichero \textit{$RadarWave\_v1.0.zip$}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip}
+
+Procedemos a instalar las librerías, están incluidas en el archivo \textit{requirements.txt}. Primero instalamos \textit{setuptools} que facilita el empaquetado de proyectos de \textit{Python} y a continuación el resto, para ello debemos abrir la consola y lanzar las siguientes instrucciones.
+
+\begin{verbatim}
+python -m pip install -U --user setuptools wheel
+python -m pip install -U --user -r requirements.txt
+\end{verbatim}
+
+\imagen{requirements}{Instalar librerías.}
+
+Finalmente se debe instalar la librería de \textit{Acconeer}, para ello descargamos del repositorio del TFG la carpeta \href{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}{\textit{acconer-python-exploration}}. Una vez descargada abrimos el terminal dentro de la carpeta y ejecutamos la siguiente orden.\cite{Acconeer2021}
+
+\begin{verbatim}
+python -m pip install -U --user .
+\end{verbatim}
+
+\imagen{instalar_libacconer}{Instalar acconeer.}
+
+Una vez instaladas las librerías procedemos a ejecutar el programa haciendo doble clic en el fichero \textit{RadarWave.py} donde está el programa.
+
+Programa ejecutado y probado en \textit{Windows}:
+
+\imagen{radarwaveWindows}{\textit{RadarWave} en \textit{Windows}.}
+
+\subsection{Instalación en \textit{Linux}}
+
+La siguiente instalación se ha realizado en un equipo virtualizado en \textit{Oracle VM VirtualBox 6.1} con las siguientes características:
+\begin{itemize}
+\item[•] \textbf{SISTEMA OPERATIVO:} \textit{Ubuntu 22.04 LTS}
+\item[•] \textbf{PROCESADOR:} \textit{Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz}
+\item[•] \textbf{MEMORIA RAM:} 4 GB
+\end{itemize}
+
+En realidad la aplicación \textit{RadarWave} no hace falta que se instale, pero si necesitamos instalar las librerías utilizadas por el programa.
+
+El sistema operativo que utilizamos es \textit{Ubuntu}, una distribución de {Linux}, por lo que \textit{Python} está integrado por defecto y no hace falta su instalación. Se recomienda tener actualizado \textit{Python} a la última versión.
+
+Antes de instalar las librerías necesarias instalamos \textit{pip}, es un sistema de gestión de paquetes que nos ayuda a instalar las librerías, y \textit{setuptools}, facilita el empaquetado de proyectos de \textit{Python}.
+
+\begin{verbatim}
+sudo apt install python3-pip
+pip3 install setuptools-rust
+\end{verbatim}
+
+Una vez terminada la instalación procedemos a descargar y descomprimir el fichero \textit{$RadarWave\_v1.0.zip$}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip}
+
+A continuación se debe instalar las librerías que usa la interfaz desarrollada. Indicar que para ejecutar el siguiente comando nos debemos situar en la dirección o \textit{PATH} donde se encuentra el archivo \textit{requirements.txt}, lo encontramos dentro del fichero que acabamos de descomprimir.
+
+El comando sería el siguiente:
+\begin{verbatim}
+pip3 install -r requirements.txt
+\end{verbatim}
+
+Si existiera algún problema al instalar la librería de \textit{Tkinter} (tk) se deben lanzar los siguientes comandos:
+\begin{verbatim}
+sudo apt-get install python3-tk
+sudo apt-get install python3-pil python3-pil.imagetk
+\end{verbatim}
+
+Finalmente se debe instalar la librería de \textit{Acconeer}, para ello descargamos del repositorio del TFG la carpeta \href{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}{\textit{acconer-python-exploration}}. Una vez descargada abrimos el terminal dentro de la carpeta y ejecutamos la siguiente orden.
+
+\begin{verbatim}
+python3 setup.py install
+\end{verbatim}
+
+Si queremos ejecutar \textit{RadarWave} en \textit{Ubuntu} deber ser lanzando el siguiente comando en la misma ruta del archivo \textit{RadarWave.py}.
+
+\begin{verbatim}
+python3 RadarWave.py
+\end{verbatim}
+
+Programa ejecutado y probado en \textit{Ubuntu}:
+
+\imagen{radarwaveUbuntu}{\textit{RadarWave} en \textit{Ubuntu}.}
 
 \section{Pruebas del sistema}
+Durante el desarrollo del código del programa se fueron implementando un conjunto de pruebas para comprobar el correcto tratamiento de los datos de entrenamiento.
+
+Estas pruebas las podemos encontrar en el fichero \textit{GenerarParticiones.ipynb}, aquí se crearon varias pruebas para comprobar que los resultados eran los correctos. En la sección \textbf{\textit{Desarrollo del código}} del anexo actual hemos hablado de las pruebas o test que se han formulado.
+
+Los test realizados ha sido:
+
+\begin{verbatim}
+#comprobar que devuelve un array 2D
+assert(len(get_data('Materiales\C01_V01.npy').shape) == 2) 
+
+#comprobar que la segunda dimensión tiene tamaño 291
+assert(get_data('Materiales\C01_V01.npy').shape[1] == 291) 
+
+#comprobar que la matriz tiene una parte real
+assert((get_data('Materiales\C01_V01.npy').real.mean) != None) 
+
+#comprobar que la matriz tiene una parte imaginaria
+assert((get_data('Materiales\C01_V01.npy').imag.mean) != None) 
+
+assert(get_media(modulo_fase).shape[0] == 582) #Dimensión de tamaño = 582
+
+assert(len(get_media(modulo_fase).shape) == 1) #Array de 1 dimensión
+
+#Train1 60 + Test1 30 = Train2 60 + Test2 30
+assert(len(train[0]) + len(test[0])) == (len(train[1]) + len(test[1]))
+ 
+#Train1 60 + Test1 30 = Train10 60 + Test10 30
+assert(len(train[0]) + len(test[0])) == (len(train[9]) + len(test[9]))
+
+#582 son las características de una vista
+assert(len(train[0][0]) == 582)
+ 
+#Las vistas tienen todas un tamaño de 582 (291 x 2)(modulo x fase)
+assert(len(train[0][0]) == len(train[0][9]) == len(test[5][7])) 
+\end{verbatim}

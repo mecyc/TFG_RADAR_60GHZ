@@ -1,149 +1,119 @@
 \capitulo{3}{Conceptos teóricos}
 
-Para poder construir un modelo capaz de capturar con precisión las características distintivas en cuanto a las superficies objetivo, es necesario comprender el origen y la estructura de la señal recibida. En este apartado se introducen algunos conceptos fundamentales del sistema de radar.
+Para poder construir un modelo capaz de capturar con precisión las características ofrecidas del resultado de leer cada objeto, es necesario comprender el origen y la estructura de la señal recibida. En este apartado se introducen algunos conceptos fundamentales del sistema de radar.
 
 \section{Radar}
 
-El radar o mejor conocido por su acrónimo del inglés, radio detecting and ranging, se describe como la detección y localización por radio, el cual es un sistema electrónico el cual emplea radiaciones electromagnéticas, las cuales son reflejadas por un objeto para así poder determinar características del objeto como son su localización, la distancia a la que se encuentra y su velocidad, en dado caso que se encuentre en desplazamiento \cite{AlonsoCerpa}.
+El radar o mejor conocido por su acrónimo del inglés, \textit{radio detecting and ranging}, es un sistema electrónico que puede emitir y recibir radiación en un cierto rango del espectro electromagnético, y cuyo procesamiento permite la estimación de distancias, altitudes, direcciones y velocidades de objetos. El sistema de radar tiene su uso muy extendido en los campos de la meteorología, el control del tráfico aéreo y terrestre y múltiples usos militares. \cite{AlonsoCerpa}.
 
-Durante el desarrollo tecnológico basado en la postulación de las teorías generadas sobre las ondas electromagnéticas se han desarrollado múltiples avances tecnológicos los cuales han hecho posible que en la actualidad se puedan emplear los radares en diferentes y diversas áreas con seguridad y eficiencia. 
-
-Los constantes avances tecnológicos en el desarrollo de materiales y su implementación en los circuitos integrados, junto con el desarrollo de la informática, son factores importantes los cuales han convertido a los sistemas de radares en instrumentos de bajo tamaño con una precisión y calidad. 
+Se han desarrollado múltiples avances tecnológicos los cuales han hecho posible que en la actualidad se puedan emplear los radares en diferentes y diversas áreas con seguridad y eficiencia. Los constantes avances tecnológicos en el desarrollo de materiales y su implementación en los circuitos integrados, junto con el desarrollo de la informática, son factores importantes que han convertido a los sistemas de radares en instrumentos de bajo tamaño con una gran precisión y calidad. 
 
 \subsection{Principio de funcionamiento del Radar}
 
-El radar es un sistema de teledetección activa la cual emite ondas de microondas, donde el valor de las frecuencias en donde están comprendidos los cuales tienen diferentes valores los cuales van entre 1 GHz y 100 GHz, estos valores también se pueden considerar como longitudes de onda, las cuales tienen valores de entre 3 mm y 30 cm \cite{HerreraG2009}. 
+El radar es un sistema de teledetección activa\footnote{Proceso de teledetección que funciona con su propia fuente de emisión o luz.} que emite ondas de microondas, con frecuencias comprendidas entre 1 GHz y 100 GHz. Estos valores también se pueden considerar como longitudes de onda con valores entre los 3 mm y 30 cm \cite{HerreraG2009}. 
 
-Las ondas de microondas tienen diferentes ventajas, entre las cuales se puede considerar que son capaces de atravesar los cúmulos de nubes, además de poder atravesar también la lluvia, otra ventaja es que permiten trabajar en condiciones de oscuridad debido a que no dependen de la iluminación solar o artificial, otra ventaja es que pueden penetrar con ciertas limitaciones las estructuras vegetales, la nieve y el suelo, además de poder tener la ventaja de proporcionar una alta sensibilidad para poder medir características como la distancia, la rugosidad, la humedad, entre otras características de los materiales. 
+Las ondas de microondas tienen diferentes ventajas:
+\begin{itemize}
+\item Son capaces de atravesar los cúmulos de nubes, la lluvia, la nieve.
+\item Permiten trabajar en condiciones de oscuridad debido a que no dependen de la iluminación solar o artificial.
+\item Miden características de los materiales como la rugosidad y la humedad, entre otras características.
+\end{itemize} 
 
-Los sistemas radar de apertura sintética, también conocidos como SAR, cuentan con un sensor radar el cual es capaz de emitir un pulso de ondas de microondas dirigida hacia la superficie del terreno u objeto, el cual en cierto momento retorna en dirección al sistema radar de apertura sintética que se encuentra ubicado en un satélite, donde la información conseguida es medida por el sensor radar. 
+Los sistemas radar de apertura sintética, también conocidos como SAR, cuentan con un sensor radar capaz de emitir un pulso de ondas de microondas dirigida hacia la superficie del terreno u objeto. En cierto momento ese pulso retorna en dirección al sistema SAR que se encuentra ubicado en un satélite donde la información conseguida es medida por el sensor radar. 
 
-Los pulsos empleados por el sistema radar de apertura sintética los cuales típicamente poseen longitudes de onda las cuales pueden variar desde los 3 cm de la banda X, hasta los 24 cm de la banda L, por lo que cuanto mayor sea la longitud de onda, mayor será su capacidad de penetración en zonas vegetadas, más sin embargo habría que considerar que será peor su resolución espacial.
+Los pulsos empleados por el sistema SAR, típicamente poseen longitudes de onda que pueden variar desde los 3 cm de la banda \textit{X}, hasta los 24 cm de la banda \textit{L}, por lo que cuanto mayor sea la longitud de onda, mayor será su capacidad de penetración en zonas vegetadas, sin embargo, habría que considerar que será peor su resolución espacial.
 
-Los sistemas radar de apertura sintética pueden ser transportados mediante un satélite, un avión o permanecer en una plataforma terrestre, en donde se emiten y reciben la señal del pulso de microondas emitido por el sensor radar, el cual está generando imágenes complejas de alta resolución espacial de la superficie del terreno a las cuales se les conoce como imágenes SAR. 
-Podrían mencionarse diferentes casos en los cuales se generan imágenes complejas de alta resolución espacial como por ejemplo el satélite ERS-1/2, junto con él satélite ENVISAT, los cuales pertenecen a la Agencia Espacial Europea en estos satélites existe un sensor el cual emite ondas en la banda C, esta onda tiene una longitud de onda de 6 cm, con la cual es posible generar imágenes SAR, las cuales pueden llegar a tener una resolución espacial de 4 m x 20 m. 
+Los sistemas SAR pueden ser transportados mediante un satélite, un avión o permanecer en una plataforma terrestre, en donde se emiten y reciben la señal del pulso de microondas emitido por el sensor radar, generando imágenes complejas de alta resolución espacial de la superficie del terreno.
 
-Otro caso es el que encontramos en el satélite TERRASAR-X donde las ondas de microondas generadas pertenecen a la banda X, pudiendo generar imágenes SAR de 1 m x 3 m de resolución, además de que las imágenes tipo SAR, adquiridas por diferentes satélites los cuales trabajan en la banda C, las imágenes pueden llegar a tener un tamaño de 100 km x 100 km con una excelente resolución espacial, a cuál pude ser de de 4 m x 20 m para cada píxel. 
+Podrían mencionarse diferentes casos en los cuales se generan imágenes complejas de alta resolución espacial, por ejemplo:
+\begin{itemize}
+\item El satélite \textit{ERS-1/2} \cite{Wolff2022Dec} junto con él satélite \textit{ENVISAT} (pertenecientes a la Agencia Espacial Europea) poseen un sensor que emite ondas en la banda \textit{C}, esta onda tiene una longitud de onda de 6 cm, que generan imágenes SAR, éstas pueden llegar a tener una resolución espacial de $ 4 m \times 20 m$.
+\item El satélite \textit{TERRASAR X} \cite{TerraSAR} es otro ejemplo de sistema SAR, en le que las ondas de microondas son generadas en la denominada \textit{banda X}. Permite obtener imágenes de resoluciones de $1 \times 3 m$.
+\end{itemize}
 
-En las imágenes tipo SAR se puede considerar que cada píxel es representado con un formato de número complejo el cual contiene un valor de amplitud, junto con otro valor de fase, donde el valor de la amplitud está directamente relacionado con el coeficiente de respuesta el cual se generó con la información de la superficie del terreno dirigido a la señal de respuesta, esta señal también es ubicada como dispersión, además de que fase también conocida como $\varphi$, puede contener información sobre la distancia, la cual es recorrida por la señal, que inicia desde el sensor hasta la superficie del terreno, donde son imprescindibles la longitud de onda electromagnética $\lambda$ y la distancia desde el satélite a la superficie del terreno R.
 
-En la obtención de imágenes SAR una de las partes más importantes del radar es el emisor, el cual es un instrumento que produce la radiación electromagnética, donde la toda la energía emitida debe concentrarse en otra parte del radar la esta está conformada por un único lóbulo también conocido como principal, aunque en realidad existen pequeños lóbulos secundarios a su alrededor \cite{RigoRibas2004}.
+En la obtención de imágenes SAR una de las partes más importantes del radar es el emisor (instrumento que produce la radiación electromagnética). Se puede considerar que cada píxel es representado con un formato de número complejo que contiene un valor de amplitud, junto con otro valor de fase. El valor de la amplitud está directamente relacionado con el coeficiente de respuesta generado con la información de la superficie del terreno dirigido a la señal de respuesta\cite{RigoRibas2004}.
 
 \subsection{Tipos de radar}	
 
-En el mercado y de acuerdo a su forma de operar existen diferentes tipos de radares los cuales pueden operar de modo primario o de modo secundario, considerando que todos los radares tienen la misma base de operabilidad ya que todos los radares tienen en común la capacidad de poder transmitir una señal, pudiendo generar la evaluación mediante diferentes técnicas de procesamiento de las señales recibidas para así poder obtener el parámetro buscado \cite{AcostaOsorio2014Mar}. 
+En el mercado y de acuerdo a su forma de operar existen diferentes tipos de radares. Estos pueden operar de modo primario o de modo secundario, considerando que todos los radares tienen la misma base de operabilidad ya que todos los radares tienen en común la capacidad de poder transmitir una señal, pudiendo generar la evaluación mediante diferentes técnicas de procesamiento de las señales recibidas para así poder obtener el parámetro buscado \cite{AcostaOsorio2014Mar}. 
 
-Los sistemas de radar por lo general se encuentran seccionados en diferentes categorías de operación las cuales están basada en los diferentes métodos de transmisión de la señal, por lo general estos métodos corresponden a la transmisión de pulsos, la onda continua y la frecuencia modulada, en donde el método de transmisión de pulsos es el método más común para implementarse en la transmisión de la energía del radar. 
+Los sistemas de radar por lo general se encuentran seccionados en diferentes categorías de operación las cuales están basadas en los diferentes métodos de transmisión de la señal. Por lo general estos métodos corresponden a la transmisión de pulsos, la onda continua y la frecuencia modulada. El método de transmisión de pulsos es el método más común para implementarse en la transmisión de la energía del radar. 
 
-El método de onda continua se basa en el principio del El Efecto Doppler, para poder generar la detección de la presencia y velocidad de un objeto en movimiento en dirección al radar o en dirección opuesta al radar, debido a que el sistema no puede determinar el rango, tampoco logra diferencia entre objetos y obstáculos que se encuentran en la misma dirección, los cuales están viajando a la misma velocidad, este método en los radares por lo general es empleado en los sistemas de control de fuego o disparo en el campo militar, para poder rastrear objetos los cuales presentan movimientos rápidos en un rango cercano.
+El método de onda continua se basa en el principio del \textit{«El Efecto Doppler»}, este principio es capaz de generar la detección de la presencia y velocidad de un objeto en movimiento en dirección al radar o en dirección opuesta al radar. Suele ser empleado en los sistemas de control de fuego o disparo en el campo militar, para poder rastrear objetos que presentan movimientos rápidos en un rango cercano.
+
 
 \section{Teledetección}
 
-La teledetección, también conocida como detección a distancia o detección remota, es la técnica que permite recopilar información a distancia de los objetos sin que exista un contacto físico, para lo cual es necesario tener una interacción entre los objetos a estudiar y un sensor situado en una plataforma.
+La teledetección, también conocida como detección a distancia o detección remota, es la técnica que permite recopilar información a distancia de los objetos sin que exista un contacto físico, para ello es necesario tener una interacción entre los objetos a estudiar y un sensor situado en una plataforma.
 
-El radar es un sensor activo de microondas el cual se desplaza a bordo de una plataforma explorando la tierra, por lo general se encuentra emitiendo pulsos de energía con dirección a la superficie terrestre, pudiendo almacenar las señales obtenidas de retorno \cite{Marchionni2014}. 
+En la teledetección el radar es un sensor activo de microondas desplazado a bordo de una plataforma explorando la tierra, por lo general se encuentra emitiendo pulsos de energía con dirección a la superficie terrestre, pudiendo almacenar las señales obtenidas de retorno \cite{Marchionni2014}. 
 
-Debido a que tienen que trabajar con haces de energía emitidos artificialmente, los sistemas de radar permiten controlar las condiciones de la adquisición, basadas en la frecuencia, la polarización y la geometría de la observación, ya pueden recolectar datos en cualquier condición ya sea de día o de noche, el realizar este tipo de trabajo resulta muy ventajoso en las regiones polares, lugares donde los prolongados períodos de oscuridad dificultan la adquisición de imágenes convencionales. 
+Debido a que tienen que trabajar con haces de energía emitidos artificialmente, los sistemas de radar permiten controlar las condiciones de la adquisición basadas en la frecuencia, la polarización y la geometría de la observación. Pueden recolectar datos en cualquier condición ya sea de día o de noche, el realizar este tipo de trabajo resulta muy ventajoso en las regiones polares, lugares donde los prolongados períodos de oscuridad dificultan la adquisición de imágenes convencionales. 
 
-Por lo general un sistema de teledetección por RADAR (Radio Detection And Ranging) transmite diferentes pulsos de microondas los cuales van barriendo la superficie terrestre, las cuales reciben la porción de energía que es reflejada o retrodispersada, retornando de vuelta hacia el sensor del radar.
+Un sistema de teledetección por radar transmite diferentes pulsos de microondas que van barriendo la superficie terrestre, la porción de energía que es reflejada o retrodispersada retorna de vuelta hacia el sensor del radar. En el momento que el radar recibe la señal el sistema registra la intensidad de la señal de retorno conocida como radiación retrodispersada, donde el retardo en tiempo, entre la transmisión y recepción de cada pulso de energía, es el tiempo que se relaciona con la distancia de los objetos observados.
 
-Al momento de que el radar recibe la señal el sistema registra la intensidad de la señal de retorno conocida como radiación retrodispersada, donde el retardo en tiempo entre la transmisión y recepción de cada pulso de energía es el tiempo que se relaciona con la distancia de los objetos observados.
-La distancia a la cual debe estar situado un sensor para poder ser considerado remoto puede variar ya sea desde pocos decímetros hasta miles de kilómetros, ya que la teledetección es un flujo de radiación emitido por los objetos o materiales hacia un radar o sensor. 
+La distancia a la cual debe estar situado un sensor para poder ser considerado remoto puede variar ya sea desde pocos decímetros hasta miles de kilómetros.
 
-La teledetección es un flujo de radiación emitido por los objetos o materiales hacia un radar o sensor. El origen del flujo puede venir de:
+La teledetección es un flujo de radiación emitido por los objetos o materiales hacia un radar o sensor. El origen del flujo puede venir de distintas ubicaciones:
 
 \begin{itemize}
-\item[•] Radiación solar reflejada por los objetos - Teledetección pasiva
-\item[•] Radiación terrestre emitida por los objetos - Teledetección pasiva
-\item[•] Radiación emitida por el sensor y reflejada por los objetos (radar) - Teledetección activa
+\item[•] Radiación emitida por el sensor y reflejada por los objetos
+
+\item[•] Radiación terrestre emitida por los objetos 
+
+\item[•] Radiación solar reflejada por los objetos 
 \end{itemize}
 
-El grupo de datos adquiridos por medio de los diferentes procedimientos empleados en la Teledetección son generados desde plataformas como aviones o transbordadores espaciales, los cuales contienen por lo general tres tipos de información, la primera es la información espacial la cual es capaz de representar la organización de los elementos que constituyen la imagen en el espacio físico, el segundo tipo de información está caracterizada por contener información espectral la cual es posible caracteriza, de tal forma que se puede conducir a la obtención del conocimiento de la naturaleza en la superficie terrestre y el tercer tipo de información es una información de tipo temporal la cual permite generar la detección de los cambios producidos en la superficie del planeta Tierra, después del transcurso de determinado tiempo \cite{SacristanRomero}.
+El grupo de datos adquiridos por medio de los diferentes procedimientos empleados en la teledetección son generados desde plataformas como aviones o satélites, estos contienen por lo general tres tipos de información (espacial, espectral y temporal) \cite{SacristanRomero}.
 
-Por lo general los datos que son adquiridos a través de la Teledetección son caracterizados por algunas de las siguientes propiedades de los materiales los cuales requieren de la capacidad para obtener la información en base a los aspectos del medio natural los cuales pasan desapercibidos a nuestros sentidos, como son las ondas de radar, el infrarrojo de los satélites LANDSAT, entre otros.
+Una propiedad de los datos obtenidos de la teledetección es el poder permitir dar seguimiento al desarrollo de las enormes extensiones forestales existentes en la superficie de la tierra al tener una perspectiva general de las causas de los efectos que se producen debido a las grandes catástrofes. Como pueden ser las eternas sequías en las regiones desérticas del Sahara de África, en este caso es posible ubicar determinados fenómenos generados por la contaminación a gran escala afectando al cielo y el ambiente en el mar.
 
+Mediante la tecnología radar se pretende actualizar el conocimiento de las riquezas naturales nacionales e internacionales, ubicadas en las áreas agrícolas, áreas forestales, áreas hidrológicas, áreas mineras o cualquier áreas que represente una fuente de recursos para la humanidad \cite{Romero2007}.
 
-Por lo que se puede observar la experiencia natural que tiene el hombre la cual por lo general nula si se consideran los dominios espectrales, debido a que es imperceptible es por lo que se desarrollan visualizaciones las cuales tienen una determinada función y utilidad, las cuales están en conjunto con las fotografías aéreas, las cuales reciben el nombre de imágenes para así evitar generar confusión.
+De tal manera que la vigilancia debe ser constante para el medio ambiente, debido a que esta actividad podrá generar una importante reducción en el impacto de degradación causado por los humanos hasta este momento. Por lo que los datos obtenidos del análisis de teledetección se convierten en una importante fuente que genera información siendo un gran papel en el cumplimiento de los objetivos del cuidado del medio ambiente.
 
-Otra propiedad de los datos adquiridos es la generación de este tipo de informaciones las cuales son registradas por los sensores, las cuales son capaces de medir la cantidad de energía la cual es reflejada o emitida por medio de los objetos que se presentan en la naturaleza los cuales componen el paisaje, debido a que esta información es representada de forma numérica es como se da la capacidad de ser tratados en elementos matemáticos. 
-
-Pero al ser su existencia de extrema abundancia se ha optado por aplicar el uso de enormes ordenadores los cuales son capaces de aplicar métodos matemáticos que tienen la capacidad de tratar los datos, los cuales son demasiados actuales con una potencia superior para determinar una solución valida a la cantidad de datos registrados.
-
-Otra propiedad de los datos adquiridos es que la Teledetección es el poder permitir dar seguimiento al desarrollo de las enromes extensiones forestales las cuales existen en la superficie de la tierra, al poder tener una perspectiva en conjunto general de las causas de los efectos que se producen debido a las grandes catástrofes como pueden ser las eternas sequías en las regiones desérticas del Sahara de África, para en dado caso poder ubicar determinados fenómenos generados por la contaminación a gran escala afectando al cielo y el ambiente en el mar.
-
-Como el sol es una fuente de luz la cual emite radiación electromagnética en longitudes de onda los cuales van desde los 10-13 metros de los rayos gamma hasta los 105 metros de las ondas de radio largas, debido a que la radiación electromagnética solar, después de ser filtrada por la atmósfera, interacciona con la superficie terrestre por lo que es parcialmente reflejada en todas direcciones \cite{MartiCardona2011}. 
-
-Además, se conoce que todo cuerpo el cual está a una temperatura superior a 0º Kelvin emite radiación electromagnética dentro de las frecuencias dependientes de su temperatura superficial, en el caso de la Tierra la cual es una superficie con esas características, estas frecuencias se sitúan en la banda de infrarrojo térmico, que es entre 7 y 14 micrómetros de longitud de onda aproximadamente.
-
-Los sensores pasivos o también conocidos como ópticos miden en unidades de radiancia (W/m2/sterad) la energía electromagnética solar reflejada por la Tierra, además de medir la radiación térmica emitida por la Tierra en distintas bandas espectrales o en diferentes intervalos del espectro electromagnético.
-
-Donde la cantidad de radiación reflejada va a depender de las condiciones de iluminación presentes, más sin embrago la proporción entre la radiación incidente y reflejada, tienen una magnitud denominada reflectancia, la cual es una propiedad específica de la superficie reflectante.
-
-Es decir que la curva que representa la reflectancia de un material en función de la longitud de onda la cual recibe el nombre de espectro o también conocida como firma espectral del material, el cual constituye una característica identificativa del mismo material.
-
-Por otra parte, la teledetección activa dispone de su propia fuente de radiación de microondas para poder iluminar un objetivo, en donde lo que se mide es el reflejo de esa radiación sobre tal objetivo \cite{AcevoHerrera2011Apr}.
-
-Los sensores en la teledetección activa se pueden dividir principalmente en dos categorías las cuales se pueden separar en "con imagen" y en "sin imagen". Debido a que los sensores activos con imagen son basados en técnicas de radar también conocidas como Radio Detection And Ranging o de radar de apertura sintética (SAR) para poder generar imágenes en dos dimensiones. 
-
-Por otro lado los sensores activos sin imagen son los que incluyen los altímetros y escatómetros, por los cuales en la mayoría de los casos son dispositivos de perfil, los cuales toman medidas en una dimensión, lo cual es lo opuesto a la representación bidimensional de los sensores de imagen.
-
-Se llama teledetección pasiva a la técnica aplicada por los sensores que miden las variaciones de la energía procedente de los objetos sin intervenir en el campo natural, la cual se denomina teledetección activa a aquellos que generan un campo de energía artificial, utilizado para registrar y medir el efecto que en él producen los objetos, donde las características técnicas del sensor influyen en la calidad de los datos y  en la posibilidad de recibir información en distintas longitudes de onda.
-
-La preocupación generalizada de los habitantes del planeta debido a la falta de recursos naturales y falta de fuentes de energías, así como la generación de degradaciones las cuales han causado el ser humano en el medio ambiente a consecuencia de sus actividades, las cuales son en gran medida de carácter irracionales en contra de la naturaleza, lo cual ha generado en el mundo entero la necesidad de poder generar un mayor conocimiento de los espacios naturales dentro de los cuales se desarrolla la vida. 
-
-Ya que la adecuada programación de ciertas actividades las cuales se presentan en las circunstancias actuales son las que exigen que han de descansar en el poder generar una realización de un inventario más completo, en el cual se pretende actualizar el conocimiento de las riquezas naturales nacionales e internacionales, ubicadas en los rubros de las áreas agrícolas, áreas forestales, áreas hidrológicas, áreas mineras o cualquier áreas que represente una fuente de recursos para la humanidad \cite{Romero2007}.
-
-De tal manera que la vigilancia debe ser constante para el medio ambiente, debido a que esta actividad podrá generar una importante reducción en el impacto generado por los humanos en el medio ambiente hasta este momento, es por eso que los datos obtenidos del análisis de Teledetección se convierten en una importante fuente que genera información por lo que tiene un importante papel en el cumplimiento de los objetivos del cuidado del medio ambiente.
-
-Es posible centrar los análisis en el caso español, considerando que las acciones más imprescindibles deben ser enfocadas en la calidad del agua, otra acción seria la detección de incendios, debido a que el agua es una gran riqueza para la Península Ibérica, básicamente es necesaria para mantener la vida y el desarrollo del ser humano, por lo que, debido a que si su calidad de la vida se deteriora, afecta a todos de tal manera que sufriríamos las consecuencias, tanto los hombres, como los animales y también las plantas. 
-
-La Teledetección aplicada en los recursos naturales está basada en un sistema el cual es capaz de adquirir datos a distancia, la cual por lo general esta ubicada sobre la biósfera, la cual está basado en las propiedades de la radiación electromagnética, junto con su interacción con los materiales que se encuentran en la superficie terrestre, ya que todos los elementos que conforman la Naturaleza son capaces de generar una respuesta espectral propia, la cual se denomina “signatura espectral”.
-
-Por lo general la Teledetección es capaz de estudiar las variaciones espectrales, las variaciones espaciales, como las variaciones temporales de las ondas electromagnéticas, en donde se puede apreciar que las correlaciones existentes entre las diferentes variaciones, junto con las características de los variados materiales terrestres, donde su objetivo básico es el de generar la identificación de los materiales que existen en la superficie terrestre además de poder identificar ciertos fenómenos que en la naturaleza se generan por medio de su característica de espectra.
+En el caso español, considerando que las acciones más imprescindibles deben ser enfocadas en la calidad del agua debido a que el agua es una gran riqueza para la Península Ibérica, básicamente es necesaria para mantener la vida y el desarrollo del ser humano; otra acción importante sería la detección de incendios.
 
 La implementación de la teledetección impacta de forma positiva en la preservación y el mejoramiento de la calidad del agua de los ríos y embalses, debido a que el uso de estas técnicas permite vigilar su situación para poder actuar y manejar cualquier vertido contaminante que se llegara a producir \cite{Rosello2009}.
 
-Además, estas técnicas de teledetección sirven de apoyo en las diversas actividades de saneamiento, ya que además con los terremotos y la actividad volcánica se genera un gran potencial destructivo para el medio ambiente, ya que la actividad volcánica, al igual que la sísmica, son la manifestación de la liberación de energía acumulada en el interior del planeta tierra.
+Es por ello por lo que las técnicas de radar impactan positivamente en la generación de un pronóstico, obteniendo la detección y generando un monitoreo constante de posibles desastres naturales en las diferentes áreas del planeta; como la instalación de una estación de monitoreo de mareas por el \textit{Centro para Alarmas por Tsunamis en el Pacífico} conocido como PTWC (por sus siglas en inglés), además del \textit{Servicio Nacional de Estudios Territoriales} (SNET), la cual permite obtener información sobre el nivel del mar y los cambios que se originan en las costas del Pacífico. Es así como la obtención de información podría evitar daños por la generación de un tsunami en la región de este océano que podría afectar a Centroamérica.
 
-Por lo que los desprendimientos generados de flujos de lava, además de los fragmentos de roca incandescente, así como la presencia de gases tóxicos traen consecuencias como la destrucción de las infraestructuras existentes en los ecosistemas, generándose incendios, muerte de las plantas, asfixia de personas y animales, pudiendo ocasionar la interrupción del transporte, así como de la comunicación, sin olvidar la contaminación de las aguas.
+Todos los elementos existentes en la naturaleza cuentan con una respuesta espectral denominada \textit{signatura espectral}, esta es capaz de estudiar las variaciones espectrales, las variaciones espaciales y las variaciones temporales de las ondas electromagnéticas, poniendo de manifiesto las relaciones existentes entre las variaciones junto con las características que tienen los diferentes materiales terrestres. 
 
-De acuerdo con estudios existe la posibilidad de que al observarse un incremento en la comprensión de las condiciones de la corteza de la terrestre o en su interior se pueda permitir el generar un sistema de alerta temprano el cual se anticipe a tales potenciales cataclismos.
+Es por ello que su objetivo básico se centra en la identificación de los diferentes materiales de la tierra y los diferentes fenómenos que en ella se generan a través de su característica espectral. La teledetección como herramienta ofrece enormes posibilidades para la generación de avances en el conocimiento e interpretaciones de condiciones físicoambientales constituyendo una fuente de información y desempeñando un papel significativo en el campo del conocimiento geográfico \cite{Botana2019}. 
 
-Es por ello por lo que las técnicas de teledetección impactan positivamente en la generación de un pronóstico, obteniendo la detección, el generando un monitoreo constante de semejantes desastres naturales en las diferentes áreas del planeta. 
+En este sentido la teledetección se define como el proceso de análisis de la energía reflejada por los objetos, es decir es una técnica que puede aportar una información muy valiosa para distintos campos de intervención. 
 
-Las técnicas de teledetección impacta positivamente en la generación de alerta y monitoreos de diferentes fenómenos naturales, como la instalación de una estación de monitoreo de mareas por el Centro para Alarmas por Tsunamis en el Pacífico conocido como PTWC por sus siglas en inglés, además del Servicio Nacional de Estudios Territoriales (SNET), la cual permite obtener información sobre el nivel del mar y los cambios que se originen en las costas del Pacífico, es así como la obtención de información podría evitar daños por la generación de un Tsunami en la región de este océano la cual podría afectar a Centroamérica.
+\subsection{Tipos de teledetección}
 
-La estación de monitores está conformada por diferentes instrumentos especiales los cuales censan y recopilan la información cada dos minutos para después transmitirla cada hora vía satélite a las oficinas del PTWC, ubicadas en Hawai, en donde se recolecta y evalúan los datos proporcionados por los 28 países que realizan monitoreo de mareas, para poder diseminar boletines de alarma informativos de la ocurrencia de un sismo importante o la generación de un posible o confirmada de un tsunami.
+Se llama \textbf{teledetección pasiva} a la técnica aplicada por los sensores que miden las variaciones de la energía procedente de los objetos sin intervenir en el campo natural. 
 
-Como ya se expresó con anterioridad, la teledetección constituye en un sistema el cual fue desarrollado para la adquisición de datos, que se encuentra a cierta distancia, ubicados sobre la biósfera, en el cual está basado en las características de la radiación electromagnética junto con su interacción con los diferentes materiales de la superficie terrestre. 
+Los \textbf{sensores pasivos} o también conocidos como ópticos miden (en unidades de radiancia) la energía electromagnética solar reflejada por la Tierra, y además la radiación térmica emitida por la Tierra en distintas bandas espectrales o en diferentes intervalos del espectro electromagnético. Aquí la cantidad de radiación reflejada va a depender de las condiciones de iluminación presentes. La proporción entre la radiación incidente y reflejada, tienen una magnitud denominada reflectancia (propiedad específica de la superficie reflectante).
 
-Ya que todos los elementos existentes en la naturaleza cuentan con una respuesta espectral la cual es característica a la cual se la denomina "signatura espectral" la cual es capaz de estudiar las variaciones espectrales, las variaciones espaciales y las variaciones temporales de las ondas electromagnéticas, poniendo de manifiesto las relaciones existentes entre las variaciones junto con las características que tienen los diferentes materiales terrestres. 
+Se denomina \textbf{teledetección activa} a aquellos que generan un campo de energía artificial (su propia fuente de radiación de microondas), utilizado para registrar y medir el efecto que en él producen los objetos, donde las características técnicas del sensor influyen en la calidad de los datos y  en la posibilidad de recibir información en distintas longitudes de onda \cite{AcevoHerrera2011Apr}. 
 
-Es por ello que su objetivo básico se centra en la identificación de los diferentes materiales de la tierra y los diferentes fenómenos que en ella se generan a través de su característica espectral, desde este punto de vista, la teledetección como herramienta ofrece enormes posibilidades para la generación de avances en el conocimiento e interpretaciones de condiciones físicoambientales constituyendo una fuente de información y desempeñando un papel significativo en el campo del conocimiento geográfico \cite{Botana2019}. 
+Los \textbf{sensores activos} sin imagen son los que incluyen los altímetros y escatómetros, por los cuales en la mayoría de los casos son dispositivos de perfil, toman medidas en una dimensión, es lo opuesto a la representación bidimensional de los sensores de imagen. Los sensores en la teledetección activa se pueden dividir principalmente en dos categorías, en \textit{con imagen} y en \textit{sin imagen}. Debido a que los sensores activos con imagen son basados en técnicas de radar o de SAR para poder generar imágenes en dos dimensiones.
 
-Se comparte lo expresado por Goillot (1976) en cuanto a que el conjunto de datos adquiridos mediante los procedimientos de teledetección instalados en plataformas como aviones o transbordadores espaciales constituyen siempre tres tipos de información, la primera de ellas es una serie de información espacial con la cual es posible representar la organización dentro del espacio físico de los diferentes elementos que componen la imagen, la segunda es una información espectral la cual se caracteriza, pudiendo encontrar un conocimiento sobre la naturaleza de la superficie terrestre, y por último es una información temporal la cual permite la detección de los diferentes cambios operados dentro de la superficie terrestre en el transcurso del tiempo. 
+\section{Radar \textit{Acconeer}}
 
-En este sentido la teledetección se define como el proceso de análisis de la energía reflejada por los objetos, es decir es una técnica que puede aportar una información muy valiosa para distintos campos de intervención de la Geografía, lo cual permite visualizar, entre otras aplicaciones, los distintos usos y ocupaciones del suelo, a nivel espacial y temporal, observando las transformaciones territoriales, posibles de ser plasmadas posteriormente en una carta temática elaborada en un entorno SIG. 
-
-\section{Radar Acconeer}
-
-El radar utilizado en el proyecto está fabricado por Acconeer llamado A111. Es un radar de 60GHz basado en impulsos tecnología de radar coherente (PCR\footnote{Pulsed
-Coherent Radar}) totalmente integrado en un pequeño chip de 29 mm2.
+El radar utilizado en el proyecto está fabricado por \textit{Acconeer} y su modelo tiene la referencia \textit{A111}. Es un radar de 60GHz basado en impulsos tecnología de radar coherente (PCR\footnote{Pulsed
+Coherent Radar}) totalmente integrado en un pequeño chip de 29 mm\textsuperscript{2}.
 Esto permitirá una fácil integración en cualquier dispositivo portátil impulsado por batería.
 
-El radar A111 es un sistema de radar basado en tecnología de radar coherente pulsado  también conocido como PCR el cual está estableciendo un nuevo punto de referencia para el consumo de energía y la precisión de la distancia, es totalmente integrado en un paquete pequeño de 29 mm2 \cite{Acconeer2021}.
+El radar \textit{A111} es un sistema de radar basado en tecnología de radar coherente pulsado también conocido como PCR el cual está estableciendo un nuevo punto de referencia para el consumo de energía y la precisión de la distancia, es totalmente integrado en un paquete pequeño de 29 mm\textsuperscript{2} \cite{Acconeer2021}.
 
-El sistema de radar A111 es de 60 GHz, el cual está optimizado para operar a una alta precisión, con una potencia ultra baja, por o generar se suministra como una óptima solución de un solo paquete con banda base integrada, interfaz de RF y antena en paquete (AiP), por lo cual esto permitirá una fácil integración en cualquier dispositivo portátil que funcione con baterías.
+El sistema de radar \textit{A111} es de 60 GHz, el cual está optimizado para operar a una alta precisión, con una potencia ultra baja, por lo general se suministra como una óptima solución de un solo paquete con banda base integrada, interfaz de Radio Frecuencia (RF) y Antena en el Paquete (AiP), esto permitirá una fácil integración en cualquier dispositivo portátil que funcione con batería.
 
-El radar A111 se basa en una tecnología de sensor patentada de vanguardia con resolución de tiempo de pico de segundo, es capaz de medir distancias absolutas con precisión mm de hasta un rango de 2 m, ya que el rango de 2 m está garantizado para un tamaño de objeto, forma y propiedades dieléctricas correspondientes a un reflector esférico de esquina de 5 cm de radio, además de contar con una tasa de actualización configurable.
+El radar \textit{A111} se basa en una tecnología de sensor patentada de vanguardia con resolución de tiempo de pico de segundo, es capaz de medir distancias absolutas con precisión milimétrica hasta un rango de 2 m, ya que el rango de 2 m está garantizado para un tamaño de objeto, forma y propiedades dieléctricas correspondientes a un reflector esférico de esquina de 5 cm de radio, además de contar con una tasa de actualización configurable.
 
-El radar A111 de 60 GHz no se ve afectado por ninguna fuente natural de interferencia, como lo es el ruido, el polvo, el color o la presencia de luz directa o indirecta.
+El radar de 60 GHz no se ve afectado por ninguna fuente natural de interferencia, como lo es el ruido, el polvo, el color o la presencia de luz directa o indirecta.
 
-\imagen{radar}{Radar A111.}
+\imagen{radar}{Radar \textit{A111}.}
 
 Aplicaciones:
 \begin{itemize}
-	\item[•] Puede generar mediciones de distancia de alta precisión, las cuales son con precisiones de mm y alta tasa de actualización.
+	\item[•] Puede generar mediciones de distancia de alta precisión (del orden del mm) y alta tasa de actualización.
 	\item[•] Puede realizar detección de proximidad con alta precisión y posibilidad de definir múltiples zonas de proximidad.
 	\item[•] Puede generar detección de movimiento, detección de velocidad.
 	\item[•] El radar permite la detección de material.
@@ -157,116 +127,108 @@ Algunas de las características principales con las que se cuenta y que se puede
 \begin{itemize}
     \item[•] Es un sensor completamente integrado ya que cuenta con:
     \begin{itemize}
-        \item Radar coherente pulsado (PCR) de 60 GHz
-        \item Banda base integrada, interfaz de RF y antena en paquete (AiP)
-		\item 5,5 x 5,2 x 0,88 mm fcCSP, paso de 0,5 mm
+        \item Radar coherente pulsado (Pulsed Coherent Radar (PCR)) de 60 GHz
+        \item Banda base integrada, interfaz de RF y Antena en Paquete (antenna-in-package (AiP))
+		\item $5,5 \times 5,2 \times 0,88 mm$ fcCSP, paso de 0,5 mm
     \end{itemize}
     \item[•] Cuenta con un alcance y movimientos precisos de la distancia, ya que puede:
     \begin{itemize}
         \item Medir el rango absoluto hasta 2 m o precisión absoluta en mm
-		\item Tiene una precisión relativa en µm
+		\item Tiene una precisión relativa en micrómetros.
 		\item Cuenta con la posibilidad de reconocer movimientos y gestos para varios objetos.
 		\item Admite modo de barrido continuo y único
-		\item Tienen HPBW de 80 (plano H) y 40 grados (plano E)
+		\item Tienen ancho de haz de media potencia (HPBW\footnote{Ancho angular total entre los dos puntos que están 3dB abajo del pico del haz principal.}) de 80 (plano H) y 40 grados (plano E)
     \end{itemize}
     \item[•] Su fácil integración es debida a que cuenta con:
     \begin{itemize}
         \item Una solución de un chip con banda base y RF integrados
 		\item Puede integrarse detrás de plástico o vidrio sin necesidad de una apertura física
 		\item Cuenta con componente refluible único
-		\item Fuente de alimentación única de 1.8 V, habilitada con Power on Reset (PoR)
+		\item Fuente de alimentación única de 1.8 V, habilitada con \textit{Power on Reset} (PoR\footnote{Microcontrolador generador de reinicio de encendido.})
 		\item Una entrada de reloj para cristal o reloj de referencia externo, 20-80 MHz
-		\item Una interfaz SPI para transferencia de datos, soporte de reloj SPI de hasta 50 MHz
-		\item Soporte INTERRUPT
+		\item Una interfaz \textit{Serial Peripheral Interface} (SPI\footnote{Bus de interfaz estándar de comunicaciones, usado principalmente para la transferencia de información entre circuitos integrados en equipos electrónicos.}) para transferencia de datos, soporte de reloj SPI de hasta 50 MHz
     \end{itemize}
 \end{itemize}
 
-El radar Acconner A111 es un sensor de radar optimizado de baja potencia y alta precisión de 60 GHz con banda base integrada, una interfaz de RF y una antena en paquete (AIP).
+El radar \textit{Acconeer A111} es un sensor de radar optimizado de baja potencia y alta precisión de 60 GHz con banda base integrada, una interfaz de RF y una antena en paquete (AiP).
 
-El sensor se basa en la tecnología de radar coherente pulsado (PCR), que presenta una solución patentada de vanguardia con resolución de tiempo de picosegundos. El A111 es la elección perfecta para implementar sistemas de detección de alta precisión y resolución con bajo consumo de energía.
+El sensor se basa en la tecnología de radar coherente pulsado (PCR), que presenta una solución patentada de vanguardia con resolución de tiempo de picosegundos. El \textit{A111} es la elección perfecta para implementar sistemas de detección de alta precisión y resolución con bajo consumo de energía.
 
-El radar de silicio A111 esta dividido en cuatro bloques funcionales: Power, Digital, Timing y radio mmWave.
+El radar de silicio \textit{A111} esta dividido en cuatro bloques funcionales: \textit{Power}, \textit{Digital}, \textit{Timing} y radio \textit{mmWave}.
 
-\imagen{figBlockDiagram}{Diagrama de bloques del sensor A111.}
+\imagen{figBlockDiagram}{Diagrama de bloques del sensor \textit{A111}.}
 
-La figura 3.2 muestra un diagrama de bloques del sensor A111. La señal se transmite desde la antena Tx y es recibida por la antena Rx, ambas integradas en la capa superior del sustrato del paquete A111. Además de la radio mmWave, el sensor consta de administración de energía y control digital, cuantificación de señales, memoria y un circuito de temporización.
+La figura \ref{fig:radar} muestra un diagrama de bloques del sensor \textit{A111}. La señal se transmite desde la antena de transmisión (Tx) y es recibida por la antena de recepción (Rx), ambas integradas en la capa superior del sustrato del paquete \textit{A111}. Además de la radio \textit{mmWave}\footnote{Rango de Frecuencia 2 (FR2)}, el sensor consta de administración de energía y control digital, cuantificación de señales, memoria y un circuito de temporización.
 
-El bloque funcional Power incluye LDO y un bloque Power on Reset (PoR). Cada LDO crea su propio dominio de voltaje. El bloque PoR genera una señal de reinicio en cada ciclo de encendido. El host conecta el bloque funcional de alimentación del sensor a través de una fuente de alimentación única de 1,8 V y ENABLE.
-El bloque funcional digital incluye control por sensor. La memoria de datos almacena los datos de barrido del radar del ADC. El host interactúa con el sensor a través de una interfaz SPI, un reloj (XIN, XOUT) y una señal de INTERRUPCIÓN.
+El bloque funcional \textit{Power}\footnote{Bloque de conexión eléctrica del radar.} incluye \textit{Low Dropout} (LDO\footnote{Reguladores de voltaje de caída baja.}) y un bloque Power on Reset (PoR). Cada LDO crea su propio dominio de voltaje. El bloque PoR genera una señal de reinicio en cada ciclo de encendido. El host conecta el bloque funcional de alimentación del sensor a través de una fuente de alimentación única de 1,8 V.
+
+El bloque funcional digital incluye control por sensor. La memoria de datos almacena los datos de barrido del radar del conversor de señal analógica a digital (ADC). El host interactúa con el sensor a través de una interfaz SPI, un reloj (XIN, XOUT) y una señal de INTERRUPCIÓN\footnote{Señal recibida por el procesador de una computadora, que indica que debe interrumpir el curso de ejecución actual. }.
 
 El bloque de temporización incluye los circuitos de temporización.
 
-El bloque funcional de radio mmWave genera y recibe pulsos de radar e incluye transmisor (TX), receptor (RX) e interfaces hacia las antenas integradas.
+El bloque funcional de radio \textit{mmWave} genera y recibe pulsos de radar e incluye transmisor (TX), receptor (RX) e interfaces hacia las antenas integradas.
 
-El software Acconeer se ha escrito en C y es portátil para cualquier sistema operativo y plataforma HW. El software Acconeer se ejecuta en Host MCU y se entrega como binarios, a excepción del software de integración que se entrega como código fuente.
+El software \textit{Acconeer} se ha escrito en C y es portátil para cualquier sistema operativo y plataforma HardWare (HW\footnote{Equipo o soporte físico}). El software \textit{Acconeer} se ejecuta en Host Unidad de Control Multipunto (MCU\footnote{Dispositivo de red que se usa como puente en conexiones de audioconferencia y videoconferencia}) y se entrega como binarios, a excepción del software de integración que se entrega como código fuente.
 
 El RSS (software del sistema de radar) proporciona salida en dos niveles diferentes, servicio y detector. RSS proporciona una API (interfaz de programación de aplicaciones) para la utilización de aplicaciones de varios servicios y detectores.
 
-La salida de servicio son datos de sensor preprocesados en función de la distancia, por ejemplo. Datos de envolvente (amplitud de los datos del sensor), datos de la bandeja de potencia (datos de amplitud integrados en intervalos de rango predefinidos), datos modulados por IQ (representación en cartesiano), etc.
+La salida de servicio son datos de sensor preprocesados en función de la distancia, por ejemplo. Datos de envolvente (amplitud de los datos del sensor), datos de la bandeja de potencia (datos de amplitud integrados en intervalos de rango predefinidos), datos modulados por IQ\footnote{Servicio In-phase and Quadrature} (representación en cartesiano), etc.
 
 Los detectores se basan en datos de servicio como entrada y la salida es un resultado. Detector de distancia que presenta un resultado de distancia y amplitud basado en el servicio de envolvente, etc.
 
-El cliente puede utilizar el detector Acconeer o desarrollar su propio procesamiento de señales basado en los datos del servicio.
-Acconeer proporciona varias aplicaciones de ejemplo para respaldar el desarrollo de aplicaciones propias del cliente. Además, se proporcionan pautas para el cliente para el desarrollo de aplicaciones utilizando la API RSS de Acconeer.
+El cliente puede utilizar el detector \textit{Acconeer} o desarrollar su propio procesamiento de señales basado en los datos del servicio.
+\textit{Acconeer} proporciona varias aplicaciones de ejemplo para respaldar el desarrollo de aplicaciones propias del cliente. Además, se proporcionan pautas para el cliente para el desarrollo de aplicaciones utilizando la API RSS de \textit{Acconeer}.
 
-Acconeer proporciona varios controladores de referencia como código fuente, p. Ej. Soporte para MCU Cortex M4, Cortex M7.
-El software de integración implementará las funciones definidas en un archivo de definiciones proporcionado en la oferta de Acconeer Software. Esto incluye el manejo de SPI, ENABLE e INTERRUPT, así como posibles funciones del sistema operativo.
+\textit{Acconeer} proporciona varios controladores de referencia como código fuente, p.ej. Soporte para MCU Cortex M4, Cortex M7.
+El software de integración implementará las funciones definidas en un archivo de definiciones proporcionado en la oferta de \textit{Acconeer Software}. Esto incluye el manejo de \textit{SPI, ENABLE e INTERRUPT}, así como posibles funciones del sistema operativo.
+
 Consulte la referencia HAL - Guía del usuario para obtener una guía sobre la integración de software y la implementación de HAL (\url{https://www.acconeer.com/products}).
 
-La integración del espacio libre del sensor A111 debe tener en cuenta lo siguiente:
+La integración del espacio libre del sensor \textit{A111} debe tener en cuenta lo siguiente:
 \begin{itemize}
-	\item[•] Cualquier material por encima del sensor debe tener la permitividad y la pérdida tan bajas como sea posible, por ejemplo, plástico o vidrio con baja permitividad.
-	\item Para concluir sobre la distancia óptima desde el sensor, se requiere una investigación de simulación / medición.
+\item[•] Cualquier material por encima del sensor debe tener la permisividad y la pérdida tan bajas como sea posible, por ejemplo, plástico o vidrio con baja permisividad.
+\item[•] Para concluir sobre la distancia óptima desde el sensor, se requiere una investigación de simulación / medición.
 \end{itemize}
 
-El sensor se puede ejecutar en uno de los siguientes servicios básicos de la tabla 3.1.
+El sensor se puede ejecutar en uno de los siguientes servicios básicos de la tabla \ref{tab:serviciosa111}.
 
-\tablaSmall{Servicios del radar A111}{l c p{5cm}}{serviciosa111}
-{\multicolumn{1}{l}{Servicio} & Tipo de dato & Ejemplo de uso \\}{ 
-Envelope & Amplitud & Distancia absoluta y
-presencia estática \\
-IQ & Amplitud y fase & Detección de obstáculos, respiración y distancia relativa \\
-Sparse & Amplitud instantánea & Velocidad, detección de presencia y detección de gestos \\
-} 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{| l | c | p{7cm} |}
+\hline
+\textbf{Servicio} & \textbf{Tipo de dato} & \textbf{Ejemplo de uso} \\ \hline
+Envelope & Amplitud & Distancia absoluta y presencia estática \\ \hline
+IQ & Amplitud y fase & Detección de obstáculos, respiración y distancia relativa \\ \hline
+Sparse & Amplitud instantánea & Velocidad, detección de presencia y detección de gestos \\ \hline
+\end{tabular}
+\caption{Servicios del radar \textit{A111}}
+\label{tab:serviciosa111}
+\end{center}
+\end{table}
 
 
-\section{Servicio In-phase and Quadrature}
+\section{Servicio \textit{In-phase and Quadrature}}
 
-El servicio In-phase and Quadrature (IQ) utiliza la coherencia de fase del radar pulsado Acconeer para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y, en nuestro caso, para diferenciar materiales.
+El servicio \textit{In-phase and Quadrature} (IQ\footnote{En fase y cuadratura.}) utiliza la coherencia de fase\footnote{Se dice que dos puntos de una onda son coherentes cuando guardan una relación de fase constante.} del radar pulsado \textit{Acconeer} para producir componentes estables en fase y en cuadratura. Este servicio se puede utilizar para la detección de presencia frente al sensor, la detección de la frecuencia respiratoria, la detección de obstáculos y, en nuestro caso, para diferenciar materiales.
 
-Los componentes en fase y en cuadratura se representan como valores complejos, lo que genera un conjunto complejo de N\textsubscript{D} muestras representadas como x[d], dónde d es el índice de demora de la muestra.
+Los componentes en fase y en cuadratura se representan como números complejos, lo que genera un conjunto complejo de N\textsubscript{D} muestras representadas como x[d], dónde d es el índice de demora de la muestra.
 
 Los datos obtenidos a través del servicio IQ proporcionan un método para examinar la reflectividad a diferentes distancias del sensor de radar.
 
-Las técnicas de análisis de imágenes que permiten diferenciar partes de las misma se han venido desarrollando debido al gran número aplicaciones en donde se emplean, donde la detección y el análisis temporal de cambios sobre la superficie terrestre donde también es posible el mapeado de inundaciones, mediciones de campos, determinación de extensión de hielos continentales y antárticos, flujos de hielo de glaciares, etc., debido a que es un área de gran interés.
+Las técnicas de análisis de imágenes se han venido desarrollando debido al gran número aplicaciones donde se emplean, detección y análisis de cambios sobre la superficie terrestre, mediciones de campos, determinación de extensiones de hielo, glaciares, etc.
 
-En este sentido, se ha venido trabajando en el análisis de las imágenes satelitales obtenidas por Radares de Apertura Sintética conocidas como SAR, para poder generar el análisis de las imágenes se usan técnicas de contraste de características estadísticas mediante las cuales se producen mapas diferenciales que permiten identificar las regiones en las que se produjeron variaciones \cite{Varela2019}.
+Es posible el aplicar algoritmos en los que mediante la definición de umbrales adecuados se diferencian las regiones, estableciéndose la presencia de bordes, por ejemplo, usando la diferencia entre los valores entre píxeles, o en el cociente entre los valores de los píxeles\cite{Varela2019}.
 
-Es posible el aplicar algoritmos en los que mediante la definición de umbrales adecuados se diferencian las regiones, estableciéndose la presencia de bordes, por ejemplo, usando la diferencia entre los valores entre pixeles, o en el cociente entre los valores de los pixeles.
-
-Y que dado los sistemas de adquisición de SAR basan su capacidad de formar imágenes en que se mantiene la coherencia entre las señales emitida y recibida a lo largo de toda una adquisición, la coherencia de estas señales permite, mediante el proceso de enfocado, obtener imágenes con una resolución mucho mejor que la esperada por el IFOV (Instantaneus Field of View) de la antena. 
-
-El problema que se presenta en este método es la aparición de un ruido multiplicativo conocido como speckle, en donde este ruido se debe a la interferencia que se produce al sumar las señales coherentes provenientes de los elementos dispersores presentes en la región asociada al pixel considerado.
-
-Por lo que se hace necesario el uso de herramientas matemáticas más sofisticadas para la detección de bordes, donde las imágenes SAR son ofrecidas en distintos formatos y niveles de procesamiento, siendo la más básica de las imágenes enfocadas la denominada SLC (Single Look Complex). 
+El problema que se presenta en este método es la aparición de un ruido multiplicativo conocido como \textit{speckle}, en donde este ruido se debe a la interferencia que se produce al sumar las señales coherentes provenientes de los elementos dispersores presentes en la región asociada al píxel considerado. Por lo que se hace necesario el uso de herramientas matemáticas más sofisticadas para la detección de bordes, donde las imágenes SAR son ofrecidas en distintos formatos y niveles de procesamiento, siendo la más básica de las imágenes la denominada SLC (Single Look Complex). 
 
 Una adquisición SAR en polarización simple, vertical u horizontal, tiene dos bandas de datos que corresponden a los canales de adquisición I (in phase) y Q (in quadrature), los cuales pueden ser interpretados como la parte real e imaginaria, respectivamente, de una señal compleja.
 
-Donde el speckle ha sido descripto teóricamente mediante modelos de distribución en regiones homogéneas, donde en estos modelos establecen que para imágenes SLC de polarización simple correspondientes a zonas homogéneas (por ejemplo áreas rurales), los datos de ambos canales, l y Q, tienen una distribución Gaussiana para las amplitudes. 
+El \textit{speckle} ha sido descrito teóricamente mediante modelos de distribución en regiones homogéneas, estos modelos establecen que para imágenes SLC de polarización simple correspondientes a zonas homogéneas (por ejemplo áreas rurales), los datos de ambos canales, I y Q, tienen una distribución Gaussiana para las amplitudes. 
 
-Mientras que la fase tiene una distribución prácticamente Uniforme y la intensidad de una distribución exponencial (o equivalentemente Gamma de orden 1), mientras que el módulo de la amplitud (que es proporcional a la raíz cuadrada de la intensidad) responde a una distribución de Rayleigh . 
+Mientras que la fase tiene una distribución prácticamente uniforme y la intensidad de una distribución exponencial (o equivalentemente Gamma de orden 1), mientras que el módulo de la amplitud (que es proporcional a la raíz cuadrada de la intensidad) responde a una distribución de Rayleigh. 
 
-Considerando esto, se han usado diferentes técnicas que tienen en cuenta la correspondiente distribución de la potencia que se recibe de cada pixel y se han calculado las distribuciones para los gradientes de intensidad asociados a los pixeles, con esto se ha conseguido una mejor identificación de los bordes
+Considerando esto, se han usado diferentes técnicas que tienen en cuenta la correspondiente distribución de la potencia que se recibe de cada píxel y se han calculado las distribuciones para los gradientes de intensidad asociados a los píxeles, con esto se ha conseguido una mejor identificación de los bordes
 
-Para dar servicio a las diferentes misiones interplanetarias de la agencia espacial europea, conocida como ESA, las estaciones disponen de un receptor de frecuencia intermedia (IFMS por sus siglas en inglés), que es utilizado para múltiples propósitos como ser la transmisión de telecomandos, la recepción de telemetría, la decodificación de datos y las mediciones Doppler de las señales \cite{Cancio2017}.
-
-La estación permite la recepción de datos en un modo denominado de bucle abierto mejorado (EOLP), por lo que en este modo, el IFMS puede procesar 2 bloques de banda ancha del espectro de frecuencia intermedia (70 MHz), en estos bloques pueden corresponder a diferentes polarizaciones centradas en una misma frecuencia o la misma polarización centrados en diferentes frecuencias. 
-
-Ya que pueden capturarse hasta 8 subcanales centrados a diferentes frecuencias, dependiendo de la configuración de la estación, en el ancho de banda de los canales puede configurarse en un rango de 1 kHz a 2 MHz, ya que también puede configurarse la cantidad de bits de cada muestra lo que se conoce como cuantización de 1 a 16 bits. 
-
-Para las observaciones astronómicas se utilizaron los tres IFMS disponibles que se utilizaron de manera tal de abarcar el mayor ancho de banda de frecuencia posible, como la mayoría de los equipos de telecomunicaciones, la antena divide el ancho de banda espectral total en canales de frecuencias (12 subbandas en total, en este caso) y realiza una conversión de la frecuencia de banda X (8 GHz) o Ka (32 GHz) a frecuencia intermedias.
-
-La información de la señal adquirida en la observación se almacena en las unidades de almacenamiento externo (ESU) en archivos que contienen paquetes UDP/IP, cada uno con una cabecera y un bloque de datos crudos compuestos por muestras de valores complejos conocidos como (In-phase and Quadrature, IQ). 
 
 Un radar Doppler tiene etapas de detección síncrona, es decir, que están en sincronía con el oscilador de transmisión, lo que define un receptor coherente, debido a que las señales Doppler contienen no sólo información de amplitud sino también de fase, es crucial conocer estas componentes para una correcta demodulación. 
 
@@ -285,62 +247,44 @@ Cabe señalar que el receptor digital concentra su selectividad en el filtro dig
 
 \section{Aprendizaje automático}
 
-El aprendizaje automático o machine learning es un tipo de inteligencia artificial (AI),
-consiste en programar una computadora para que mejore en la realización de una tarea a partir de datos de ejemplo o de la experiencia.
+El aprendizaje automático o \textit{machine learning} es una disciplina del campo de la Inteligencia Artificial (AI),
+consiste en dotar a una computadora de capacidad para que mejore en la realización de una tarea a partir de datos de ejemplo o de la experiencia. Se puede visualizar en áreas como los procesos estadísticos, ya que tiene muchas ventajas y reduce el tiempo de demora de los procesos, además de emplear menos personal para realizar las tareas.
+
+Es un área que estudia cómo construir programas de computadoras que mejoren su desempeño en alguna tarea gracias a la experiencia, debido a que esta se basa en las ideas de diversas disciplinas, como inteligencia artificial, estadística y probabilidad, teoría de la información, psicología y neurobiología, teoría de control y complejidad computacional. Estudia la construcción de sistemas capaces de aprender a partir de datos, lo que incluye una gran variedad de sistemas, desde sistemas de visión por ordenador hasta sistemas para detectar correo no deseado (spam).
+
+Este sistema proporciona una gran ventaja a la hora de examinar de manera más efectiva una mayor cantidad de datos debido a que en la actualidad los avances tecnológicos han permitido crear nuevas experiencias tecnológicas en diferentes áreas tales como: empresas, educación, sociedad, entre otros.
 
 La inteligencia artificial es un concepto de creación de máquinas inteligentes que estimula el comportamiento humano, mientras que el aprendizaje automático es un subconjunto de la inteligencia artificial que permite que la máquina aprenda de los datos sin ser programada.
 
 La diferencia entre el software informático normal y el aprendizaje automático es que un desarrollador humano no ha dado códigos que le indiquen al sistema cómo reaccionar ante la situación, sino que está siendo entrenado por una gran cantidad de datos.
 
-Con la cantidad de la información la cual es generada diario en Internet, ya sea por medio de las redes sociales, por medio de diferentes transacciones comerciales o datos generados por distintos dispositivos, entre otros, existen diferentes procesos los cuales aprovechan toda esa información, en lugar de almacenarla como data la cual solo está ocupando demasiado espacio en los servidores, estos datos se continúan empleando para poder generar un análisis el cual establezca comportamientos para poder identificar las tendencias futuras \cite{Sandoval2018}.
+Mucha de la cantidad de información generada a diario en Internet, ya sea por medio de las redes sociales, por medio de diferentes transacciones comerciales o datos generados por distintos dispositivos, en lugar de almacenarla y que solo ocupe espacio en los servidores, es aprovechada por procesos que emplean los datos para poder generar un análisis que establezca comportamientos capaces de identificar las tendencias futuras \cite{Sandoval2018}.
 
-En ciertas ocasiones se reúne demasiada información, por lo que es posible determinar con anticipación, de forma segura el comportamiento futuro de un grupo de personas los cuales interactúan con equipos electrónicos, ya que conoceremos sobre la técnica del Machine Learning, elemento fundamental de la Ciencia de Datos, los métodos que utiliza para realizar las predicciones de datos y su presentación.
+En ciertas ocasiones se reúne demasiada información, por lo que es posible determinar con anticipación y de forma segura el comportamiento futuro de un grupo de personas que interactúan con equipos electrónicos, ya que la técnica del \textit{Machine Learning} (elemento fundamental de la Ciencia de Datos) utiliza métodos para realizar las predicciones de datos y su presentación\cite{CornejoMacias2021}.
 
-Los diferentes dispositivos que cuentan con la conocida inteligencia artificial, son capaces de ejecutar distintos procedimientos análogos con el comportamiento humano, como es el caso de una devolución a una respuesta por cada petición de entrada parecido o similar a un tipo de reflejos que se encuentran en los seres vivos, estableciendo un estado especifico entre los diferentes estados posibles según una determinada acción, con la solución de problemas empleando una lógica formal. 
+Los diferentes dispositivos que cuentan con la conocida inteligencia artificial, son capaces de ejecutar distintos procedimientos análogos con el comportamiento humano. Es el caso de una devolución a una respuesta por cada petición de entrada, parecido o similar a un tipo de reflejos que se encuentran en los seres vivos, estableciendo un estado especifico entre los diferentes estados posibles según una determinada acción, con la solución de problemas empleando una lógica formal. 
 
-Cuando se les es otorgada a un determinado tipo de dispositivos la habilidad de poder aprender, se genera la posibilidad de que puedan discernir, por lo tanto se convierte en entidades que razonan con capacidades semejantes a las de un superhombre, dado que su velocidad de procesamiento es prácticamente imposibles para un humano promedio, las maquinas no tienen la necesidad de descansar para poder desarrollar sus funciones correctamente, son algunas de entre muchas grandes ventajas que ubican a las maquinas sobre los seres vivos en este contexto.
+Cuando se les es otorgada a un determinado tipo de dispositivos la habilidad de poder aprender, se genera la posibilidad de que puedan discernir. Por lo tanto, se convierten en entidades que razonan con capacidades semejantes a las de un superhombre, dado que su velocidad de procesamiento es prácticamente imposible para un humano promedio. Las maquinas no tienen la necesidad de descansar para poder desarrollar sus funciones correctamente. Son algunas ventajas que ubican a las maquinas sobre los seres vivos en este contexto.
 
-En este sentido es posible encontrar tres grupos de algoritmos en Machine Learning, los cuales son los algoritmos supervisados, donde son los algoritmos que emplean un conjunto de datos los cuales son de entrenamiento etiquetados o también conocidos como preclasificados, los datos son procesados para poder realizar predicciones sobre ellos, existiendo la posibilidad de corrección cuando son incorrectas \cite{RussoC2016}. 
+En este sentido es posible encontrar tres grupos de algoritmos en \textit{Machine Learning}.
 
-Otro grupo es el llamado proceso de entrenamiento, el cual continúa hasta donde el modelo alcanza su nivel deseado en cuanto a su precisión, además de considerar del grupo de algoritmos semi-supervisados, estos algoritmos combinan tanto datos etiquetados como datos no etiquetados para poder generar una función determinada o clasificada, donde estos tipos de modelos son los que tienen que aprender las estructuras para poder organizar los datos, es así como pueden realizar predicciones.
+\begin{itemize}
+\item Los algoritmos supervisados, algoritmos que emplean un conjunto de datos de entrenamiento etiquetados o también conocidos como preclasificados. Los datos son procesados para poder realizar predicciones sobre ellos, existiendo la posibilidad de corrección cuando son incorrectas \cite{RussoC2016}. 
 
-Otro grupo es el de los algoritmos no supervisados los cuales son el conjunto de datos los cuales no se encuentra etiquetado, por lo que no se cuenta con un resultado conocido, ya que por ello es necesario deducir las estructuras que se encuentran presentes en los datos de entrada, lo cual puede ser conseguido a través de un proceso matemático para poder bajar la redundancia sistemáticamente, tratando de organizar los datos por similitud.
+\item Algoritmos semi-supervisados combinan tanto datos etiquetados como datos no etiquetados para poder generar una función determinada o clasificada. Estos tipos de modelos son los que tienen que aprender las estructuras para poder organizar los datos, es así como pueden realizar predicciones.
 
-Dentro de esta clasificación se pueden encontrar diferentes números de algoritmos específicos con las diferentes características para poder generar el tratamiento de los datos, entre los algoritmos más relevantes podemos encontrar el de Deep Learning, el cual consiste en el empleo de algoritmos para poder hacer representaciones abstractas sobre la información, para facilitar el aprendizaje automático.
+\item Los algoritmos no supervisados están diseñados para clasificar datos de los que no existe información sobre su etiqueta, por lo que no se cuenta con un resultado conocido. Por ello es necesario deducir las estructuras que se encuentran presentes en los datos de entrada, lo cual puede ser conseguido a través de un proceso matemático para poder bajar la redundancia sistemáticamente tratando de organizar los datos por similitud.
+\end{itemize}
 
-Otro algoritmo es Active Learning, el cual es un caso de aprendizaje semi-supervisado en el cual el algoritmo de aprendizaje puede interactuar con un usuario, además de otra fuente de información para poder obtener los resultados deseados, otro algoritmo es el Support Vector Machines, es un algoritmo el cual busca generar la maximización de la distancia entre la recta, también conocida como plano y las diferentes muestras las cuales se encuentran de un lado u otro, ya que en el caso que las muestras obtenidas no sean linealmente separables se emplea una transformación llamada kernel.
+Dentro de esta clasificación se pueden encontrar diferentes números de algoritmos específicos con las diferentes características para poder generar el tratamiento de los datos, entre los algoritmos más relevantes podemos encontrar el \textit{Deep Learning}, consiste en el empleo de algoritmos para poder hacer representaciones abstractas sobre la información y facilitar el aprendizaje automático. 
 
-El aprendizaje de máquina es un área que estudia cómo construir programas de computadoras que mejoren su desempeño en alguna tarea gracias a la experiencia, debido a que esta se basa en las ideas de diversas disciplinas, como inteligencia artificial, estadística y probabilidad, teoría de la información, psicología y neurobiología, teoría de control y complejidad computacional.
+Otro algoritmo es \textit{Active Learning}, es un caso de aprendizaje semi-supervisado, el algoritmo de aprendizaje puede interactuar con un usuario, además de otra fuente de información para poder obtener los resultados deseados.
 
-El Machine Learning es la capacidad que posee un software o una máquina para aprender a través de la aplicación de varios algoritmos de su programación, es decir identificar modelos complejos en múltiples datos, además de que el Aprendizaje Automático es una tecnología avanzada que permite que muchas operaciones se puedan realizar simultáneamente reduciendo la necesidad de intervención humana \cite{CornejoMacias2021}.
+El clasificador \textit{Support Vector Machines (SVM)} busca generar la maximización de la distancia de las muestras de cada clase a la llamada «frontera de decisión» (también conocida como plano). En el caso de que las muestras obtenidas no sean linealmente separables se emplea una transformación llamada \textit{kernel}.
 
-Este sistema proporciona una gran ventaja a la hora de examinar de manera más efectiva una mayor cantidad de datos, como podemos observar las tres fuentes de investigación nos indican que el aprendizaje automático (Machine Learning) es de mucha importancia ya que en la actualidad debido a los avances tecnológicos que existen se han creado nuevas experiencias tecnológicas en diferentes áreas tales como: empresas, educación, sociedad, entre otros.
+En todos los casos, un sistema que aprende debe ser capaz de generalizar, es decir, de encontrar patrones y regularidades en los datos que le permitan desempeñarse bien en datos que no ha observado previamente.
 
-El aprendizaje automático es el entrenar una máquina para que aprenda a través de los algoritmos esta tecnología ayuda a la automatización de muchos procesos, lo cual ayuda a que los procesos tengan un bajo índice de error.
-
-El machine learning se puede visualizar en diferentes áreas como la inteligencia artificial, procesos estadísticos, entre otros, ya que el aprendizaje automático tiene muchas ventajas ya que reduce el tiempo de demora de los procesos y menos personal para realizar las actividades presenciales.
-
-El aprendizaje computacional (machine learning en inglés) estudia la construcción de sistemas capaces de aprender a partir de datos, lo que esto incluye una gran variedad de sistemas, desde sistemas de visión por ordenador hasta sistemas para detectar correo no deseado (spam).
-
-En todos los casos, un sistema que aprende debe ser capaz de generalizar, es decir, de encontrar patrones y regularidades en los datos que le permitan desempeñarse bien en datos que no ha observado previamente, ya que existen dos tipos principales de modelos de aprendizaje computacional, modelos de aprendizaje supervisado y modelos de aprendizaje no supervisado.
-
-En el aprendizaje supervisado se busca inducir modelos capaces de predecir el valor de ciertas variables dependientes a partir de variables independientes, un ejemplo de problema de aprendizaje supervisado es el problema de clasificación, en el cual la variable dependiente corresponde a un atributo que indica a qué clase pertenece, por ejemplo, enfermo o control en el caso de un problema de diagnóstico médico, el cual pertenece una muestra particular.
-
-En los modelos de aprendizaje no supervisado no hay una distinción entre variables dependientes y no dependientes, en este caso se pretende encontrar la estructura subyacente que explique la estructura de los datos \cite{gonzalez2015}. 
-
-Y que el ejemplo más representativo de aprendizaje no supervisado es el análisis de conglomerados también conocido como clustering en inglés, en el cual el objetivo es encontrar grupos de datos que compartan características similares.
-
-La minería de datos se centra en desarrollar y aplicar algoritmos que, bajo limitaciones aceptables de eficiencia computacional, permitan la obtención de patrones sobre los datos, los cuales buscan esta obtención de patrones que pueden abordarse mediante dos objetivos básicos.
-
-La predicción es el sistema el cual busca patrones para predecir un comportamiento futuro, de los modelos desarrollados dentro de este objetivo están basados en aprendizaje supervisado, de entre las tareas predictivas se pueden encontrar, por ejemplo, la clasificación, la regresión o el análisis de series temporales.
-
-La descripción, es donde el sistema busca patrones para presentarlos a un experto en una forma comprensible para él, y que describen y aportan información de interés sobre el problema y el modelo que subyace bajo los datos. Los modelos desarrollados en este enfoque se basan en aprendizaje no supervisado, entre las tareas descriptivas se pueden encontrar, por ejemplo, el agrupamiento, la sumarización o la asociación.
-
-A pesar de existir una clara distinción entre las técnicas dependiendo de los objetivos que pretenden abordar, en la actualidad existen un conjunto de técnicas que se encuentran a medio camino entre las técnicas predictivas y las descriptivas, agrupadas bajo el nombre de descubrimiento de reglas descriptivas basadas en aprendizaje supervisado, que intentan obtener reglas o conjuntos de ítems de una categoría o clase prefijada para describir información significativa y relevante del conjunto de datos.
-
-Su principal objetivo no es clasificar nuevas instancias, sino comprender o encontrar fenómenos subyacentes; es decir, encontrar información desconocida u oculta difícil de descubrir por los expertos, sobre el valor de una clase prefijada o variable de intereses.
-
-Dentro de este grupo de técnicas se encuentran la: minera de conjuntos de contraste, el descubrimiento de subgrupos y los patrones emergentes, donde la minería de patrones emergentes busca conocimiento relacionado con los distintos valores de la variable objetivo, donde el número de instancias cubiertas por un patrón sea muy elevado para un valor de la variable objetivo y muy bajo (o cero) para el resto; es decir, que el mismo patrón tenga un soporte muy alto para una clase y muy bajo para las demás \cite{Carmona2015}.
+La minería de datos también se centra en desarrollar y aplicar algoritmos de aprendizaje automático que, bajo limitaciones aceptables de eficiencia computacional, permitan la obtención de patrones sobre los datos, los cuales buscan esta obtención de patrones que pueden abordarse mediante dos objetivos básicos.
 
 
 \subsection{Tipos de aprendizaje automático}
@@ -355,97 +299,77 @@ Generan dos tipos de resultados:
 \item[•] Regresión: esperan que el producto produzca un valor numérico.
 \end{itemize}
 
-El aprendizaje supervisado, se da cuando se entrena un algoritmo de Machine Learning aportándole las preguntas, las cuales son características, uno con una serie de respuestas conocidas también como etiquetas, por lo que así en el futuro el algoritmo sea capaz de hacer una predicción bajo el conocimiento de las características, por lo general en este tipo de aprendizaje hay dos algoritmos, llamados entrenamientos, los cuales son el algoritmo de clasificación y el algoritmo de regresión.
+El aprendizaje supervisado, se da cuando se entrena un algoritmo de \textit{Machine Learning} aportándole las preguntas, las cuales son características, uno con una serie de respuestas conocidas también como etiquetas, por lo que así en el futuro el algoritmo sea capaz de hacer una predicción bajo el conocimiento de las características, por lo general en este tipo de aprendizaje hay dos algoritmos, llamados entrenamientos, los cuales son el algoritmo de clasificación y el algoritmo de regresión.
 
-Los algoritmos de clasificación son los que esperamos que el por su naturaleza el algoritmo nos indique a qué grupo pertenece determinado elemento en estudio, por lo general el algoritmo tiene la capacidad de encontrar patrones en los datos que le proporcionamos pudiendo clasificarlos en grupos, ya que luego se comparan con nuevos datos obtenidos para después poder ubicarlos en uno de los grupos, siendo de esta manera como puede predecir de que se trata de objeto de estudio. 
+Los algoritmos de clasificación son los que esperamos que el por su naturaleza el algoritmo nos indique a qué grupo pertenece determinado elemento en estudio, por lo general el algoritmo tiene la capacidad de encontrar patrones en los datos que le proporcionamos pudiendo clasificarlos en grupos, ya que luego se comparan con nuevos datos obtenidos para después poder ubicarlos en uno de los grupos, siendo de esta manera como puede predecir de que se trata de objeto de estudio \cite{gonzalez2015}. 
  
-\subsubsection{Aprendizaje sin supervisión}
+\subsubsection{Aprendizaje no supervisado}
 
-El aprendizaje sin supervisión es un tipo de algoritmo el cual consta de datos de entrada sin etiquetar, el cual esta caracterizado por su intervención humana menor, en este algoritmo por lo general se emplea principalmente en análisis exploratorios, debido a que puede identificar automáticamente la estructura en los datos.
+El aprendizaje sin supervisión es un conjunto de metodologías que por lo general se emplean principalmente en análisis exploratorios, debido a que puede identificar automáticamente la estructura en los datos.
 
 En el caso de los algoritmos de aprendizaje no supervisado, no es necesaria de la  intervención humana para poder desarrollar un conjunto de datos  los cuales son previamente clasificados para poder representar el algoritmo de aprendizaje, dado que el objetivo de la enseñanza no supervisada es el poder encontrar modelos interesantes teniendo en cuenta la distribución con la compilación de los datos que se presentan, algunos ejemplos que se pueden mencionar sobre técnicas de aprendizaje no supervisado son las técnicas que se aplican de agrupación \cite{GonzalezPerez2020}.
 
 \subsubsection{Aprendizaje semisupervisado}
 
-El algoritmo de aprendizaje semisupervisado emplea el método del aprendizaje que es automático el cual evita la gran cantidad de documentos etiquetados mejorando este tipo de limitación ya que aprende a clasificar a partir de un número casos de ejemplos etiquetados junto con otros no etiquetados, dado que los ejemplos etiquetados se usan para poder aprender modelos los cuales caractericen cada clase o categoría, en donde los ejemplos sin etiqueta se usan para refinar los límites entre las clases \cite{Cardoso2020Apr}.
+El algoritmo de aprendizaje semisupervisado emplea el método del aprendizaje que es automático el cual evita la gran cantidad de datos etiquetados mejorando este tipo de limitación ya que aprende a clasificar a partir de un número casos de ejemplos etiquetados junto con otros no etiquetados. Los datos etiquetados se usan para poder aprender modelos que caractericen cada clase o categoría, y los ejemplos sin etiqueta se usan para refinar los límites entre las clases \cite{Cardoso2020Apr}.
 
-El llamado Self-training la cual es una de las formas más simples de clasificación semi supervisada en donde primero se construye un clasificador usando los datos etiquetados, para después emplear el clasificador el cual categoriza a los datos no etiquetados, ya que sólo los nuevos ejemplos etiquetados con una confianza que supere cierto umbral se anexan al conjunto etiquetado, es cuando el proceso de aprendizaje se repite.
+El llamado \textit{self-training} la cual es una de las formas más simples de clasificación semisupervisada en donde primero se construye un clasificador usando los datos etiquetados, para después emplear el clasificador el cual categoriza a los datos no etiquetados, ya que sólo los nuevos ejemplos etiquetados con una confianza que supere cierto umbral se anexan al conjunto etiquetado, es cuando el proceso de aprendizaje se repite.
 
-Dado que este tipo de algoritmos semi supervisados empleen pocas instancias etiquetadas para poder entrenar hace que sean atractivos de emplear en los casos donde el etiquetado sea muy costoso, donde se requiera tiempo o donde se requiera intervención humana, en diferentes proyectos donde emplearon los algoritmos semi supervisados, se evalúan con respecto a una serie de algoritmos semi supervisados los cuales son aplicados a textos de micro-blogs por lo general en idioma inglés, dado que este enfoque es muy importante para la clasificación textual.
+Dado que este tipo de algoritmos semisupervisados empleen pocas instancias etiquetadas para poder entrenar hace que sean atractivos de emplear en los casos donde el etiquetado sea muy costoso, donde se requiera tiempo o donde se requiera intervención humana, en diferentes proyectos donde emplearon los algoritmos semisupervisados, se evalúan con respecto a una serie de algoritmos semisupervisados los cuales son aplicados a textos de \textit{micro-blogs} por lo general en idioma inglés, dado que este enfoque es muy importante para la clasificación textual.
 
-Por obvias razones los algoritmos de aprendizaje semi supervisado es un término el cual se encuentra entre el aprendizaje supervisado y el aprendizaje sin supervisión, dado que en los algoritmos de aprendizaje semi supervisado, es posible dividir los datos en dos partes las cuales están integradas por un grupo de datos clasificados y también está integrada por un grupo de datos no clasificados, por lo consiguiente se llama aprendizaje semi supervisado estándar.
+Por obvias razones los algoritmos de aprendizaje semisupervisado es un término el cual se encuentra entre el aprendizaje supervisado y el aprendizaje sin supervisión, dado que en los algoritmos de aprendizaje semisupervisado, es posible dividir los datos en dos partes las cuales están integradas por un grupo de datos clasificados y también está integrada por un grupo de datos no clasificados, por lo consiguiente se llama aprendizaje semisupervisado estándar.
 
-Para diferentes investigadores el aprendizaje semi supervisado es más útil cuando hay más datos no clasificados comparado con los datos clasificados, dado que especialmente cuando es necesario mucho esfuerzo para poder obtener datos clasificados, en donde tiende a tardar mucho tiempo aumentando el costo, debido a que obtener datos no clasificados generalmente es más barato.
+Para diferentes investigadores el aprendizaje semisupervisado es más útil cuando hay más datos no clasificados comparado con los datos clasificados, dado que especialmente cuando es necesario mucho esfuerzo para poder obtener datos clasificados, en donde tiende a tardar mucho tiempo aumentando el costo, debido a que obtener datos no clasificados generalmente es más barato.
 
-Algunos ejemplos donde se aplican las técnicas de aprendizaje semi supervisado es en las técnicas de máquinas de vectores de soporte transductivo, otro ejemplo es la maximización de las expectativas, además de poder mencionar algunas aplicaciones donde se aplican las técnicas de aprendizaje semi supervisado mencionadas las cuales podrían ser la clasificación de páginas web, el reconocimiento de voz y la secuencia de la proteína.
+Algunos ejemplos donde se aplican las técnicas de aprendizaje semisupervisado es en las técnicas de máquinas de vectores de soporte transductivo, otro ejemplo es la maximización de las expectativas, además de poder mencionar algunas aplicaciones donde se aplican las técnicas de aprendizaje semisupervisado mencionadas las cuales podrían ser la clasificación de páginas web, el reconocimiento de voz y la secuencia de la proteína.
 
 
-\subsubsection{Aprendizaje reforzado}
+\subsubsection{Aprendizaje por refuerzo}
 
-El algoritmo de aprendizaje reforzado interactúa con el entorno, dado que es posible emplearlo para tomar una secuencia de decisiones, por lo general se puede plantear como un método de seguimiento en el cual es posible encontrar un error lo suficientemente apto para encontrar el mejor resultado basado en la experiencia.
+El aprendizaje por refuerzo es un campo dentro del aprendizaje automático, los problemas que se tratan en esta área requieren de la toma de un conjunto de decisiones secuenciales para poder conseguir un objetivo determinado, dado que, en estas situaciones, una entidad denominada \textit{agente} es la que interacciona con el entorno debido a que aprende de forma autónoma las acciones que debe llevar a cabo con el fin de maximizar una señal numérica escalar conocida como recompensa \cite{GuerraRamos2020}.
 
-El aprendizaje reforzado es un campo dentro del aprendizaje automático, dado que los problemas los cuales se tratan en esta área requieren de la toma de un conjunto de decisiones secuenciales para poder conseguir un objetivo determinado, dado que, en estas situaciones, una entidad denominada “agente” es la que interacciona con el entorno debido a que aprende de forma autónoma las acciones que debe llevar a cabo con el fin de maximizar una señal numérica escalar conocida como recompensa \cite{GuerraRamos2020}.
+El algoritmo de aprendizaje por refuerzo puede aprender observando el mundo que lo rodea, la información de entrada es la retroalimentación que recibe del mundo exterior en respuesta a sus acciones, por lo que el sistema aprende sobre la base de pruebas y errores. El algoritmo interactúa con el entorno y por lo general se puede plantear un método de seguimiento donde es posible encontrar un error lo suficientemente apto para encontrar el mejor resultado basado en la experiencia. Por lo general, en un principio el agente no conoce la dinámica del entorno en el que se encuentra, tampoco conoce los detalles explícitos de la tarea que debe realizar por lo que la experimentación es la única forma de la que se dispone para poder desarrollar el entrenamiento.
 
-Por lo general, en un principio el agente no conoce la dinámica del entorno en el que se encuentra, tampoco conoce los detalles explícitos de la tarea que debe realizar, debido a que la única vía de la que dispone el agente para aprender la dinámica, con los detalles de tal forma que obtenga la máxima recompensa es mediante la prueba y el error, dicho de otra manera, la experimentación es la única forma de la que se dispone para poder desarrollar el entrenamiento.
+Dado que las dos cualidades implementadas, la experimentación y la recompensa con retraso, forman parte esencial de los problemas de aprendizaje reforzado, son estas las cualidades distintivas las que no pertenecen a ningún otro campo del aprendizaje automático.
 
-Dado que la finalidad de un agente al resolver un problema de aprendizaje reforzado es la de aprender el comportamiento el cual le permitirá alcanzar una recompensa óptima, dado que el comportamiento de un agente queda determinado mediante una política de actuación, considerando que una característica peculiar de los problemas que se presentan en el aprendizaje reforzado es que la recompensa no tiene por qué ser inmediata.
- 
-Dado que la recompensa para el agente puede llegar después de haber sido ejecutada en conjunto con una serie de acciones las cuales no tienen por qué ser óptimas individualmente, dado que los agentes no deben actuar de forma voraz, dado que la mejor opción localmente no siempre lleva a una buena recompensa a largo plazo.
+Se puede decir que el objetivo de este aprendizaje es el poder aprender la función de valor la cual ayuda al agente inteligente para poder maximizar la señal de recompensa buscando optimizar sus políticas para comprender el comportamiento del entorno y así tomar las decisiones correctas logrando cumpliendo con sus objetivos formales. 
 
-Dado que las dos cualidades implementadas como la experimentación y la recompensa con retraso forman parte esencial de los problemas de aprendizaje reforzado, son estas las cualidades distintivas las cuales no pertenecen a ningún otro campo del aprendizaje automático.
-
-En el aprendizaje reforzado, el algoritmo puede aprender observando el mundo que lo rodea, dado que la información de entrada es la retroalimentación que recibe del mundo exterior en respuesta a sus acciones, por lo que el sistema aprende sobre la base de pruebas y errores, en donde en lugar de que un instructor que le indique al agente qué hacer, el agente inteligente debe aprender cómo es que el medio ambiente se comporta a través de la recompensa conocida como refuerzos o también conocido como castigos, el cual es el resultado del éxito o fracaso.
-
-Se puede decir que el objetivo de este aprendizaje es el poder aprender la función de valor la cual ayuda al agente inteligente para poder maximizar la señal de recompensa buscando optimizar sus políticas para comprender el comportamiento del entorno para poder tomar las decisiones correctas logrando así cumplir con sus objetivos formales, donde los principales algoritmos de aprendizaje por refuerzo son desarrollados como parte de los métodos de resolución de problemas de decisión finitos de Markov, los cuales incluyen ecuaciones Bellman además de las funciones de valor, dado que los tres métodos principales son el métodos de Monte Carlo, la Programación Dinámica y el aprendizaje de Diferencias Temporales.
-
-Podemos decir que entre las implementaciones desarrolladas podemos encontrar AlphaGo, el cual es un programa de Inteligencia Artificial desarrollado por Google DeepMind para poder jugar el juego de mesa Go, podría resultar interesante mencionar que en marzo de 2016, AlphaGo ganó el partido ante el jugador profesional Lee Se-Dol, el cual tiene la categoría novena dan con 18 títulos mundiales, además de que entre los algoritmos utilizados podemos encontrar el árbol de búsqueda de Monte Carlo, el cual también utiliza el aprendizaje profundo con redes neuronales.
-
-\subsubsection{Transducción}
-
-El sistema de transducción no crea un modelo para poder replicar los resultados como el método inductivo-deductivo, en el sistema de transducción emplea los datos proporcionados en la entrada para obtener los resultados para poder generar nuevos datos, dado que si existen varios grupos bien definidos, pero de los cuales solo conocemos la clase de unos pocos, ya que el número de ejemplos que tenemos es muy reducido como para poder aplicar aprendizaje supervisado, más sin embargo podemos emplear un algoritmo de K-Vecinos Cercanos también conocido como KNN para poder obtener la clase resultante de los datos desconocidos sin necesidad de crear un modelo de inferencia \cite{GarciaAlonso2021}.
-
-La transducción es muy semejante al aprendizaje supervisado, más sin embargo no constituye explícitamente una función, ya que los datos no tienen una etiqueta, por lo cual los datos son sin clasificar, la transducción esta diseñada para predecir las categorías de los ejemplos futuros los cuales están basados en sus categorías, además de estar basados en los ejemplos de entrada y estar basados en los nuevos ejemplos en el sistema.
+Podemos decir que entre las implementaciones desarrolladas podemos encontrar \textit{AlphaGo}, programa de Inteligencia Artificial desarrollado por \textit{Google DeepMind} para poder jugar el juego de mesa Go, podría resultar interesante mencionar que en marzo de 2016, \textit{AlphaGo} ganó el partido ante el jugador profesional Lee Se-Dol, el cual tiene la categoría novena dan con 18 títulos mundiales. Entre los algoritmos utilizados podemos encontrar el árbol de búsqueda de Monte Carlo\footnote{Algoritmo de búsqueda heurístico realiza un proceso de toma de decisiones sobre todo relativo con los juegos.} que utiliza el aprendizaje profundo con redes neuronales.
 
 \subsubsection{Aprendizaje multitarea}
 
-El aprendizaje multitarea, también conocido como Multitask Learning (MTL), esta basado en la resolución de varias tareas al mismo tiempo, el cual está aprendiendo tanto de las características comunes como de las diferencias entre ellas, por lo cual el modelo aprende en paralelo todas las tareas, al mismo tiempo comparte la información aprendida con cada una de las tareas para poder resolver las otras  tareas, por lo general esta técnica es especialmente útil cuando las tareas están relacionadas, además de estar poco muestreadas, aunque también se ha demostrado que puede ser muy poderoso para tareas no relacionadas \cite{CerdaMunoz2021Feb}.
+El aprendizaje multitarea, también conocido como \textit{Multitask Learning} (MTL), esta basado en la resolución de varias tareas al mismo tiempo. Este aprendizaje aprende tanto de las características comunes como de las diferencias entre ellas, por lo cual el modelo estudia en paralelo todas las tareas, al mismo tiempo comparte la información aprendida con cada una de las tareas para poder resolver las otras  tareas, por lo general esta técnica es especialmente útil cuando las tareas están relacionadas. Se ha demostrado que puede ser muy poderoso para tareas no relacionadas \cite{CerdaMunoz2021Feb}.
 
-El aprendizaje multitarea es la aplicación de los métodos de aprendizaje los cuales emplean el conocimiento previamente aprendido por el sistema, los cuales se emplean cuando se enfrentan a problemas similares a los ya vistos, lo que implica generar una solución simultánea de diferentes tareas, dado que el aprendizaje de la tarea se mejora para poder complementarla con el aprendizaje común de otras tareas relacionadas con la primera tarea.
+El aprendizaje multitarea es la aplicación de los métodos de aprendizaje que emplean el conocimiento previamente aprendido por el sistema, se emplean cuando se enfrentan a problemas similares a los ya vistos, lo que implica generar una solución simultánea de diferentes tareas. El aprendizaje de una tarea se mejora para poder complementarla con el aprendizaje común de otras tareas relacionadas con esa tarea.
 
-Unas de las ventajas más importantes al emplear aprendizaje multitarea, comparado con las alternativas más comunes de reglas comerciales codificadas, análisis manual y modelos estadísticos simples son las que comprenden la automatización, la precisión, la personalización, la rapidez, y la escalabilidad.
+Unas de las ventajas más importantes al emplear aprendizaje multitarea son las que comprenden la automatización, la precisión, la personalización, la rapidez, y la escalabilidad.
 
 
-\section{Algoritmos machine learning}
+\section{Algoritmos \textit{machine learning} considerados}
 
-Machine Learning es una disciplina científica la cual se enfoca en crear sistemas que aprenden de datos los cuales son capaces de realizar predicciones e identificar patrones complejos en ellos, se puede establecer que por definición estos sistemas tienden a mejorar de forma autónoma, el científico informático Tom Mitchell establece una definición moderna de lo que es Machine Learning, la cual se describe como, “Se dice que un programa de ordenador aprende de la experiencia E con respecto a alguna clase de tareas T y la medida de rendimiento P, si su desempeño en tareas en T, medido por P, mejora con la experiencia E.”, dada esa definición es posible identificar dos tipos de aprendizajes, los cuales son el aprendizaje supervisado y aprendizaje no supervisado \cite{RodriguezGonzalez2018}. 
+\textit{Machine Learning}, en castellano aprendizaje automático, es una disciplina científica que se enfoca en crear sistemas que aprenden de datos los cuales son capaces de realizar predicciones e identificar patrones complejos en ellos, se puede establecer que por definición estos sistemas tienden a mejorar de forma autónoma, el científico informático Tom Mitchell establece una definición moderna de lo que es \textit{Machine Learning}, “Se dice que un programa de ordenador aprende de la experiencia E con respecto a alguna clase de tareas T y la medida de rendimiento P, si su desempeño en tareas en T, medido por P, mejora con la experiencia E.”, dada esa definición es posible identificar dos tipos de aprendizajes, estos son el aprendizaje supervisado y aprendizaje no supervisado \cite{RodriguezGonzalez2018}. 
 
 La principal diferencia entre ambos está en el conjunto de datos que usaremos para entrenar, si usamos datos etiquetados o con un valor real estaremos hablando de aprendizaje supervisado mientras que, si el conjunto de datos no está etiquetado, nuestro algoritmo deberá buscar un patrón en estos, por lo que estaremos ante un problema de aprendizaje no supervisado.
 
-Los lenguajes de programación más usados son Python, R, C++, Java y Scala. R se usa debido a que es un lenguaje muy orientado al análisis estadístico y cuenta con muchas librerías desarrolladas las cuales pueden analizar un conjunto de datos, para obetner modelos, dado que, a su vez, Python destaca por su sintaxis intuitiva y una gran variedad de librerías para el desarrollo de aplicaciones de Machine Learning, las más relevantes son: 
+Los lenguajes de programación más usados en \textit{Machine Learning} son \textit{Python, R, C++, Java y Scala}. \textit{R} se usa debido a que es un lenguaje muy orientado al análisis estadístico y cuenta con muchas librerías desarrolladas capaces de analizar un conjunto de datos. \textit{Python} destaca por su sintaxis intuitiva y una gran variedad de librerías para el desarrollo de aplicaciones de \textit{Machine Learning}, las más relevantes son: 
 
 \begin{itemize}
-\item[•][•] Pandas: Nos ofrece una forma versátil de recoger estos datos en streaming para poder procesarlos posteriormente en dataframes.
-\item[•] SciPy: Herramientas de matemáticas, ciencia e ingeniería. 
-\item[•] Statsmodel: Nos provee herramientas dedicadas para el análisis de series temporales.
-\item[•] Scikit-learn: Para algoritmos de Machine Learning. 
-\item[•] Numpy: Para vectores y matrices. 
-\item[•] TensorFlow: Para integración de redes neuronales. 
-\item[•] Keras: Al igual que TensorFlow, es una librería destinada al desarrollo de redes neuronales.
+\item[•] \textit{Pandas}: Nos ofrece una forma versátil de recoger estos datos en streaming para poder procesarlos posteriormente en dataframes.
+\item[•] \textit{SciPy}: Herramientas de matemáticas, ciencia e ingeniería. 
+\item[•] \textit{Statsmodel}: Nos provee herramientas dedicadas para el análisis de series temporales.
+\item[•] \textit{Scikit-learn}: Para algoritmos de Machine Learning. 
+\item[•] \textit{Numpy}: Para vectores y matrices.
+\item[•] \textit{Keras}: Al igual que TensorFlow, es una librería destinada al desarrollo de redes neuronales.
 \end{itemize}
 
-Los algoritmos que se han propuesto para poder ser utilizado en el planteamiento del desarrollo del proyecto son Random Forest, Regresión Logística, y KNN, los cuales se describirán a continuación.
+Los algoritmos que se han propuesto para ser utilizados en el planteamiento del desarrollo del proyecto son \textit{Random Forest}, \textit{k-NN}, \textit{SVM}, \textit{Auto-Sklearn} y \textit{TabPFN} los cuales se describirán a continuación.
 
-\subsection{Random Forest}
+\subsection{\textit{Random Forest}}
+\textit{Ramdom Forest} conocido en castellano como Bosques Aleatorios, es un algoritmo de clasificación supervisado consiste en crear muchos árboles para luego usarlos en la predicción de la variable de interés. Para poder establecer un algoritmo basado en \textit{Random Forest} (bosques aleatorios), es necesario describir en qué consiste un árbol de decisión, ya que en él podemos encontrar la combinación de los diferentes casos.
 
-Para poder establecer un algoritmo basado en Random Forest, es necesario describir en qué consiste un árbol de decisión, ya que en él podemos encontrar la combinación de los diferentes casos.
+El árbol de decisión es una de las herramientas de aprendizaje supervisado más implementadas, este modelo consta de una serie de nodos, en los cuales se toman decisiones lógicas de forma secuencial. Por ejemplo, si quisiéramos conocer si a alguien le deberíamos conceder un crédito, podríamos ver si en primer lugar obtiene más o menos de \textit{X} ingresos \cite{AndresAlbelda}. En caso que fuera afirmativo podríamos querer saber si lleva más de \textit{Y} años en su trabajo, o si tiene algún aval, dado que un árbol de decisión no es más que una acumulación de este tipo de decisiones. Empezamos en el nodo conocido como raíz, pasamos por los nodos intermedios y nuestro resultado es proporcionado por un nodo terminal, que serían las hojas del árbol.
 
-El árbol de decisión es una herramienta de aprendizaje supervisado más implementadas, este modelo consta de una serie de nodos, en los cuales se toman decisiones lógicas de forma secuencial, este se presenta en diferentes ejemplos, si quisiéramos conocer si a alguien le deberíamos conceder un crédito, podríamos ver si en primer lugar obtiene más o menos de X ingresos \cite{AndresAlbelda}. 
-
-En dado caso que fuera afirmativo podríamos querer saber si lleva más de Y años en su trabajo, o si tiene algún aval, dado que un árbol de decisión no es más que una acumulación de este tipo de decisiones, donde empezamos en el nodo conocido como raíz, pasamos por los nodos intermedios y nuestro resultado es proporcionado por un nodo terminal, que serían las hojas del árbol.
-
-Al final, los árboles de decisión lo que hacen es atribuir un valor constante al output dentro de regiones que suelen ser rectángulos definidos en el espacio de los inputs, un ejemplo, se puede evaluar cuando se define un valor crítico (threshold) la cual es una variable, en donde se elige una frontera para tomar una decisión u otra, donde se pregunta cuál es el mejor predictor para valores superiores al valor crítico y otro para los inferiores, y esto se hace luego con otra variable, lo que se hace es particionar el dominio de los inputs dividido en cuatro pedazos y elegir el predictor constante dentro de cada uno de los pedazos. 
-La ventaja principal de estos métodos en la sencillez de interpretación, ya que lo podemos encontrar un caso con dos variables, donde el dominio de la variable X1 se ha dividido en tres regiones, mientras que el de X2 se descompone en función del valor de la primera variable.
-Ramdom Forest conocido en castellano como "Bosques Aleatorios, a cual es un conjunto de árboles los cuales predicen, por lo que la información generada en un árbol es respuesta directa de los diferentes valores obtenidos en un vector generado como muestra de manera separada con las mismas características para los demás árboles del conjunto.
+Al final, los árboles de decisión lo que hacen es atribuir un valor constante al output\footnote{Resultado de procesar un conjunto de datos.} dentro de regiones que suelen ser rectángulos definidos en el espacio de los inputs\footnote{Conjunto de datos que se introducen en el sistema.}. La ventaja principal de estos métodos en la sencillez de interpretación, ya que podemos encontrar un caso con dos variables, donde el dominio de la variable \textit{X1} se ha dividido en tres regiones, mientras que el de \textit{X2} se descompone en función del valor de la primera variable.
 
 Los árboles se crean siguiendo el algoritmo:
 
@@ -458,67 +382,173 @@ Los árboles se crean siguiendo el algoritmo:
 \item[•] Para cada nodo del árbol, es posible elegir aleatoriamente m variables en las cuales basar la decisión, para poder calcular la mejor partición del conjunto de entrenamiento a partir de las m variables.
 \end{itemize}
 
-La idea es que a medida que se vaya separando la muestra de entrenamiento a través de los diferentes nodos, se vayan formando grupos cada vez más homogéneos, hasta que las decisiones no generen grupos más uniformes, esto debido a que el método consiste en fragmentar el espacio formado por los daros obtenidos asignando un valor como resultado para todos los subespacios, nada impide que este método sea capaz de capturar relaciones no lineales.
+La idea es que a medida que se vaya separando la muestra de entrenamiento a través de los diferentes nodos, se vayan formando grupos cada vez más homogéneos, hasta que las decisiones no generen grupos más uniformes. El método fragmenta el espacio formado por los datos obtenidos asignando un valor como resultado para todos los subespacios.
 
-Por las cualidades del método, además de considerar la naturaleza del proyecto presentado en este trabajo el algoritmo Random Forest ha sido el seleccionado para ser implementado para poder realizar el proyecto.
-
-\subsection{Regresión Logistica}
-
-El método de regresión logística es uno de los métodos estadísticos más utilizados para para resolver problemas de clasificación binaria lo cual se refiere a la clasificación de dos clases, donde el resultado solo puede ser de naturaleza dicotómica, o sea, solo puede tomar dos valores posibles.
-
-Como técnica de Machine Learning, la regresión logística se le puede definir como: \textit{“Es una regresión enmarcada en el grupo de los modelos lineales generalizados, las cuales utilizan una función logit y son útiles para modelar probabilidades referentes a un evento en función de otras variables, se basa en la probabilidad de ocurrencia de los posibles valores de la variable dependiente y utiliza para ello una regresión logística que acota los resultados en el intervalo 0 y 1, adicionalmente, está respaldada por su capacidad de pronosticación.”} \cite{AlbaVega2020Apr}.
-
-Es posible aplicar la regresión logística siempre y cuando las variables sean categóricas, siendo aplicado el modelo para poder calcular los diferentes valores de la variable que se estudia, por lo que se emplea el cálculo de la probabilidad en donde la variable en l que se enfoca el estudio tiene el valor de los eventos que de definieron anteriormente.
-
-La variable independiente que se analiza puede tomar diferentes valores por lo que no tiene restricciones de rangos de valores, se recurre a métodos de estimación aplicados a modelos de regresión para elaborar un modelo de regresión logística, siendo que la regresión logística es un modelo que se obtiene empleando diferentes modelos matemáticos semejantes, después de realizar transformaciones empleando los datos.
-
-Este algoritmo emplea para solucionar varios problemas de clasificación, detección de spam, predicción de la diabetes, si un cliente determinado comprará o no un producto en particular.
-
-\subsection{KNN}
-
-KNN también conocido como knearest neighbors, siendo un algoritmo de tipo simple en el cual se puede almacenar los casos disponibles, clasificando los casos nuevos, se basa en un control de parecido, es posible analizar funciones de longitudes, donde KNN se emplea para obtener el reconocimiento de patrones, también es empleado para obtener la estimación estadística, ya que es una técnica no paramétrica, no hace suposiciones con los datos subyacentes.
-
-K-nearest neighbors traducido en castellano como "k vecinos más próximos" su funcionalidad es poder buscar un número anteriormente definido de un conjunto de datos de entrenamiento la cual estará cercana al nuevo punto, pudiendo predecir la etiqueta a partir de los datos.
-
-\imagen{knn}{K-nearest neighbors}
-
-La cantidad de datos son una constante la cual es definida por los usuarios conocida como aprendizaje del vecino más cercano k, es posible que varie de acuerdo con la cantidad local de puntos, donde la distancia es cualquier medida, por lo que la distancia euclidiana estándar es la más empleada.
-Dado que el dato más cerca de K es un algoritmo de aprendizaje automático basado en  técnicas de aprendizaje supervisado, se asume el parecido entre el nuevo caso con los datos, ya que los casos disponibles para poder establecer el nuevo caso en su categoría deberá ser más similar a las categorías existentes \cite{JimenezLeon2021}.
-
-El algoritmo KNN es capaz de almacenar los datos disponibles, clasificando un punto en función de la similitud, por lo que cuando aparecen datos nuevos, es posible clasificar fácil en una categoría de conjunto de pozos empleando el algoritmo KNN, siendo empleados para la regresión, la clasificación y problemas de clasificación. 
-
-Conocido como algoritmo de aprendizaje perezoso ya que guarda el conjunto de datos, para clasificarlos en una acción en el conjunto de los datos, en donde los algoritmos KNN cuentan con dos parámetros, la K que representa el número de vecinos y la k que es un parámetro de suavizado, donde mientras más grande sea k más pequeño es el ruido, donde d es a cantidad de retardos para cada elemento. 
+Por las cualidades del método, además de considerar la naturaleza del proyecto presentado en este trabajo el algoritmo \textit{Random Forest} ha sido el seleccionado para ser implementado en la realización de este proyecto.
 
 
-\section{Características de los materiales}
+\subsection{\textit{k-NN}}
 
-Se ha realizado una extracción de características de los materiales utilizados para el entrenamiento del modelo de clasificación, en donde las características y además atributos obtenidos los cuales son una serie de datos con los que es posible identificar el material, dado que estos datos están representados por números complejos, donde estos números serán extraídos de las lecturas, separados en módulo y fase para poder realizar cálculos correctos.
+\textit{k-NN} (k vecinos más cercanos) también conocido como \textit{k-nearest neighbors}, es un algoritmo de tipo simple, se basa en un control de parecido. \textit{k-NN} se emplea para obtener el reconocimiento de patrones, también es empleado para obtener la estimación estadística, ya que es una técnica no paramétrica, y no hace suposiciones con los datos subyacentes. Su funcionalidad es poder buscar un número anteriormente definido de un conjunto de datos de entrenamiento que esté cercano al nuevo punto, pudiendo predecir la etiqueta a partir de los datos.
 
-Cada extracción se ha realizado mediante la herramienta facilitada por Acconeer.
+\imagen{KNN}{k-nearest neighbors}
 
-\imagen{herramienta_acconeer}{Herramienta Acconeer}
+La cantidad de datos son una constante definida por los usuarios conocida como aprendizaje del vecino más cercano \textit{K}, es posible que vare de acuerdo con la cantidad local de puntos, donde la distancia es cualquier medida, por lo que la distancia euclidiana estándar es la más empleada. Dado que el dato más cerca de \textit{K} es un algoritmo de aprendizaje automático basado en técnicas de aprendizaje supervisado, se asume el parecido entre el nuevo caso con los datos, ya que los casos disponibles para poder establecer el nuevo caso en su categoría deberá ser más similar a las categorías existentes \cite{JimenezLeon2021}.
 
+El algoritmo \textit{k-NN} es capaz de almacenar los datos disponibles, clasificando un punto en función de la similitud, por lo que cuando aparecen datos nuevos, es posible clasificarlos fácilmente en una categoría empleando el algoritmo \textit{k-NN}. Puede ser conocido como algoritmo de aprendizaje perezoso debido a que almacena el conjunto de datos. 
 
-Se necesita la aplicación Acconeer Exploration Tool que se puede descargar desde el repositorio de este TFG \url{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}. En esta interfaz se conecta utilizando el modo socket a la IP de la Raspberry Pi 4.
- 
-Una vez dentro hay cuatro servicios y varias funcionalidades. Los servicios son:
+Los algoritmos \textit{k-NN} cuentan con dos parámetros, la \emph{K} que representa el número de vecinos y la \textit{k} que es un parámetro de suavizado, donde mientras más grande sea \textit{k} más pequeño es el ruido, y \textit{d} es a cantidad de retardos para cada elemento. 
+
+\subsection{\textit{SVM}}
+
+\textit{Support Vector Machine} o \textit{SVM} es uno de los algoritmos de aprendizaje supervisado más populares, que se utiliza tanto para problemas de clasificación como de regresión. Sin embargo, principalmente, se utiliza para problemas de clasificación en aprendizaje automático.
+
+El objetivo del algoritmo es encontrar un hiperplano en un espacio N-dimensional que clasifique claramente los puntos de datos. Para ello \textit{Scikit-learn} tiene una funcionalidad integrada, el método \textit{GridSearchCV} encargado de seleccionar hiperparámetros. Los hiperparámetros son variables que rigen el proceso de entrenamiento de un modelo, como el tamaño del lote o la cantidad de capas ocultas de una red neuronal profunda. 
+
+\textit{GridSearchCV} se encarga de buscar hiperparámetros óptimos y, por lo tanto, mejorar los resultados de precisión/predicción. \cite{BibEntry2022Aug}
+
+Ventajas del algoritmo:
 \begin{itemize}
-\item[•] Power Bins: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/pb.html}, calcula la energía de diferentes distancias, su objetivo es la medición de objetos grandes a distancias cortas como un sensor de parking. Al ser un método muy sencillo con poca cantidad de datos y enfocado a grandes objetos como una pared no se ha contemplado para el estudio.
-\item[•] Envelope: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/envelope.html}, es igual que Power Bins pero utilizando un espectro continuo de los datos. Su caso de uso típico es la detección estática, por esto se ha contemplado para el estudio ya que la basura estará quieta.
-\item[•] IQ: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/iq.html}, utiliza la coherencia de fase del radar que detecta movimiento a nivel fino. Tiene cinco modos, el primero es el que ha sido relevante al detectar mejores reflejos de los datos y estar optimizado para distancias muy cortas.
-\item[•] Sparce: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/sparse.html},se basa en la señal está más cuantizada y su uso principal es el análisis del movimiento y no de situaciones estáticas, por ello no se ha contemplado su uso para el estudio.
+	\item[•]Eficaz en espacios de altas dimensiones.
+	\item[•]Efectivo en casos donde el número de dimensiones es mayor que el número de muestras.
+	\item[•]Utiliza un subconjunto de puntos de entrenamiento en la función de decisión (llamados vectores de soporte), por lo que también es eficiente en memoria.
+\end{itemize}
+
+\subsection{\textit{auto-sklearn}}
+
+\textit{Auto-sklearn} es un conjunto de herramientas de \textit{Machine Learning} de código abierto, además de ser un reemplazo directo para los clasificadores de \textit{scikit-learn}.\cite{auto-sklearn} 
+
+Podemos decir que se libera al usuario de elegir los algoritmos y el ajuste de los hiperparámetros ya que proporciona aprendizaje automático supervisado basándose en la optimización bayesiana , el meta-aprendizaje y la construcción de conjuntos .
+
+\textit{Auto-sklearn} envuelve un total de 15 algoritmos de clasificación, 14 algoritmos de preprocesamiento de funciones y se ocupa del escalado de datos, la codificación de parámetros categóricos y los valores faltantes. Se puede ampliar fácilmente con nuevos métodos de clasificación, regresión y preprocesamiento de funciones. Para hacerlo, un usuario debe implementar una clase contenedora y registrarla para \textit{auto-sklearn}.
+
+\subsection{\textit{TabPFN}}
+
+Se ha decidido incluir en el proyecto un nuevo método clasificador llamado \textit{TabPFN}. Es un transformador\footnote{Tipo de algoritmo de Deep Learning}\cite{Lopez2020Feb} capacitado que puede realizar una clasificación supervisada para pequeños conjuntos de datos en menos de un segundo, no necesita ajuste de hiperparámetros y es competitivo con los métodos de clasificación más avanzados.
+
+En la web donde se presenta \href{https://www.automl.org/tabpfn-a-transformer-that-solves-small-tabular-classification-problems-in-a-second/}{TabPFN} se indica que el método supera claramente a los árboles potenciados con un aumento de velocidad de hasta 70 veces.
+
+Este método al ser bastante novedoso por ahora limita los problemas hasta 1000 ejemplos de capacitación, 100 funciones y 10 clases. En un futuro el clasificador irá aumentando las limitaciones que presenta a día de hoy.
+
+\section{Proceso de lectura y procesamiento de la señal del lector}
+
+Se ha realizado la extracción de características de los objetos utilizados para el entrenamiento de los modelos clasificadores del presente proyecto. Las características y demás atributos nos darán la posibilidad de identificar los distintos materiales por los que están compuestos los objetos. Estos datos están representados por números complejos, por lo que serán extraídos de las lecturas y separados en módulo y fase para poder realizar cálculos correctos.
+
+Inicialmente se realizaron pruebas de extracción desde la herramienta facilitada por \textit{Acconeer}, figura \ref{fig:gui_acconeer}.
+
+\imagen{gui_acconeer}{Herramienta \textit{Acconeer}}
+
+Ejemplo de como se muestra una lectura en la interfaz, figura \ref{fig:lectura_acconeer}.
+
+\imagen{lectura_acconeer}{Lectura acconeer.}
+
+La aplicación \textit{Acconeer Exploration Tool} se puede descargar desde el repositorio de este proyecto (\href{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}{\textit{acconeer-python-exploration}}). En esta interfaz se conecta utilizando el modo \textit{socket} a la IP de la Raspberry Pi 4.
+ 
+Una vez ejecutada la aplicación hay cuatro servicios y varias funcionalidades. Los servicios son:
+\begin{itemize}
+\item[•] \textit{Power Bins}: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/pb.html}, calcula la energía de diferentes distancias, su objetivo es la medición de objetos grandes a distancias cortas como un sensor de parking. Al ser un método muy sencillo con poca cantidad de datos y enfocado a grandes objetos como una pared no se ha contemplado para el estudio.
+\item[•] \textit{Envelope}: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/envelope.html}, es igual que Power Bins pero utilizando un espectro continuo de los datos. Su caso de uso típico es la detección estática, por esto se ha contemplado para el estudio ya que la basura estará quieta.
+\item[•] \textit{IQ}: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/iq.html}, utiliza la coherencia de fase del radar que detecta movimiento a nivel fino. Tiene cinco modos, el primero es el que ha sido relevante al detectar mejores reflejos de los datos y estar optimizado para distancias muy cortas.
+\item[•] \textit{Sparce}: según \url{https://acconeer-python-exploration.readthedocs.io/en/latest/services/sparse.html},se basa en la señal está más cuantizada y su uso principal es el análisis del movimiento y no de situaciones estáticas, por ello no se ha contemplado su uso para el estudio.
 \end{itemize}
 
 Para la creación del modelo se han seleccionado 30 materiales divididos en, 10 de plástico, 10 de cristal y 10 de cartón. De cada material se han realizado 10 lecturas, de varias caras, girando el objeto.
 
-Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato numpy (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformarán la red de entrenamiento y otro porcentaje servirán para testear la red.
+Para unificar el proyecto y no depender de la herramienta de \textit{Acconeer} se ha decidido realizar la extracción de características de materiales desde un cuaderno de \textit{Jupyter} (\textit{\href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/scripts/LecturasRadar.ipynb}{LecturasRadar.ipynb}}), estableciendo una configuración y un estándar en el radar para un correcto tratamiento de datos.
 
-Cada instante de tiempo de la lectura comprende 291 atributos, de cada fichero obtenemos del orden de 300 instancias.
-Una instancia son estadísticas (medias, stds, etc) de los 291 atributos calculadas a partir de los aproximadamente 300 instantes de tiempo.
-
-Tenemos los siguientes datos:
+Se ha establecido el radar con los siguientes parámetros:
 \begin{itemize}
-\item[•] Nº Experimentos: Material - vista
-\item[•] M instantes de tiempo
-\item[•] Atributos
+	\item[•]Servicio \textit{IQ}
+	\item[•]Perfil 2 (distancias de unos 20 cm)
+	\item[•]Tasa de lectura de 30 Hz
+	\item[•]Normalización desactivada (solo se recomienda activada para representar datos)
+	\item[•]Ganancia medio punto, la ganancia es la intensidad de la señal.
 \end{itemize}
+
+
+Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato \textit{numpy} (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformarán la red de entrenamiento y otro porcentaje servirán para testear la red. En el directorio GitHub del proyecto se incluye una carpeta llamada "\href{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/Materiales}{Materiales}" que contiene los 300 archivos originales.
+
+Cada instante de tiempo de la lectura comprende 291 atributos, de cada fichero obtenemos del orden de 300 instancias. Una instancia son estadísticas de los 291 atributos calculadas a partir de los aproximadamente 300 instantes de tiempo.
+
+
+\section{Transformación de las características}
+
+Una vez extraídas las características de los materiales se han realizado una serie de transformaciones en las lecturas, estas devuelven datos mostrados como números reales.
+
+Se creó una función que a partir del nombre del fichero \textit{npy} cargue los datos, los redimensione y los devuelva.
+
+Función $get\_data$ devuelve un array de 2 dimensiones (2D) al que llamaremos $datos\_bruto$. 
+
+\imagen{get_data}{Función $get\_data$}
+
+
+Una función \textit{$get\_modulo\_fase$} que a partir del array anterior, obtenga un array 2D, con el doble de anchura. Por ejemplo, si \textit{$datos\_bruto$} es de $300 x 291$, $modulo\_fase$ será de $600 x 291$. 
+
+Esa función obtendrá el módulo del número complejo y la fase del número complejo. El módulo será una matriz de $300 x 291$ y la fase también. Será necesario concatenarlas "horizontalmente". 
+
+\imagen{get_modulofase}{Función $get\_modulo\_fase$}
+
+
+A partir de los datos del modulo y la fase se obtiene la media. La comprobación sería que devuelva un array de 1 dimensión de tamaño $582 (291 x 2)$.
+
+\imagen{get_media}{Función $get\_media$}
+
+Una vez se han transformado las característica se decide utilizar un método de selección de estas.
+
+\section{Métodos de selección de características}
+
+En esta sección se indican los métodos de selección de características que se han utilizado.
+
+\subsection{Validación cruzada}
+
+La validación cruzada, o \textit{cross validation}, es una técnica para evaluar los resultados de un análisis estadístico y garantizar que son independientes de la partición entre los datos de entrenamiento y prueba (test).
+
+Este método lo utilizaremos para validar y comparar los modelos de aprendizaje automático elegidos.
+
+El procedimiento elegido para crear las particiones de entrenamiento y test como indica la validación cruzada es el siguiente.
+
+
+Se ha decidido crear una función (\textit{particion}) encargada de realizar automáticamente las particiones separadas en entrenamiento ($part\_train$) y test ($part\_test$).
+
+Podemos decir que se realiza una validación cruzada dejando uno fuera. Se ha decidido crear diez particiones que se corresponden con las diez vistas de cada material. Por lo que en la partición \textit{N} de entrenamiento se deja fuera la \textit{N} vista de cada material, y estas vistas excluidas para entrenamiento pasarán a la partición de test.
+
+Resumen creación de las particiones:
+\begin{verbatim}
+
+Partición 1
+Entrenamiento: Carton Vista2-Vista10 + Plastico Vista2-Vista10 
+				+ Cristal Vista2-Vista10
+Test: Carton Vista1 + Plastico Vista1 + Cristal Vista1
+
+Partición 2
+Entrenamiento: Carton Vista1,Vista3-Vista10 + Plastico Vista1,Vista3-Vista10 
+				+ Cristal Vista1,Vista3-Vista10
+Test: Carton Vista2 + Plastico Vista2 + Cristal Vista2
+
+...
+
+Partición 10
+Entrenamiento: Carton Vista1-Vista9 + Plastico Vista1-Vista9 
+				+ Cristal Vista1-Vista9
+Test: Carton Vista10 + Plastico Vista10 + Cristal Vista10
+
+\end{verbatim}
+
+Bucles utilizados para crear las particiones:
+
+\imagen{bucleParticiones}{Bucle función $particiones$}
+
+
+Una vez tenemos las diez particiones creadas procedemos a entrenar los algoritmos.
+Los algoritmos utilizados en el proyecto \textit{Random Forest},\textit{k-NN},\textit{SVM} y \textit{auto-sklearn} se han entrenado mediante validación cruzada. Para entrenar \textit{TabPFN} a parte de la validación cruzada se han tenido que reducir los atributos a 100 (número máximo que permite \textit{TabPFN})  mediante \textit{Pipeline} junto con \textit{SelectFromModel}.
+
+
+\subsection{\textit{Pipeline}}
+
+\textit{Pipeline} se ha empleado para reducir los atributos que se han empleado para entrenar el clasificador \textit{TabPFN}. Este clasificador actualmente limita los problemas hasta 1000 ejemplos de capacitación, 100 funciones y 10 clases. En un futuro el clasificador irá aumentando las limitaciones que presenta a día de hoy. 
+
+\textit{SelectFromModel} se usa para extraer las mejores características de los conjuntos de datos y requiere un estimador, en este caso la clase\textit{LogisticRegression} es el modelo escogido para que \textit{Pipeline} seleccione las 100 características para entrenar a \textit{TabPFN}.
+
+\imagen{pipeline}{Pipeline}
+
+Usamos $threshold=-np.inf$ para que ignore el valor de la importancia de las características y use el número establecido en $max\_features$ (número máximo de características).

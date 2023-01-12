@@ -3,14 +3,31 @@
 En este apartado se muestran las herramientas relacionadas con el proyecto.
 Hoy en día hay poca información y documentación de este tipo de tecnología de radares en la red, por ello solo muestro una única herramienta.
 
-\section{RadarCat}
-RadarCat (Radar Categorization for Input and Interaction) permite que un dispositivo electrónico pueda reconocer y clasificar distintos materiales y objetos a tiempo real con alta precisión. Además da mucha más información de los objetos, como su estructura interna.
+\section{\textit{RadarCat}}
+\textit{RadarCat} (\textit{Radar Categorization for Input and Interaction}) permite que un dispositivo electrónico pueda reconocer y clasificar distintos materiales y objetos a tiempo real con alta precisión. Además da mucha más información de los objetos, como su estructura interna.
 
-El escaner/radar utilizado envía ondas electromagnéticas al objeto, estas rebotan y vuelven al punto de partida para su procesamiento con aprendizaje automático o machine learning.
+El escaner/radar utilizado envía ondas electromagnéticas al objeto, estas rebotan y vuelven al punto de partida para su procesamiento con aprendizaje automático o \textit{machine learning}.
 
-La figura 6.1 muestra un esquema de cómo está estructurado RadarCar. Podemos ver que es necesario un ordenador para inicializar el software de RadarCat, a este equipo se conecta una placa base donde se encuentran las antenas/radares capaces de realizar lecturas de objetos.
+Es necesario un ordenador para inicializar el software de \textit{RadarCat}, a este equipo se conecta una placa base donde se encuentran las antenas/radares capaces de realizar lecturas de objetos.
 Por último encontramos una placa que protege el sensor y soporta el objeto a reconocer.
 
-\imagen{radarcat}{RadarCat.}
+Más allá de la interacción humana con la computadora, \textit{RadarCat} también abre nuevas oportunidades en áreas como la navegación y el conocimiento mundial (por ejemplo, usuarios con baja visión).
 
-Más allá de la interacción humana con la computadora, RadarCat también abre nuevas oportunidades en áreas como la navegación y el conocimiento mundial (por ejemplo, usuarios con baja visión).
+Aquí se puede acceder a un vídeo interesante que muestra los múltiples usos de \textit{RadarCat} \url{https://www.youtube.com/watch?v=B6sn2vRJXJ4}
+
+En el proyecto \textit{RadarCat} creado por \textit{Google} utiliza un radar del fabricante \textit{Infineon Technologies} al que \textit{Google} llama \textit{Google ATAP Project Soli}, nosotros para este proyecto estamos utilizando el del fabricante \textit{Acconeer}. Existe una gran diferencia de precios entre los dos, mientras que nuestro radar tiene un precio de 52,73€ el de \textit{Infineon}, según muestra la web del fabricante, llega a valer 284,64€.
+
+
+\section{Exploración de interacciones tangibles con sensores de radar}
+
+En esta sección se expone un artículo que muestra un ejemplo de uso para sensores de radar y aprendizaje automático para la exploración de interacciones tangibles\footnote{El mundo digital no se observa mediante un monitor o la pantalla de un dispositivo móvil, sino que está mezclado con la realidad.}.\cite{Yeo2018Dec}  
+
+El el artículo se proponen usar el radar como una plataforma de detección para rastrear la identidad de un objeto o la cantidad de objetos próximos para habilitar la \textit{Tangible User Interface} (TUI). El radar mediante redes microondas ha sido capaz de reconocer, contar y ordenar objetos y además determinar movimientos (deslizamiento o rotación). Todo ello con elementos comunes, generalmente objetos en gran parte planos.
+
+Para realizar el prototipo, se usa el sensor de radar \textit{Google ATAP Project Soli}, por lo que este proyecto es una ampliación de \textit{RadarCat}. Para mejorar el objetivo buscado se crean unas estructuras 3D, mediante una impresora, para guiar la onda del radar y mejorar la colocación de los objetos sobre este. Según indica el articulo se han creado hasta 12 estructuras distintas (p.ej. soporte para fichas \textit{Lego}, tarjetero y un espacio de discos), cada una para un fin.
+
+El prototipo se basa en el paradigma \textit{Token+Constraint}. En estas interfaces, los \textit{tokens} (fichas) son objetos físicos discretos que representan información digital. Las \textit{constraint} (restricciones) son regiones de confinamiento que se asignan a las operaciones digitales. Estos se incorporan con frecuencia como estructuras que canalizan mecánicamente cómo se pueden manipular las fichas, a menudo limitando su movimiento a un solo grado de libertad. La colocación y manipulación de tokens dentro de sistemas de restricciones se puede usar para invocar y controlar una variedad de interpretaciones computacionales. Se muestra que al agregar un «caso guía» que
+actua como restriccion, se puede ampliar en gran medida las capacidades de interacción y mejorar la precisión de detección de objetos.
+
+En el siguiente enlace se puede acceder a un vídeo donde se muestran varios ejemplos de uso del prototipo: \url{https://www.youtube.com/watch?v=zDAJ_0KIovc}
+

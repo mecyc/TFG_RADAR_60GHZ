@@ -2,10 +2,60 @@
 
 \section{Introducción}
 
+En este apartado se tratan los aspectos referentes al diseño de la aplicación cumpliendo los requisitos establecidos.
+
 \section{Diseño de datos}
+
+En el presente proyecto no ha sido necesaria una base de datos por lo que los datos se han almacenado en ficheros y en estructuras de datos en los objetos que se van instanciando en la aplicación.
+
+\subsection{Lecturas de objetos}
+
+Todas las lecturas iniciales realizadas por el radar se han almacenado en ficheros \textit{Numpy (NPY)}. El formato de archivo \textit{NPY} es un archivo de datos asociado al lenguaje de programación \textit{Python}. \textit{Numpy} es uno de los paquetes importantes necesarios para ejecutar análisis de datos y cálculos científicos, sobre todo utilizando matrices para su almacenamiento. Los archivos \textit{NPY} almacenan los datos de la matriz en un formato de archivo binario que es recuperable para su transformación, utilización... regenerando la matriz tal cual estaba.
+
+\subsection{Conjuntos de \textit{Train} y \textit{Test}}
+
+Tanto el conjunto de \textit{Train} como de \textit{Test} se han almacenado en ficheros \textit{Numpy}. Estos conjuntos fueron creados a partir de 300 archivos \textit{Numpy} que almacenaban las lecturas de cada vista de un objeto determinado.
+
+\subsection{Modelo clasificador}
+
+La aplicación actualmente está desarrollada para que siempre utilice el mismo modelo ya entrenado, es un modelo creado a partir del clasificador \textit{TabPFN}. El fichero que almacena los datos \href{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/modeloTabPFN.pkl}{\textit{modeloTabPFN.pkl}} es archivo \textit{PKL} binario creado por la librería \textit{Pickle}, los \textit{pickles} de \textit{Python} representan un objeto \textit{Python} como una cadena de bytes que puede ser almacenada en ficheros o en una base de datos.
+
+El archivo \textit{pickle}, por tanto, es útil para varios propósitos, como el almacenamiento de resultados para que sea utilizado por otro programa \textit{Python} o para crear copias de seguridad.
+
+\subsection{Guardar lecturas}
+
+Desde la aplicación todas las lecturas que hagamos sobre un objeto se puede almacenar para su posterior utilización tanto en esta aplicación como para otro fin.
+
+Al igual que indicábamos en la subsección \textit{Lecturas de objetos}, toda las lecturas realizadas por el radar se almacenan en ficheros \textit{Numpy (NPY)}.
 
 \section{Diseño procedimental}
 
+En este apartado se utiliza un diagrama de secuencia para explicar el funcionamiento de la aplicación.
+
+\imagen{DiagramaSecuencia}{Diagrama de secuencia.}
+
 \section{Diseño arquitectónico}
 
+En esta sección se explican las consideraciones tomadas al diseñar la arquitectura del proyecto.
 
+Se ha decidido utilizar el patrón de diseño \textit{Facade}\cite{Facade} o \textit{Fachada}, utilizado habitualmente en aplicaciones escritas en \textit{Python}. Es de especial utilidad al trabajar con bibliotecas y \textit{API}\footnote{Interfaz de programación de aplicaciones.} complejas.
+
+El nombre de \textit{Fachada} hace referencia a lo que ve el usuario de la aplicación, la interfaz. El patrón de diseño por fachada divide en varias clases el desarrollo de una aplicación. Hay una clase que es la que hace referencia a la fachada, esta se encarga, sobre todo, de implementar la interfaz y las funciones necesarias. El resto de clases de la aplicación se encuentran detrás de la fachada y son conocidas como \textit{Subsistemas}, estas clases comprenden el resto de funciones que harán falta en los diferentes procesos de un programa.
+
+Se aplica cuando:
+\begin{itemize}
+\item[•]Se tiene que acceder a parte de la funcionalidad con un desarrollo complejo.
+\item[•]Hay tareas que ejecutan el mismo código muy frecuentemente y es conveniente simplificar el código.
+\item[•]Necesitamos que nuestro desarrollo sea mas legible.
+\item[•]Hay que simplificar el acceso a las \textit{APIs}.
+\end{itemize}
+
+En la aplicación desarrollada se ha decidido crear una clase fachada y dos clases subsistemas.
+Las clases son:
+\begin{itemize}
+\item[•] \textbf{FacadeRadarWave:} Clase \textit{Fachada} que implementa la interfaz de la aplicación.
+\item[•] \textbf{TratamientoDatos:} Clase que comprende las funciones para el tratamiento de datos escogidos para su clasificación.
+\item[•] \textbf{Verificacion:} Clase empleada para realizar verificaciones básicas en el inicio de la aplicación.
+\end{itemize}
+
+\imagen{PatronDisenoFacade}{Patrón de diseño fachada.}

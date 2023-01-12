@@ -2,10 +2,398 @@
 
 \section{Introducción}
 
+En este apéndice se especifican las necesidades del cliente o de los usuarios, los requisitos y la especificación de los mismos. Se analizan tanto los requisitos funcionales como los no funcionales.
+
 \section{Objetivos generales}
 
+Los objetivos generales del proyecto se pueden describir en los siguientes puntos:
+\begin{itemize}
+\item[•] El objetivo principal del proyecto en el desarrollo de una aplicación capaz de comunicarse con el radar y realizar lecturas de objetos para identificar distintos materiales.
+
+\item[•] Documentar los diferentes elementos que componen el ensamblar y poner en funcionamiento un radar de 60GHz fabricado por \textit{Acconeer} el cual es capaz de identificar, mediante un clasificador, el tipo de material al que pertenece un objeto.
+
+\item[•] Crear un procedimiento capaz de extraer determinadas características de las lecturas de los objetos para entrenar un modelo clasificador de \textit{machine learning}.
+
+\item[•] Poder generar un gráfico de probabilidades el cual sea capaz de mostrar la clasificación de los diferentes materiales empleados.
+
+\item[•]Se establecerá una interfaz capaz de poder ser implementada en el sistema operativo Windows, buscando que la aplicación pueda ser implementada en cualquier dispositivo que cuente con este sistema.
+\end{itemize}
+
 \section{Catalogo de requisitos}
+\subsection{Requisitos funcionales}
+Los requerimientos funcionales son aquellos que describen cualquier actividad que deba realizar el sistema o \textit{software}. Se relacionan con los casos de uso.
+
+\begin{itemize}
+\item \textbf{RF-1 Abrir lecturas}: la aplicación debe permitir al usuario abrir lecturas almacenadas para que sean procesadas.
+\item \textbf{RF-2 Reconocimiento de materiales}: la aplicación debe ser capaz de clasificar los datos extraidos de las lecturas.
+\item \textbf{RF-3 Conectar con el radar}: la aplicación debe ser capaz de crear una conexión estable entre el equipo y el radar.
+\item \textbf{RF-4 Iniciar lectura por radar}: la aplicación debe conseguir leer un objeto desde el radar.
+\item \textbf{RF-5 Guardar datos}: la aplicación debe permitir guardar los datos leidos por el radar o abiertos desde el explorador de archivos.
+\item \textbf{RF-6 Minimizar la interfaz}: se debe permitir minimizar la interfaz.
+\item \textbf{RF-7 Expandir la interfaz}: se debe permitir expandir la interfaz manteniendo el aspecto.
+\item \textbf{RF-8 Informe de error}: la aplicación debe informar de un error al usuario no se consiga establecer conexión con el radar.
+\end{itemize}
+
+\subsection{Requisitos no funcionales}
+Los requisitos no funcionales specifican los criterios a seguir, restricciones y condiciones que impone el cliente.
+
+\begin{itemize}
+\item \textbf{RNF-1 Rendimiento}: la aplicación tiene que ser fluida y tener un tiempo de respuesta bajo.
+\item \textbf{RNF-2 Usabilidad}: la aplicación debe ser intuitiva y fácil de entender y utilizar.
+\item \textbf{RNF-3 Mantenibilidad}: la aplicación debe ser fácilmente modificable.
+\item \textbf{RNF-4 Portabilidad}: la aplicación debe poder ejecutarse en distintos equipos con el sistema operativo Windows.
+\end{itemize}
 
 \section{Especificación de requisitos}
 
+\subsection{Diagramas de casos de uso}
 
+\imagen{casosdeuso}{Diagrama de casos de uso.}
+
+El actor será la persona que manejará el \textit{software}.
+
+\newpage
+
+\subsection{Casos de uso}
+
+\begin{longtable}[H]{@{}ll@{}}
+	\toprule
+	\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+		\textbf{CU-01}\strut
+	\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
+		\textbf{Abrir fichero.}\strut
+	\end{minipage}\tabularnewline
+	\midrule
+	\endhead  
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Requisitos asociados}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		RF-1\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Descripción}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Permite al usuario abrir ficheros con formato \textit{.npy}, continen lecturas realizadas con anterioridad.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Precondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		El usuario debe tener iniciada la aplicación.\\
+		Debe existir un fichero de lecturas anteriores.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Acciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item
+			(Opcional) El usuario pulsa en la barra de herramientas en lectura.
+			\item
+			El usuario hace clic en \textit{Leer archivo} en menu desplegable o icono de documento.
+			\item
+			Se abre una ventana de explorador de archivos.
+			\item
+			Se selecciona el fichero a abrir.
+		\end{enumerate}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Postcondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Se activan las posibilidades de \textit{Verificar lectura} y \textit{Guardar lectura}, se iluminan los botones.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Excepciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Solo se pueden abrir ficheros con la extension \textit{.npy}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Importancia}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Alta\strut
+	\end{minipage}\tabularnewline
+	\bottomrule
+	\caption{CU-02 Abrir fichero.}
+\end{longtable}
+
+\newpage
+
+\begin{longtable}[H]{@{}ll@{}}
+	\toprule
+	\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+		\textbf{CU-02}\strut
+	\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
+		\textbf{Leer objeto.}\strut
+	\end{minipage}\tabularnewline
+	\midrule
+	\endhead  
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Requisitos asociados}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		RF-3, RF-4, RF-8\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Descripción}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Permite al usuario iniciar la conexión con el radar y obtener los datos de una lectura.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Precondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		El equipo debe estar conectado a la red de internet \\
+		El usuario debe tener iniciada la aplicación.\\
+		El radar debe estar conectado a la red eléctrica.\\
+		El radar debe estar conectado a la misma red de internet que el equipo por \textit{Ethernet} o \textit{Wifi}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Acciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item
+			(Opcional) El usuario pulsa en la barra de herramientas en lectura.
+			\item
+			El usuario hace clic en \textit{Iniciar lectura} o icono de radar.
+			\item
+			Se inicia la conexión con el radar.
+			\item
+			Se arranca el servicio de lectura en el radar.
+			\item
+			Se obtienen los datos de la lectura.
+		\end{enumerate}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Postcondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Se activan las posibilidades de \textit{Verificar lectura} y \textit{Guardar lectura}, se iluminan los botones.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Excepciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		No se consigue realizar la conexión con el radar.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Importancia}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Alta\strut
+	\end{minipage}\tabularnewline
+	\bottomrule
+	\caption{CU-02 Leer objeto.}
+\end{longtable}
+
+\newpage
+
+\begin{longtable}[H]{@{}ll@{}}
+	\toprule
+	\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+		\textbf{CU-03}\strut
+	\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
+		\textbf{Clasificación de datos.}\strut
+	\end{minipage}\tabularnewline
+	\midrule
+	\endhead  
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Requisitos asociados}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		RF-1, RF-2, RF-3, RF-4, RF-8\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Descripción}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Permite al usuario clasificar los datos extraídos de la lectura por radar o de un archivo.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Precondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		El equipo debe estar conectado a la red de internet \\
+		El usuario debe tener iniciada la aplicación.\\
+		El radar debe estar conectado a la red eléctrica.\\
+		El radar debe estar conectado a la misma red de internet que el equipo por \textit{Ethernet} o \textit{Wifi}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Acciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item
+			(Opcional) El usuario pulsa en la barra de herramientas en lectura.
+			\item
+			A. El usuario hace clic en \textit{Leer archivo} o icono de fichero.\\
+			B. El usuario hace clic en \textit{Iniciar lectura} o icono de radar.
+			\item
+			A. Se inicia la conexión con el radar. \\
+			B. Se abre el explorador de archivos.
+			\item
+			A. Se arranca el servicio de lectura en el radar. \\
+			B. El usuario selecciona el archivo deseado.
+			\item
+			Se obtienen los datos..
+			\item
+			Se iluminan los botones de \textit{Verificar lectura} y \textit{Gurdar lectura}
+			\item 
+			El usuario pulsa en \textit{Verificar lectura}
+			\item
+			Se procesan los datos.
+			\item
+			La pantalla principal se actualiza mostrando la pertenencia del objeto a un material.
+		\end{enumerate}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Postcondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Se desactivan las posibilidades de \textit{Verificar lectura} y \textit{Guardar lectura}, se bloquean los botones.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Excepciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		A. No se consigue realizar la conexión con el radar.\\
+		B. El fichero no tiene el formato correcto.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Importancia}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Alta\strut
+	\end{minipage}\tabularnewline
+	\bottomrule
+	\caption{CU-03 Clasificación de datos.}
+\end{longtable}
+
+\newpage
+
+\begin{longtable}[H]{@{}ll@{}}
+	\toprule
+	\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+		\textbf{CU-04}\strut
+	\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
+		\textbf{Guardar datos en fichero.}\strut
+	\end{minipage}\tabularnewline
+	\midrule
+	\endhead  
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Requisitos asociados}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		RF-1, RF-3, RF-4, RF-5, RF-8\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Descripción}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Permite al usuario guardar los datos extraídos de la lectura por radar o de un archivo.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Precondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		El equipo debe estar conectado a la red de internet \\
+		El usuario debe tener iniciada la aplicación.\\
+		El radar debe estar conectado a la red eléctrica.\\
+		El radar debe estar conectado a la misma red de internet que el equipo por \textit{Ethernet} o \textit{Wifi}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Acciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item
+			(Opcional) El usuario pulsa en la barra de herramientas en lectura.
+			\item
+			A. El usuario hace clic en \textit{Leer archivo} o icono de fichero.\\
+			B. El usuario hace clic en \textit{Iniciar lectura} o icono de radar.
+			\item
+			A. Se inicia la conexión con el radar. \\
+			B. Se abre el explorador de archivos.
+			\item
+			A. Se arranca el servicio de lectura en el radar. \\
+			B. El usuario selecciona el archivo deseado.
+			\item
+			Se obtienen los datos.
+			\item
+			Se iluminan los botones de \textit{Verificar lectura} y \textit{Gurdar lectura}
+			\item 
+			El usuario pulsa en \textit{Guardar lectura}
+			\item
+			Se abre el explorador de archivos.
+			\item
+			El usuario debe indicar el nombre del fichero.
+			\item
+			El usuario debe guardar el fichero.
+		\end{enumerate}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Postcondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Se desactivan las posibilidades de \textit{Verificar lectura} y \textit{Guardar lectura}, se bloquean los botones.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Excepciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		A. No se consigue realizar la conexión con el radar.\\
+		B. El fichero no tiene el formato correcto.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Importancia}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Alta\strut
+	\end{minipage}\tabularnewline
+	\bottomrule
+	\caption{CU-04 Guardar datos en fichero.}
+\end{longtable}
+
+\newpage
+
+\begin{longtable}[H]{@{}ll@{}}
+	\toprule
+	\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
+		\textbf{CU-05}\strut
+	\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
+		\textbf{Modificar dimensiones interfaz.}\strut
+	\end{minipage}\tabularnewline
+	\midrule
+	\endhead  
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Requisitos asociados}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		RF-6, RF-7\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Descripción}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Permite al usuario modificar las dimensiones de la interfaz o minimizarla.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Precondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		El usuario debe tener iniciada la aplicación.\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Acciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item
+			A. EL usuario desplaza los bordes de la interfaz.\\
+			B. El usuario pulsa en el icono de minimizar.
+			\item 
+			El usuario establece la dimensión final.
+		\end{enumerate}\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Postcondición}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		-\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Excepciones}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		-\strut
+	\end{minipage}\tabularnewline
+	\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
+		\textbf{Importancia}\strut
+	\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
+		Media\strut
+	\end{minipage}\tabularnewline
+	\bottomrule
+	\caption{CU-05 Modificar dimensiones interfaz.}
+\end{longtable}

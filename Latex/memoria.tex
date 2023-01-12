@@ -335,7 +335,7 @@
     \noindent\LARGE
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
-    Tutores: \@tutor{\\Pedro Latorre Carmona \\José Francisco Díez Pastor}
+    Tutores: \@tutor{}
   }%
   \end{center}%
   \null
@@ -348,7 +348,7 @@
 % Datos de portada
 \title{Creación de demos técnica y documentación asociada, para la detección/clasificación de materiales, utilizando un sensor radar a 60GHz}
 \author{\nombre}
-\tutor{}
+\tutor{\\José Francisco Díez Pastor \\Pedro Latorre Carmona}
 \date{\today}
 
 \begin{document}
@@ -365,13 +365,13 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. nombre tutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent D. José Francisco Díez Pastor y D. Pedro Latorre Carmona, profesores del departamento de ingeniería informática, área de lenguajes y sistemas informáticos.
 
-\noindent Expone:
+\noindent Exponen:
 
-\noindent Que el alumno D. \nombre, con DNI 72897369L, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+\noindent Que el alumno D. \nombre, con DNI 72897369L, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Creación de demos técnica y documentación asociada, para la detección/clasificación de materiales, utilizando un sensor radar a 60GHz. 
 
-\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
+\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección de los que suscriben, en virtud de lo cual se autoriza su presentación y defensa.
 
 \begin{center} %\large
 En Burgos, {\large \today}
@@ -413,16 +413,20 @@ D. José Francisco Díez Pastor
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-Con el desarrollo de la tecnología se han obtenido diferentes avances tecnológicos los cuales han beneficiado las actividades de la humanidad es por ello que en el siguiente proyecto se propone el desarrollo de una aplicación la cual opera mediante código Python el cual permite que por medio de la obtención de lecturas de diferentes de materiales sea posible el clasificarlos e indicarlos, definiendo el tipo de material, todo ello implementando el uso de un radar a una frecuencia de 60 GHz, con el cual es posible indicar cual es la probabilidad este presente el material en la lectura.
 
-Dado que es necesario realizar un análisis de los datos obtenidos por medio de radar, se propone implementar técnicas de aprendizaje automático para poder reconocer los diferentes materiales que se estudiaran, es por ello por lo que se propone el algoritmo clasificador Random Forest en conjunto con la validación cruzada.
+Hoy en día, la tecnología basada en radar está siendo utilizada principalmente en ámbitos como el tráfico aéreo o submarino. Existen otros campos poco explorados y que pueden ser más cotidianos como la identificación de objetos en base a las propiedades del material que lo constituye.
 
-Para poder recopilar la información necesaria, será necesario hacer uso de la librería del radar que es proporcionada por el fabricante, esto con el objetivo de poder conseguir una serie de lecturas, las cuales deberán brindar la suficiente información para poder clasificar, indicar e identificar todos los objetos sometidos al estudio, se propone un análisis con un registro de treinta materiales considerando diez lecturas generadas de cada material.
+El objetivo principal del proyecto es clasificar una serie de objetos comparando su material de fabricación mediante un radar de 60 GHZ que utilizará un modelo clasificador entrenado para tal fin.
+
+Para recopilar la información necesaria de cada objeto, se hará uso de la librería proporcionada por el fabricante, con el objetivo de poder conseguir una serie de lecturas, las cuales deberán brindar la suficiente información de todos los objetos sometidos al estudio. Se propone un análisis con un registro de treinta materiales considerando diez lecturas generadas de cada material.
+
+Dado que es necesario realizar un análisis de los datos obtenidos por medio del radar, se propone implementar técnicas de aprendizaje automático para poder reconocer los diferentes materiales a estudiar. Se propone para ello el entrenamiento de varios tipos de clasificador para la generación de un modelo capaz de diferenciar diferentes materiales.
+
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Aprendizaje Automático, Clasificador, Random Forest, Reconocimiento, Python, Sensor, Radar, Acconeer.
+Aprendizaje Automático, Clasificador, Random Forest, k-NN, SVM, auto-sklearn, TabPFN, Reconocimiento, Python, Sensor, Radar, Acconeer.
 \end{abstract}
 
 \clearpage
@@ -430,16 +434,20 @@ Aprendizaje Automático, Clasificador, Random Forest, Reconocimiento, Python, Se
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-With the development of technology, different technological advances have been obtained which have benefited the activities of humanity, which is why in the following project the development of an application is proposed which operates through Python code which allows through the Obtaining readings of different materials, it is possible to classify and indicate them, defining the type of material, all this by implementing the use of a radar at a frequency of 60 GHz, with which it is possible to indicate what is the probability that the material is present in the reading.
 
-Since it is necessary to carry out an analysis of the data obtained by means of radar, it is proposed to implement machine learning techniques to be able to recognize the different materials that will be studied, that is why the Random Forest classifier algorithm is proposed in conjunction with the cross validation.
+Today, radar-based technology is mainly being used in areas such as air traffic or underwater. There are other, less explored fields that may be more everyday, such as the identification of objects based on the properties of their constituent material.
 
-In order to collect the necessary information, it will be necessary to make use of the radar library that is provided by the manufacturer, this in order to be able to obtain a series of readings, which must provide enough information to be able to classify, indicate and identify all the objects submitted to the study, an analysis is proposed with a record of thirty materials considering ten generated readings of each material.
+The main objective of the project is to classify a series of objects by comparing their material of manufacture using a 60 GHz radar using a classifier model trained for this purpose.
+
+In order to collect the necessary information for each object, use will be made of the library provided by the manufacturer, with the aim of obtaining a series of readings, which should provide sufficient information for all the objects under study. An analysis is proposed with a record of thirty materials considering ten readings generated from each material.
+
+Given that it is necessary to carry out an analysis of the data obtained by radar, it is proposed to implement automatic learning techniques in order to be able to recognise the different materials to be studied. It is proposed to train various types of classifiers to generate a model capable of differentiating between different materials.
+
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-Machine Learning, Classifier, Random Forest, Recognition, Python, Sensor, Radar, Acconeer.
+Machine Learning, Classifier, Random Forest, k-NN, SVM, auto-sklearn, TabPFN, Recognition, Python, Sensor, Radar, Acconeer.
 \end{abstract}
 
 \clearpage
