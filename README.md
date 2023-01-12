@@ -3,7 +3,7 @@
 <h1>RadarWave - Herramienta para el uso del radar Acconeer de 60GHz</h1>
 <h2>Descripción</h2>
 <p>Este proyecto se centra en el desarrollo de una aplicación de escritorio para el uso de un radar capaz de comparar tres tipos de materiales (cartón, cristal y plástico).</p>
-<p>Se ha desarrollado un modelo clasificardor a partir de una serie de lecturas obtenidas de un total de 30 objetos mediante la aplicación facilitada por Acconeer.</p>
+<p>Se ha desarrollado un modelo clasificardor a partir de una serie de lecturas obtenidas de un total de 30 objetos mediante un radar de 60 GHz.</p>
 <p>La aplicación desarrollada permite al docente visualizar gráficos a partir de las notas de sus alumnos según su criterio, seleccionando a los alumnos que quiera visualizar y en las tareas que escoja.</p>
 
 <h2>Material clasificado</h2>
