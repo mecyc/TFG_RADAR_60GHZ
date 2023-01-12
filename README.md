@@ -1,4 +1,4 @@
-# GI_O_MA_21.09 Creación de demos técnica y documentación asociada, para la detección/clasificación de materiales, utilizando un sensor radar a 60GHz
+# Creación de demos técnica y documentación asociada, para la detección/clasificación de materiales, utilizando un sensor radar a 60GHz
 <p>TFG realizado en la Universidad de Burgos del desarrollo de un aplicativo para el uso de un Radar de 60 GHz de la marca Acconeer.</p>
 <h1>RadarWave - Herramienta para el uso del radar Acconeer de 60GHz</h1>
 <h2>Descripción</h2>
@@ -21,4 +21,4 @@
 <li>Jose Francisco Diez Pastor</li>
 </ul>
 <br/>
-<p align="center"><b>Primera versión:</b> Febreo 2022 (v1.0)</p>
+<p align="center"><b>Primera versión:</b> Enero 2023 (v1.0)</p>
