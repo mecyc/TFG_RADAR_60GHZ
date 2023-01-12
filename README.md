@@ -18,8 +18,8 @@
 </ul>
 <h2>Tutores</h2>
 <ul>
+<li>José Francisco Déez Pastor</li>
 <li>Pedro Latorre Carmona</li>
-<li>Jose Francisco Diez Pastor</li>
 </ul>
 <br/>
 <p align="center"><b>Primera versión:</b> Enero 2023 (v1.0)</p>
