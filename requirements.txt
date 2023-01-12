@@ -1,1 +1,12 @@
-https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration/setup.py
+numpy
+pandas
+scikit-learn
+joblib
+matplotlib
+paramiko
+pyserial
+attr
+attrs
+h5py
+Pillow
+tk
