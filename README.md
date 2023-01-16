@@ -112,7 +112,7 @@ Si pulsamos en el botón 1 se abre el explorador de archivos para seleccionar un
 
 Abrimos el fichero y ya tenemos los datos dentro de la aplicación, para clasificaros pulsamos el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
 
-Para realizar una lectura por radar necesitamos iniciar la Raspberry junto con el radar 20 segundos antes de lanzar la lectura, una vez hecho esto pulsamos en el botón 2. Tras esto se iluminan los botones 3 y 4. Para clasificaros pulsamos el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
+Para realizar una lectura por radar necesitamos iniciar la Raspberry junto con el radar 20 segundos antes de lanzar la lectura, una vez hecho esto pulsamos en el botón 2. Tras esto se iluminan los botones 3 y 4. Para clasificaros pulsamos el botón 3. Si lo que queremos es guardarlos pulsamos en el botón 4.
 
 ## Autor
 <ul>
