@@ -5,7 +5,7 @@ TFG realizado en la Universidad de Burgos del desarrollo de una aplicación para
 # *RadarWave* - Herramienta para el uso del radar Acconeer de 60GHz
 ## Descripción
 En el presente proyecto se ha documentado, implementado y demostrado el uso de un radar de 60 GHz fabricado por *Acconeer*, para el reconocimiento de diferentes materiales u objetos. Mediante el uso de métodos de aprendizaje, se obtendrán diferentes características de tres tipos de materiales, que permitirán clasificarlos de forma automática.
->Este proyecto se centra en el desarrollo de una aplicación de escritorio para el uso de un radar capaz de comparar tres tipos de materiales (cartón, cristal y plástico). Para ello, se han comparado varios modelos clasificadores entrenados a partir de una serie de lecturas, obtenidas de un total de 30 objetos mediante un radar de 60 GHz.
+Este proyecto se centra en el desarrollo de una aplicación de escritorio para el uso de un radar capaz de comparar tres tipos de materiales (cartón, cristal y plástico). Para ello, se han comparado varios modelos clasificadores entrenados a partir de una serie de lecturas, obtenidas de un total de 30 objetos mediante un radar de 60 GHz.
 
 ## Aplicación *RadarWave*
 
