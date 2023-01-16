@@ -6,18 +6,23 @@
 <p>En el presente proyecto se ha documentado, implementado y demostrado el uso de un radar de 60 GHz fabricado por Acconeer, para el reconocimiento de diferentes materiales u objetos. Mediante el uso de métodos de aprendizaje, se obtendrán diferentes características de tres tipos de materiales, que permitirán clasificarlos de forma automática.</p>
 <p>Este proyecto se centra en el desarrollo de una aplicación de escritorio para el uso de un radar capaz de comparar tres tipos de materiales (cartón, cristal y plástico). Para ello, se han comparado varios modelos clasificadores entrenados a partir de una serie de lecturas, obtenidas de un total de 30 objetos mediante un radar de 60 GHz.</p>
 
-<h2>Aplicación *RadarWave*</h2>
+## Aplicación *RadarWave*
+
+La aplicación generada para el proyecto ha sido llamada **RadarWave**, debe su nombre a las ondas generadas por los radares.
+Mediante esta aplicación podemos realizar distintas lecturas de objetos para identificar el material que los componen. Se puede realizar nuevas lecturas desde el radar, guardar las lecturas y clasificar lecturas guardadas anteriormente en nuestro equipo.
 
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/radarwaveWindows.PNG?raw=true)
 > RadarWave
 
-<h2>Cubículo de lectura</h2>
+## Cubículo de lectura
 <p>Espacio o cubículo empleado para la lectura de objetos. Las dimensiones del cubículo son de 30 x 22 x 25 cm (ancho, largo y alto), con una incisión en la parte superior, en el medio, del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándole en la posición de la incisión y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.</p>
 
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/prototipo.png?raw=true)
 > Prototipo empleado para realizar las lecturas de los distinto materiales
 
-<h2>Componentes del radar</h2>
+## Componentes del radar
+
+Los creadores de *Acconner* han elaborado un vídeo ([EVK 2](https://www.youtube.com/watch?v=0uKrm_RAV_c "EVK 2")) con las instrucciones del montaje del sensor. En él se detallan los diferentes componentes y el montaje de hardware a la *Raspberry Pi 4*.
 
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/componentes_radar.jpeg?raw=true)
 > Hardware
@@ -40,14 +45,11 @@
 | auto-sklearn      |    88 |
 | TabPFN      |   90 |
 
-<h2>Clasificador *k-NN*</h2>
+## Clasificador *k-NN*
 
-<p>
 Se ha decidido optar por *k-NN* para generar el modelo que utilizará la interfaz desarrollada. Esta decisión se debe a la falta de compatibilidad de *auto-sklearn* y *TabPFN* (basado en *auto-sklearn*) con el sistema operativo *Windows*.  El desarrollo creado se utilizar tanto en *Windows* como en *Linux*.
-</p>
-<p>
+
 Matriz de confusión obtenida con el clasificador *k-NN* para 1 vecino:
-</p>
 
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/matrizconfusion_KNN.png?raw=true)
 > Matriz de confusión
@@ -59,10 +61,10 @@ Evolución del clasificador en el rango de 1 a 26 vecinos:
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/grafica_KNN.PNG?raw=true)
 > Matriz de confusión
 
-<h2>Instalación</h2>
-<h3>*Windows*</h3>
+## Instalación
+### *Windows*
 Para la instalación en *Windows* consultar el documento de anexos el apartado *E - Manual de Instalación*.
-<h3>*Ubuntu (Linux)*</h3>
+### *Ubuntu (Linux)*
 El sistema operativo que utilizamos es *Ubuntu*, una distribución *Linux*, por lo que *Python* está integrado por defecto y no hace falta su instalación. Se recomienda tener actualizado *Python* a la última versión.
 
 Antes de instalar las librerías necesarias instalamos *pip*, es un sistema de gestión de paquetes que nos ayuda a instalar las librerías, y *setuptools*, facilita el empaquetado de proyectos de *Python*.
@@ -79,7 +81,7 @@ El comando sería el siguiente:
 
 `$ pip3 install -r requirements.txt`
 
-Si existiera algún problema al instalar la librería de *Tkinter (tk) *se deben lanzar los siguientes comandos:
+Si existiera algún problema al instalar la librería de *Tkinter (tk)* se deben lanzar los siguientes comandos:
 
 `$ sudo apt-get install python3-tk`
 `$ sudo apt-get install python3-pil python3-pil.imagetk`
@@ -88,11 +90,11 @@ Finalmente se debe instalar la librería de *Acconeer*, para ello descargamos de
 
 `$ python3 setup.py install`
 
-Si queremos ejecutar *RadarWave* en *Ubuntu* deber ser lanzando el siguiente comando en la misma ruta del archivo* RadarWave.py*.
+Si queremos ejecutar *RadarWave* en *Ubuntu* deber ser lanzando el siguiente comando en la misma ruta del archivo *RadarWave.py*.
 
 `$ python3 RadarWave.py`
 
-<h2>Manual de uso</h2>
+## Manual de uso
 
 El uso de la aplicación es muy sencillo, tenemos cuatro botones en la parte superior, de izquierda a derecha son:
 
@@ -110,11 +112,12 @@ Abrimos el fichero y ya tenemos los datos dentro de la aplicación, para clasifi
 
 Para realizar una lectura por radar necesitamos iniciar la Raspberry junto con el radar 20 segundos antes de lanzar la lectura, una vez hecho esto pulsamos en el botón 2. Tras esto se iluminan los botones 3 y 4. Para clasificaros pulsamos el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
 
-<h2>Autor</h2>
+## Autor
 <ul>
 <li>Martín Encabo Contreras</li>
 </ul>
-<h2>Tutores</h2>
+
+## Tutores
 <ul>
 <li>José Francisco Díez Pastor</li>
 <li>Pedro Latorre Carmona</li>
