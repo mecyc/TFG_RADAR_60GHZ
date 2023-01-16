@@ -63,7 +63,7 @@ Evolución del clasificador en el rango de 1 a 26 vecinos:
 
 ## Instalación
 ### *Windows*
-Para la instalación en *Windows* consultar el documento de anexos el apartado *E - Documentación de instalación*.
+Para la instalación en *Windows* consultar el documento de anexos, apartado *E - Documentación de instalación*.
 ### *Ubuntu (Linux)*
 El sistema operativo que utilizamos es *Ubuntu*, una distribución *Linux*, por lo que *Python* está integrado por defecto y no hace falta su instalación. Se recomienda tener actualizado *Python* a la última versión.
 
