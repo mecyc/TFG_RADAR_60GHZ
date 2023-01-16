@@ -15,7 +15,7 @@ Mediante esta aplicación podemos realizar distintas lecturas de objetos para id
 > RadarWave
 
 ## Cubículo de lectura
-<p>Espacio o cubículo empleado para la lectura de objetos. Las dimensiones del cubículo son de 30 x 22 x 25 cm (ancho, largo y alto), con un orificio en la parte superior, en el medio, del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándole en la posición del orificio y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.</p>
+<p>Espacio o cubículo empleado para la lectura de objetos. Las dimensiones del cubículo son de 30 x 22 x 25 cm (ancho, largo y alto), con un orificio en la parte superior, en el medio, del tamaño del sensor. El sensor fue colocado en la posición del orificio y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.</p>
 
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/prototipo.png?raw=true)
 > Prototipo empleado para realizar las lecturas de los distinto materiales
