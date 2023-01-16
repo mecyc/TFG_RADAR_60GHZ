@@ -6,7 +6,7 @@ En este anexo se detalla la estructura de directorios del proyecto y los concept
 \section{Estructura de directorios}
 \begin{itemize}
 	\tightlist
-	\item[•] \textbf{/}: raíz el proyecto, fichero de licencia, modelo clasificador \textit{k-NN}, \textit{interfaz RadarWave.py}, las librerias necesarias \textit{requeriments.txt} y archivo comprimido \textit{$RadarWave\_v1.0.zip$} con la primera versión de la aplicación.
+	\item[•] \textbf{/}: raíz el proyecto, fichero de licencia, modelo clasificador \textit{k-NN}, \textit{interfaz RadarWave.py}, las librerias necesarias \textit{requeriments.txt} y archivo comprimido \textit{RadarWave\_v1.0.zip} con la primera versión de la aplicación.
 	\item[•] \textbf{/acconeer-python-exploration/}: esta carpeta incluye la librería e interfaz de \textit{Acconeer}.
 	\item[•] \textbf{/iconos/}: contiene los iconos de la interfaz.
 	\item[•] \textbf{/Latex/}: documentación del proyecto memoria y anexos.
@@ -135,107 +135,15 @@ Las clases son:
 \subsection{Compilación}
 Al ser una aplicación \textit{beta} el archivo donde se encuentra desarrollada la interfaz \textit{RadarWave.ipynb} se ha exportado en formato \textit{.py} de \textit{Python}. Además se ha creado un archivo llamado \textit{requirements.txt} que será utilizado para instalar las librerías necesarias en nuestro equipo.
 
-Todos los archivos necesarios se han comprimido para su exportación en el fichero \textit{$RadarWave\_1.0.zip$}
+Todos los archivos necesarios se han comprimido para su exportación en el fichero \textit{RadarWave\_v1.0.zip}
 
-\subsection{Instalación en \textit{Windows}}
+\subsection{Instalación y ejecución en \textit{Windows}}
 
-La siguiente instalación se ha realizado en un equipo con las siguientes características:
-\begin{itemize}
-\item[•] \textbf{SISTEMA OPERATIVO:} \textit{Microsoft Windows 10 Pro}
-\item[•] \textbf{PROCESADOR:} \textit{Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz}
-\item[•] \textbf{MEMORIA RAM:} 12 GB
-\item[•] \textbf{TARJETA GRÁFICA:} \textit{NVIDIA GeForce 930M}
-\end{itemize}
+Consultar la sección \ref{sec:windows}.
 
-En realidad la aplicación \textit{RadarWave} no hace falta que se instale, pero si necesitamos instalar las librerías utilizadas por el programa.
+\subsection{Instalación y ejecución en \textit{Linux}}
 
-Antes de proceder con la instalación de las librerías vamos a verificar si tenemos instalado \textit{Python}, de no ser así procedemos a su instalación.
-\begin{itemize}
-\item Descargamos el instalador desde la web de \href{https://www.python.org/downloads/}{\textit{Python}}.
-\item Ejecutamos el archivo descargado.
-\item En la pantalla de de inicio de la instalación marcamos la opción de añadir \textit{Python} al \textit{PATH}, si no luego se tendrá que hacer manualmente.
-\item Pulsamos en instalar ahora (\textit{install now})
-
-\imagen{path}{Instalación de \textit{Python}.}
-
-\end{itemize}
-
-
-Una vez instalado \textit{Python} lo primero que haremos será descargar y descomprimir el fichero \textit{$RadarWave\_v1.0.zip$}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip}
-
-Procedemos a instalar las librerías, están incluidas en el archivo \textit{requirements.txt}. Primero instalamos \textit{setuptools} que facilita el empaquetado de proyectos de \textit{Python} y a continuación el resto, para ello debemos abrir la consola y lanzar las siguientes instrucciones.
-
-\begin{verbatim}
-python -m pip install -U --user setuptools wheel
-python -m pip install -U --user -r requirements.txt
-\end{verbatim}
-
-\imagen{requirements}{Instalar librerías.}
-
-Finalmente se debe instalar la librería de \textit{Acconeer}, para ello descargamos del repositorio del TFG la carpeta \href{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}{\textit{acconer-python-exploration}}. Una vez descargada abrimos el terminal dentro de la carpeta y ejecutamos la siguiente orden.\cite{Acconeer2021}
-
-\begin{verbatim}
-python -m pip install -U --user .
-\end{verbatim}
-
-\imagen{instalar_libacconer}{Instalar acconeer.}
-
-Una vez instaladas las librerías procedemos a ejecutar el programa haciendo doble clic en el fichero \textit{RadarWave.py} donde está el programa.
-
-Programa ejecutado y probado en \textit{Windows}:
-
-\imagen{radarwaveWindows}{\textit{RadarWave} en \textit{Windows}.}
-
-\subsection{Instalación en \textit{Linux}}
-
-La siguiente instalación se ha realizado en un equipo virtualizado en \textit{Oracle VM VirtualBox 6.1} con las siguientes características:
-\begin{itemize}
-\item[•] \textbf{SISTEMA OPERATIVO:} \textit{Ubuntu 22.04 LTS}
-\item[•] \textbf{PROCESADOR:} \textit{Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz}
-\item[•] \textbf{MEMORIA RAM:} 4 GB
-\end{itemize}
-
-En realidad la aplicación \textit{RadarWave} no hace falta que se instale, pero si necesitamos instalar las librerías utilizadas por el programa.
-
-El sistema operativo que utilizamos es \textit{Ubuntu}, una distribución de {Linux}, por lo que \textit{Python} está integrado por defecto y no hace falta su instalación. Se recomienda tener actualizado \textit{Python} a la última versión.
-
-Antes de instalar las librerías necesarias instalamos \textit{pip}, es un sistema de gestión de paquetes que nos ayuda a instalar las librerías, y \textit{setuptools}, facilita el empaquetado de proyectos de \textit{Python}.
-
-\begin{verbatim}
-sudo apt install python3-pip
-pip3 install setuptools-rust
-\end{verbatim}
-
-Una vez terminada la instalación procedemos a descargar y descomprimir el fichero \textit{$RadarWave\_v1.0.zip$}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip}
-
-A continuación se debe instalar las librerías que usa la interfaz desarrollada. Indicar que para ejecutar el siguiente comando nos debemos situar en la dirección o \textit{PATH} donde se encuentra el archivo \textit{requirements.txt}, lo encontramos dentro del fichero que acabamos de descomprimir.
-
-El comando sería el siguiente:
-\begin{verbatim}
-pip3 install -r requirements.txt
-\end{verbatim}
-
-Si existiera algún problema al instalar la librería de \textit{Tkinter} (tk) se deben lanzar los siguientes comandos:
-\begin{verbatim}
-sudo apt-get install python3-tk
-sudo apt-get install python3-pil python3-pil.imagetk
-\end{verbatim}
-
-Finalmente se debe instalar la librería de \textit{Acconeer}, para ello descargamos del repositorio del TFG la carpeta \href{https://github.com/mecyc/TFG_RADAR_60GHZ/tree/main/acconeer-python-exploration}{\textit{acconer-python-exploration}}. Una vez descargada abrimos el terminal dentro de la carpeta y ejecutamos la siguiente orden.
-
-\begin{verbatim}
-python3 setup.py install
-\end{verbatim}
-
-Si queremos ejecutar \textit{RadarWave} en \textit{Ubuntu} deber ser lanzando el siguiente comando en la misma ruta del archivo \textit{RadarWave.py}.
-
-\begin{verbatim}
-python3 RadarWave.py
-\end{verbatim}
-
-Programa ejecutado y probado en \textit{Ubuntu}:
-
-\imagen{radarwaveUbuntu}{\textit{RadarWave} en \textit{Ubuntu}.}
+Consultar la sección \ref{sec:linux}.
 
 \section{Pruebas del sistema}
 Durante el desarrollo del código del programa se fueron implementando un conjunto de pruebas para comprobar el correcto tratamiento de los datos de entrenamiento.

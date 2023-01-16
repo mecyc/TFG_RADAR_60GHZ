@@ -1,42 +1,10 @@
-\apendice{Documentación de usuario}
+\apendice{Documentación de instalación}
 
 \section{Introducción}
 
-En este apartado se explican los requerimientos de la aplicación para ser ejecutada, el proceso de instalación y el manual
-de usuario con las indicaciones para utilizar correctamente la aplicación.
+En este apartado se explica el proceso de instalación y ejecución de la aplicación desarrollada para el proyecto. Se incluye el manual de instalación tanto para \textit{Windows} como para {Linux}.
 
-\section{Requisitos de usuarios}
-
-En esta sección se indican los requisitos para utilizar la aplicación.
-
-Si vamos a clasificar lecturas sin radar necesitamos:
-\begin{itemize}
-\item Lecturas guardadas en el equipo en formato \textit{.npy}
-\end{itemize}
-
-Si deseamos realizar lecturas desde radar necesitamos el siguiente hardware:
-\begin{itemize}
-\item Raspberry Pi 4
-\item Radar A111
-\item Placa XR112
-\item Cable flexible para XR112
-\item Tarjeta SD
-\item Teclado USB
-\item Ratón USB
-\item Monitor con HDMI
-\item Cable HDMI
-\item Adaptador mini HDMI a HDMI
-\end{itemize}
-
-Y además necesitamos la siguiente configuración:
-\begin{itemize}
-\item Equipo conectado a red \textit{A}.
-\item Radar conectado a la misma red \textit{A}.
-\item Antes de realizar una lectura por radar necesitamos conectarle a la red eléctrica unos 20 segundos antes de iniciar la lectura.
-\end{itemize}
-
-
-\subsection{Instalación en \textit{Windows}}
+\section{Instalación y ejecución en \textit{Windows}} \label{sec:windows}
 
 La siguiente instalación se ha realizado en un equipo con las siguientes características:
 \begin{itemize}
@@ -59,7 +27,7 @@ Antes de proceder con la instalación de las librerías vamos a verificar si ten
 
 \end{itemize}
 
-Una vez instalado \textit{Python} lo primero que haremos será descargar y descomprimir el fichero \textit{$RadarWave\_v1.0.zip$}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip} 
+Una vez instalado \textit{Python} lo primero que haremos será descargar y descomprimir el fichero \textit{RadarWave\_v1.0.zip}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip} 
 
 Procedemos a instalar las librerías, están incluidas en el archivo \textit{requirements.txt}. Primero instalamos \textit{setuptools} que facilita el empaquetado de proyectos de \textit{Python} y a continuación el resto, para ello debemos abrir la consola y lanzar las siguientes instrucciones.
 
@@ -84,7 +52,7 @@ Programa ejecutado y probado en \textit{Windows}:
 
 \imagen{radarwaveWindows}{\textit{RadarWave} en \textit{Windows}.}
 
-\subsection{Instalación en \textit{Linux}}
+\section{Instalación y ejecución en \textit{Linux}} \label{sec:linux}
 
 La siguiente instalación se ha realizado en un equipo virtualizado en \textit{Oracle VM VirtualBox 6.1} con las siguientes características:
 \begin{itemize}
@@ -104,7 +72,7 @@ sudo apt install python3-pip
 pip3 install setuptools-rust
 \end{verbatim}
 
-Una vez terminada la instalación procedemos a descargar y descomprimir el fichero \textit{$RadarWave\_v1.0.zip$}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip}
+Una vez terminada la instalación procedemos a descargar y descomprimir el fichero \textit{RadarWave\_v1.0.zip}, se puede descargar desde \url{https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/RadarWave_v1.0.zip}
 
 A continuación se debe instalar las librerías que usa la interfaz desarrollada. Indicar que para ejecutar el siguiente comando nos debemos situar en la dirección o \textit{PATH} donde se encuentra el archivo \textit{requirements.txt}, lo encontramos dentro del fichero que acabamos de descomprimir.
 
@@ -135,29 +103,5 @@ python3 RadarWave.py
 Programa ejecutado y probado en \textit{Ubuntu}:
 
 \imagen{radarwaveUbuntu}{\textit{RadarWave} en \textit{Ubuntu}.}
-
-\section{Manual del usuario}
-
-En esta sección indicaremos al usuario cómo usar la aplicación.
-
-Para comenzar debemos iniciar la aplicación abriendo el archivo \textit{RadarWave.py}.
-
-Nos muestra la siguiente pantalla:
-
-\imagen{radarwave_manual}{Pantalla principal RadarWave.}
-
-El uso de la aplicación es muy sencillo, tenemos cuatro botones el la parte superior, de izquierda a derecha son:
-\begin{itemize}
-\item 1. Abrir archivo de lectura
-\item 2. Iniciar lectura por radar
-\item 3. Clasificar la lectura
-\item 4. Guardar datos de lectura.
-\end{itemize}
-
-Si pulsamos en el botón 1 se abre el explorador de archivos para seleccionar una lectura a clasificar.
-
-Abrimos el fichero y ya tenemos los datos dentro de la aplicación, para clasificaros pulsamos el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
-
-Para realizar una lectura por radar necesitamos iniciar la \textit{Raspberry} junto con el radar 20 segundos antes de lanzar la lectura, una vez hecho esto pulsamos en el botón 2. Tras esto se iluminan los botones 3 y 4. Para clasificaros pulsamos el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
 
 

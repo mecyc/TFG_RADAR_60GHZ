@@ -16,28 +16,28 @@ La propuesta de este proyecto consistía en crear un modelo clasificador integra
 
 \section{Metodologias aplicadas}
 
-En el desarrollo de este proyecto se ha intentado emplear en la medida de los posible la metodología ágil de Scrum.
+En el desarrollo de este proyecto se ha intentado emplear en la medida de los posible la metodología ágil de \textit{Scrum}.
 
 Debido a que el proyecto se comenzó en abril de 2021, no se ha podido seguir de forma estricta todas las pautas de la metodología, como las reuniones diarias con todo el equipo. 
 
 Las pautas que se han seguido durante el proyecto han sido:
 \begin{itemize}
-\item Desarrollo incremental del proyecto mediante sprints. 
-\item Spints de 1 a 2 semanas. 
-\item Al finalizar el sprint, reuniones para evaluar el proyecto y plantear los pasos a seguir en el siguiente sprint.
+\item Desarrollo incremental del proyecto mediante \textit{sprints}. 
+\item \textit{Spints} de 1 a 2 semanas. 
+\item Al finalizar el \textit{sprint}, reuniones para evaluar el proyecto y plantear los pasos a seguir en el siguiente \textit{sprint}.
 \end{itemize}
 
 \section{Formación}
-Durante las primeras fases del proyecto, fue necesario aprender el funcionamiento del Radar Sensor. Para esto, se consultó la documentación facilitada por el fabricante Acconeer.
+Durante las primeras fases del proyecto, fue necesario aprender el funcionamiento del Radar Sensor. Para ello, se consultó la documentación facilitada por el fabricante \textit{Acconeer}.
 
-A parte de esto se investigó información adicional sobre el uso de estos radares, así como ejemplos de su uso, la información extraída de la red fue escasa o casi nula. Únicamente fue válida la documentación facilitada por \href{https://acconeer-python-exploration.readthedocs.io/}{Acconeer}.
+A parte de esto se investigó información adicional sobre el uso de estos radares, así como ejemplos de su uso, la información extraída de la red fue escasa o casi nula. Únicamente fue válida la documentación facilitada por \href{https://acconeer-python-exploration.readthedocs.io/}{\textit{Acconeer}}.
 
 \section{Montaje del radar}
 
 En esta sección se indican tanto las necesidades hardware como software para el montaje y puesta en funcionamiento del radar.
 
 \subsection{Necesidades hardware}
-Los creadores de Acconner han elaborado un video (\href{https://www.youtube.com/watch?v=0uKrm_RAV_c}{EVK 2}) con las instrucciones del montaje del sensor. En él se detallan los diferentes componentes y el montaje de hardware a la Raspberry Pi 4.
+Los creadores de \textit{Acconner} han elaborado un vídeo (\href{https://www.youtube.com/watch?v=0uKrm_RAV_c}{\textit{EVK 2}}) con las instrucciones del montaje del sensor. En él se detallan los diferentes componentes y el montaje de hardware a la \textit{Raspberry Pi 4}.
 
 En un comienzo será necesario disponer de: 
 \begin{itemize}
@@ -57,18 +57,18 @@ En un comienzo será necesario disponer de:
 
 La figura \ref{fig:componentes_radar} muestra los siguientes componentes:
 \begin{itemize}
-	\item[]1 - Radar A111
-	\item[]2 - Raspberry Pi 4
-	\item[]3 - Placa XR112
-	\item[]4 - Cable flexible para XR112
+	\item[]\textbf{1 -} Radar A111
+	\item[]\textbf{2 -} Raspberry Pi 4
+	\item[]\textbf{3 -} Placa XR112
+	\item[]\textbf{4 -} Cable flexible para XR112
 \end{itemize}
 
 
-La placa se conecta a la Raspberry por el puerto GPIO quedando por encima del resto.
+La placa se conecta a la \textit{Raspberry} por el puerto \textit{GPIO} quedando por encima del resto.
 
 \imagen{componentes_conectados}{Componentes en conexión}
 
-Se ha realizado un espacio o cubículo de lectura de objetos de $30x22x25 cm$ (ancho, largo y alto) con una incisión en la parte superior en el medio del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándole en la posición de la incisión y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.
+Se ha realizado un espacio o cubículo de lectura de objetos de $30x22x25 cm$ (ancho, largo y alto) con una incisión en la parte superior, en el medio, del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándole en la posición de la incisión y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.
  
 El sensor tiene sensibilidad a partir de los 10 cms. La sensibilidad del sensor se limitó al rango de 10 a 24 cm, el mínimo de sensibilidad hasta el suelo.
 
@@ -83,20 +83,20 @@ La tarjeta SD facilitada por la UBU ya disponía del sistema operativo necesario
 Para realizar una instalación desde cero del radar serán necesarios los siguiente programa. Además, nos pueden resultar útiles a la hora de trabajar con el Radar. 
 Hay que descargar e instalar: 
 \begin{itemize}
-\item \href{http://developer.acconeer.com}{Acconeer SW}: disponible para todos los usuarios (Windows, Linux, IOS) 
-\item \href{www.raspberrypi.org}{Raspbian OS} 
-\item \href{http://www.etcher.io}{Etcher}: se usará para instalar el sistema operativo Raspbian en la SD
-\item \href{http://www.putty.org}{PuTTY}: se utiliza para conectarse a Raspberry Pi
-\item \href{http://www.winscp.net}{WinSCP}: utilizado para transferir archivos a la tarjeta SD.
+\item \href{http://developer.acconeer.com}{\textit{Acconeer SW}}: disponible para todos los usuarios (\textit{Windows, Linux, iOS}) 
+\item \href{www.raspberrypi.org}{\textit{Raspbian OS}} 
+\item \href{http://www.etcher.io}{\textit{Etcher}}: se usará para instalar el sistema operativo \textit{Raspbian} en la tarjeta SD
+\item \href{http://www.putty.org}{\textit{PuTTY}}: se utiliza para conectarse a \textit{Raspberry Pi}
+\item \href{http://www.winscp.net}{\textit{WinSCP}}: utilizado para transferir archivos a la tarjeta SD
 \end{itemize}
  
 \section{Lectura de los objetos}
 
 Para la creación del modelo se han seleccionado 30 materiales divididos en, 10 de plástico, 10 de cristal y 10 de cartón. De cada material se han realizado 10 lecturas, de varias caras, girando el objeto.
 
-Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato numpy (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformaran la red de entrenamiento y otro porcentaje servirán para testear la red.
+Llegamos a una colección de 300 lecturas exportadas cada una en ficheros con formato \textit{numpy} (.npy) donde están almacenadas las características en vectores y matrices. Un porcentaje de estos datos conformaran la red de entrenamiento y otro porcentaje servirán para testear la red.
 
-Estas lecturas se han realizado desde el cuaderno de Jupyter "\href{https://github.com/mecyc/TFG_RADAR_60GHZ/scripts/LecturasRadar.ipynb}{LecturasRadar}".
+Estas lecturas se han realizado desde el cuaderno de Jupyter «\href{https://github.com/mecyc/TFG_RADAR_60GHZ/scripts/LecturasRadar.ipynb}{LecturasRadar}».
 
 \imagen{conf_acconeer}{Configuración inicial.}
 
@@ -124,9 +124,9 @@ Una vez finalizadas las lecturas se procedió al procesado de los datos de cada 
 
 Tenemos los siguientes datos:
 \begin{itemize}
-\item N es el numero de lecturas (1 objeto se corresponde con 10 vistas)
-\item M son los instantes de tiempo
-\item A referencia a los atributos
+\item \textit{N} es el numero de lecturas (1 objeto se corresponde con 10 vistas)
+\item \textit{M} son los instantes de tiempo
+\item \textit{A} referencia a los atributos
 \end{itemize}
 
 Se creará la siguiente matriz:
@@ -135,7 +135,7 @@ Se creará la siguiente matriz:
 \end{equation}
 Es una matriz 2D $(N \cdot M,A)$
 
-La extracción y creación de la matriz con los datos necesarios se realizará mediante Python:
+La extracción y creación de la matriz con los datos necesarios se realizará mediante \textit{Python}:
 
 \begin{verbatim}
 diccionario = np.load('C01_V01.npy',allow_pickle=True).item()
@@ -177,7 +177,7 @@ A partir de los datos del modulo y la fase se obtiene la media.
 
 Una vez obtenidos los datos de las lecturas se comenzó con la creación de cuatro modelos clasificadores que más adelante se usarán para realizar la clasificación de los materiales junto con el radar.
 
-Dentro del repositorio de GitHub del proyecto hay un fichero llamado \textit{GenerarParticiones.ipynb} que incluye el desarrollo de todas estas funciones así como comentarios incisivos.
+Dentro del repositorio de \textit{GitHub} del proyecto hay un fichero llamado \textit{GenerarParticiones.ipynb} que incluye el desarrollo de todas estas funciones así como comentarios incisivos.
 
 \section{Modelo clasificador}
 Para elegir el modelo a usar se tuvieron que tener en cuenta diferentes factores como el peso del modelo, su carga de computo y su precisión.
@@ -198,7 +198,7 @@ En la figura \ref{fig:matrizconfusion_RF} se muestra la correspondiente matriz d
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[scale=1.25]{matrizconfusion_RF}
-	\caption{Matriz de confusión Random Forest.}
+	\caption{Matriz de confusión \textit{Random Forest}.}
 	\label{fig:matrizconfusion_RF}
 \end{center}
 \end{figure}
@@ -216,7 +216,7 @@ En la figura \ref{fig:matrizconfusion_KNN} se muestra la correspondiente matriz 
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[scale=1.25]{matrizconfusion_KNN}
-	\caption{Matriz de confusión k-NN.}
+	\caption{Matriz de confusión \textit{k-NN}.}
 	\label{fig:matrizconfusion_KNN}
 \end{center}
 \end{figure}
@@ -227,7 +227,7 @@ Según la gráfica de confusión obtenida vemos que los resultados son bastante 
 
 Gráfico que muestra la evolución del clasificador en el rango de 1 a 26 vecinos:
 
-\imagen{grafica_KNN}{Evolución clasificador k-NN.}
+\imagen{grafica_KNN}{Evolución clasificador \textit{k-NN}.}
 
 \clearpage
 
@@ -238,12 +238,12 @@ En la ejecución del clasificador \textit{SVM} se ha decidido utilizar la clase 
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[scale=1.25]{matrizconfusion_SVM}
-	\caption{Matriz de confusión SVM.}
+	\caption{Matriz de confusión \textit{SVM}.}
 	\label{fig:matrizconfusion_SVM}
 \end{center}
 \end{figure}
 
-SVM nos da la matriz de confusión con menos tasa de acierto de los clasificadores utilizados. Obtiene una gran tasa de acierto en el cristal pero a la vez mantiene una confusión elevada al predecir el plástico (19) y el cartón (13).
+\textit{SVM} nos da la matriz de confusión con menos tasa de acierto de los clasificadores utilizados. Obtiene una gran tasa de acierto en el cristal pero a la vez mantiene una confusión elevada al predecir el plástico (19) y el cartón (13).
 \clearpage
 
 \subsection{\textit{auto-sklearn}}
@@ -253,7 +253,7 @@ En la ejecución del clasificador \textit{auto-sklearn} se ha establecido el lí
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[scale=1.25]{matrizconfusion_AS}
-	\caption{Matriz de confusión auto-sklearn.}
+	\caption{Matriz de confusión \textit{auto-sklearn}.}
 	\label{fig:matrizconfusion_AS}
 \end{center}
 \end{figure}
@@ -273,7 +273,7 @@ La tasa media de acierto obtenida ha sido la mejor hasta el momento llegando al 
 \begin{figure}[h]
 \begin{center}
 	\includegraphics[scale=1.25]{matrizconfusion_TabPFN}
-	\caption{Matriz de confusión TabPFN.}
+	\caption{Matriz de confusión \textit{TabPFN}.}
 	\label{fig:matrizconfusion_TabPFN}
 \end{center}
 \end{figure}
@@ -291,13 +291,13 @@ Viendo en la tabla \ref{tab:comparativa} se puede decir que en todos los modelos
 \hline
 \rowcolor[gray]{0.9} 
 \textbf{Modelo} & \textbf{Tasa de acierto (\%)} \\ \hline
-Random Forest   & 86.33                         \\ \hline
+\textit{Random Forest}   & 86.33                         \\ \hline
 \rowcolor[gray]{0.9} 
-k-NN            & 87.67                         \\ \hline
-SVM             & 84.67                         \\ \hline
+\textit{k-NN}            & 87.67                         \\ \hline
+\textit{SVM}             & 84.67                         \\ \hline
 \rowcolor[gray]{0.9} 
-auto-sklearn    & 88                            \\ \hline
-TabPFN          & 90                            \\ \hline
+\textit{auto-sklearn}    & 88                            \\ \hline
+\textit{TabPFN}          & 90                            \\ \hline
 \end{tabular}
 \caption{Comparativa de modelos clasificadores.}
 \label{tab:comparativa}
