@@ -1,6 +1,6 @@
 # Creación de demos técnica y documentación asociada, para la detección/clasificación de materiales, utilizando un sensor radar a 60GHz
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f4d5c40178834f66895745e58be4e64f)](https://www.codacy.com/gh/mecyc/TFG_RADAR_60GHZ/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mecyc/TFG_RADAR_60GHZ&amp;utm_campaign=Badge_Grade)
-<p>TFG realizado en la Universidad de Burgos del desarrollo de un aplicativo para el uso de un Radar de 60 GHz de la marca Acconeer.</p>
+<p>TFG realizado en la Universidad de Burgos del desarrollo de una aplicación para el uso de un Radar de 60 GHz de la marca Acconeer.</p>
 <h1>RadarWave - Herramienta para el uso del radar Acconeer de 60GHz</h1>
 <h2>Descripción</h2>
 <p>En el presente proyecto se ha documentado, implementado y demostrado el uso de un radar de 60 GHz fabricado por Acconeer, para el reconocimiento de diferentes materiales u objetos. Mediante el uso de métodos de aprendizaje, se obtendrán diferentes características de tres tipos de materiales, que permitirán clasificarlos de forma automática.</p>
@@ -15,7 +15,7 @@ Mediante esta aplicación podemos realizar distintas lecturas de objetos para id
 > RadarWave
 
 ## Cubículo de lectura
-<p>Espacio o cubículo empleado para la lectura de objetos. Las dimensiones del cubículo son de 30 x 22 x 25 cm (ancho, largo y alto), con una incisión en la parte superior, en el medio, del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándole en la posición de la incisión y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.</p>
+<p>Espacio o cubículo empleado para la lectura de objetos. Las dimensiones del cubículo son de 30 x 22 x 25 cm (ancho, largo y alto), con un orificio en la parte superior, en el medio, del tamaño del sensor. El sensor fue bloqueado a su posición solamente colocándole en la posición del orificio y sujetado con cinta adhesiva. Esta caja de madera se utiliza poniendo la abertura en la parte lateral, mirando al operario que hace uso del radar.</p>
 
 ![](https://github.com/mecyc/TFG_RADAR_60GHZ/blob/main/Latex/img/prototipo.png?raw=true)
 > Prototipo empleado para realizar las lecturas de los distinto materiales
