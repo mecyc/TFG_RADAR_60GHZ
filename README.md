@@ -110,9 +110,9 @@ El uso de la aplicación es muy sencillo, tenemos cuatro botones en la parte sup
 
 Si pulsamos en el botón 1 se abre el explorador de archivos para seleccionar una lectura a clasificar.
 
-Abrimos el fichero y ya tenemos los datos dentro de la aplicación, para clasificaros pulsamos el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
+Abrimos el fichero y ya tenemos los datos dentro de la aplicación, para clasificarlos pulsamos en el botón 3. Si lo que queremos el guardarlos pulsamos en el botón 4.
 
-Para realizar una lectura por radar necesitamos iniciar la Raspberry junto con el radar 20 segundos antes de lanzar la lectura, una vez hecho esto pulsamos en el botón 2. Tras esto se iluminan los botones 3 y 4. Para clasificaros pulsamos el botón 3. Si lo que queremos es guardarlos pulsamos en el botón 4.
+Para realizar una lectura por radar necesitamos iniciar la *Raspberry* junto con el radar 20 segundos antes de lanzar la lectura, una vez realizada la lectura pulsamos en el botón 2. Tras esto se iluminan los botones 3 y 4. Para clasificar el material leído pulsamos en el botón 3. Si lo que queremos es guardar la lectura pulsamos en el botón 4.
 
 ## Autor
 <ul>
