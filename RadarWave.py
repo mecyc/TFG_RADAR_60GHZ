@@ -41,7 +41,7 @@ import socket
 import paramiko #conda install -c anaconda paramiko
 
 
-# In[6]:
+# In[4]:
 
 
 class FacadeRadarWave:
@@ -268,6 +268,8 @@ class FacadeRadarWave:
             media = self._tratamientoDatos.get_media(modulofase)
             self.datos.append(media)
             
+            #limpiamos gráfico y predicción
+            self.actualizarGrafico([0,0,0])
             self.centro.configure(text='')
             
             self.mostrar_btnlectura()
@@ -296,7 +298,7 @@ class FacadeRadarWave:
     def carga_acconeer(self):
         '''
         Función que inicia el radar y realiza una lectura. 
-        '''  
+        '''
         try:
             ip = socket.gethostbyname('RadarAcconeer') #'192.168.1.143'
 
@@ -342,6 +344,9 @@ class FacadeRadarWave:
 
             self.datos = []
             self.datos.append(media)
+            
+            #limpiamos gráfico y predicción
+            self.actualizarGrafico([0,0,0])
             self.centro.configure(text='')
 
             self.mostrar_btnlectura()
@@ -456,7 +461,7 @@ class Verificacion:
     
 
 
-# In[7]:
+# In[5]:
 
 
 if __name__ == '__main__':
